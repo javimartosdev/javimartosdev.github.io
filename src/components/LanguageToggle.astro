@@ -1,0 +1,35 @@
+---
+import type { Locale } from '../i18n/types';
+import { getAlternateLocale, getLocalePath } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  labels: { es: string; en: string };
+}
+
+const { locale, labels } = Astro.props;
+const alternate = getAlternateLocale(locale);
+---
+
+<div class="flex items-center gap-1 rounded-md border border-[var(--border)] p-0.5 text-xs font-semibold no-print">
+  <a
+    href={getLocalePath('es')}
+    class:list={[
+      'rounded px-2 py-1 transition-colors',
+      locale === 'es' ? 'bg-[var(--accent)] text-white' : 'hover:text-[var(--accent)]',
+    ]}
+    aria-current={locale === 'es' ? 'page' : undefined}
+  >
+    {labels.es}
+  </a>
+  <a
+    href={getLocalePath('en')}
+    class:list={[
+      'rounded px-2 py-1 transition-colors',
+      locale === 'en' ? 'bg-[var(--accent)] text-white' : 'hover:text-[var(--accent)]',
+    ]}
+    aria-current={locale === 'en' ? 'page' : undefined}
+  >
+    {labels.en}
+  </a>
+</div>

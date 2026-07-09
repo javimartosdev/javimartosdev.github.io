@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "Javier Martos | Full Stack Developer",
+    "description": "Portfolio de Javier Martos Carrascosa — desarrollador web en formación con experiencia en gestión de equipos."
+  },
+  "nav": {
+    "about": "Perfil",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "education": "Formación"
+  },
+  "hero": {
+    "name": "Javier Martos Carrascosa",
+    "subtitle": "Full Stack Developer | Gerente con +15 años de experiencia",
+    "location": "Retamar, Almería"
+  },
+  "sections": {
+    "about": "Perfil",
+    "projects": "Proyectos Destacados",
+    "experience": "Experiencia Profesional",
+    "stack": "Stack Técnico",
+    "languages": "Idiomas",
+    "softSkills": "Soft Skills",
+    "education": "Formación",
+    "complementary": "Formación Complementaria"
+  },
+  "about": "Especialista en gestión de equipos y resolución de problemas (Mercadona) en transición al desarrollo web. Fuerte base técnica en Java y PHP, con mentalidad analítica orientada a resultados.",
+  "experience": {
+    "role": "Gerente de Supermercado",
+    "company": "Mercadona",
+    "period": "2009 — Presente",
+    "items": [
+      "Liderazgo de Equipos: Gestión directa de más de 20 personas, coordinando turnos, formación y desarrollo profesional para maximizar el rendimiento.",
+      "Optimización de Procesos: Implementación de mejoras operativas en la cadena de suministro y gestión de stock, reduciendo mermas y mejorando la eficiencia.",
+      "Análisis y Estrategia: Toma de decisiones basadas en KPIs de ventas y objetivos comerciales para asegurar la rentabilidad del centro.",
+      "Resolución de Problemas: Gestión de incidencias en entornos de alta presión, garantizando la excelencia en el servicio y la satisfacción del cliente."
+    ]
+  },
+  "languages": {
+    "english": "Inglés: A2"
+  },
+  "softSkills": ["Liderazgo", "Adaptabilidad", "Compromiso"],
+  "education": {
+    "daw": {
+      "title": "Desarrollo de Aplicaciones Web (DAW)",
+      "school": "DigiTech | 2024 — 2026"
+    },
+    "bachillerato": {
+      "title": "Bachillerato",
+      "school": "IES Fuente Nueva | 2007"
+    }
+  },
+  "complementary": [
+    {
+      "title": "Introducción al desarrollo web: HTML y CSS",
+      "school": "Google Actívate | Septiembre 2024"
+    },
+    {
+      "title": "Introducción a la Seguridad Cibernética",
+      "school": "Cisco Networking Academy (DIGITECH) | Agosto 2024"
+    },
+    {
+      "title": "NDG Linux Unhatched (Linux Command Line)",
+      "school": "Cisco Networking Academy / NDG | Agosto 2024"
+    }
+  ],
+  "projects": {
+    "habit-dock": {
+      "title": "Habit Dock",
+      "description": "Suite personal de enfoque: calendario de hábitos estilo Seinfeld, tareas y estadísticas. Next.js, Drizzle y PostgreSQL.",
+      "status": "En desarrollo"
+    },
+    "pomodoro-java": {
+      "title": "Pomodoro Timer Java",
+      "description": "Migración de Python a Java 17. Gestión de estadísticas y audio nativo."
+    },
+    "inventario": {
+      "title": "Gestión de Inventarios",
+      "description": "Sistema full-stack en PHP/MySQL para optimización de stock.",
+      "status": "En desarrollo"
+    }
+  },
+  "downloadCv": "Descargar Currículum en PDF",
+  "footer": "© 2026 Javier Martos Carrascosa",
+  "theme": {
+    "light": "Modo claro",
+    "dark": "Modo oscuro"
+  },
+  "language": {
+    "es": "ES",
+    "en": "EN"
+  }
+}

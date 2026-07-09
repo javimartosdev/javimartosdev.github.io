@@ -1,0 +1,175 @@
+---
+import type { Locale, Translation } from '../i18n/types';
+import Navbar from '../components/Navbar.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects, stackTags } from '../data/projects';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  t: Translation;
+}
+
+const { locale, t } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={t.meta.description} />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://javimartosdev.github.io/${locale}/`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="alternate" hreflang="es" href="https://javimartosdev.github.io/es/" />
+    <link rel="alternate" hreflang="en" href="https://javimartosdev.github.io/en/" />
+    <title>{t.meta.title}</title>
+  </head>
+  <body>
+    <Navbar locale={locale} t={t} />
+
+    <header class="px-6 py-8 text-center">
+      <div class="mx-auto max-w-[950px]">
+        <img
+          src="/img/fotocurriculum.png"
+          alt={t.hero.name}
+          width="120"
+          height="120"
+          class="profile-img mx-auto mb-4 rounded-full object-cover shadow-md"
+        />
+        <h1 class="mb-1 text-[2.2rem] font-bold tracking-tight">{t.hero.name}</h1>
+        <p class="mb-4 text-base font-semibold text-[var(--accent)]">{t.hero.subtitle}</p>
+        <div class="flex flex-wrap items-center justify-center gap-2 text-sm">
+          <a href="mailto:javimartosdev@gmail.com" class="hover:text-[var(--accent)]">javimartosdev@gmail.com</a>
+          <span class="text-[var(--border)]">|</span>
+          <a href="tel:+34686075648" class="hover:text-[var(--accent)]">686 075 648</a>
+          <span class="text-[var(--border)]">|</span>
+          <span>{t.hero.location}</span>
+          <span class="text-[var(--border)]">|</span>
+          <a href="https://www.linkedin.com/in/javier-martos-carrascosa-a92b1b3bb" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--accent)]">LinkedIn</a>
+          <span class="text-[var(--border)]">|</span>
+          <a href="https://github.com/javimartosdev" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--accent)]">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto grid max-w-[950px] grid-cols-1 gap-8 px-6 pb-8 lg:grid-cols-[1.8fr_1fr] lg:items-start">
+      <div>
+        <section id="about" class="py-4">
+          <SectionTitle label={t.sections.about} />
+          <p class="text-[0.95rem] text-[var(--muted)]">{t.about}</p>
+        </section>
+
+        <section id="projects" class="py-4">
+          <SectionTitle label={t.sections.projects} />
+          {
+            projects.map((project) => {
+              const copy = t.projects[project.id];
+              return (
+                <ProjectCard
+                  title={copy.title}
+                  description={copy.description}
+                  github={project.github}
+                  status={copy.status}
+                  stack={project.stack}
+                />
+              );
+            })
+          }
+        </section>
+
+        <section id="experience" class="py-4">
+          <SectionTitle label={t.sections.experience} />
+          <div class="mb-4">
+            <div class="mb-2 flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-base font-bold">{t.experience.role}</h3>
+              <span class="text-sm font-semibold text-[var(--accent)]">
+                {t.experience.company} | {t.experience.period}
+              </span>
+            </div>
+            <ul class="list-disc space-y-2 pl-5 text-sm text-[var(--muted)]">
+              {t.experience.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar-panel space-y-2 rounded-xl bg-[var(--secondary-bg)] p-6 lg:sticky lg:top-20">
+        <section class="py-3">
+          <SectionTitle label={t.sections.stack} />
+          <div class="flex flex-wrap gap-1.5">
+            {stackTags.map((tag) => (
+              <span class="rounded border border-[var(--border)] bg-[var(--bg)] px-2 py-0.5 text-xs font-semibold">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section class="py-3">
+          <SectionTitle label={t.sections.languages} />
+          <p class="text-sm">{t.languages.english}</p>
+        </section>
+
+        <section class="py-3">
+          <SectionTitle label={t.sections.softSkills} />
+          <div class="flex flex-wrap gap-1.5">
+            {t.softSkills.map((skill) => (
+              <span class="rounded border border-[var(--border)] bg-[var(--bg)] px-2 py-0.5 text-xs font-semibold">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section id="education" class="py-3">
+          <SectionTitle label={t.sections.education} />
+          <div class="mb-3">
+            <h3 class="text-sm font-bold">{t.education.daw.title}</h3>
+            <p class="text-sm text-[var(--muted)]">{t.education.daw.school}</p>
+          </div>
+          <div class="mb-3">
+            <h3 class="text-sm font-bold">{t.education.bachillerato.title}</h3>
+            <p class="text-sm text-[var(--muted)]">{t.education.bachillerato.school}</p>
+          </div>
+        </section>
+
+        <section class="py-3">
+          <SectionTitle label={t.sections.complementary} />
+          {
+            t.complementary.map((item) => (
+              <div class="mb-3">
+                <h3 class="text-sm font-bold">{item.title}</h3>
+                <p class="text-sm text-[var(--muted)]">{item.school}</p>
+              </div>
+            ))
+          }
+        </section>
+      </aside>
+    </main>
+
+    <section class="border-t border-[var(--border)] px-6 py-8 text-center">
+      <a
+        href="/CV_Javier_Martos.pdf"
+        download
+        class="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:brightness-110"
+      >
+        {t.downloadCv}
+      </a>
+    </section>
+
+    <footer class="px-6 pb-8 text-center text-xs opacity-60">
+      <p>{t.footer}</p>
+    </footer>
+  </body>
+</html>

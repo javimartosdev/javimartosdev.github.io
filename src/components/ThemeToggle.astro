@@ -1,0 +1,47 @@
+---
+interface Props {
+  lightLabel: string;
+  darkLabel: string;
+}
+
+const { lightLabel, darkLabel } = Astro.props;
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class="no-print rounded-md border border-[var(--border)] px-3 py-1.5 text-sm transition-colors hover:text-[var(--accent)]"
+  aria-label={lightLabel}
+  data-light-label={lightLabel}
+  data-dark-label={darkLabel}
+>
+  <span id="theme-icon" aria-hidden="true">☀</span>
+</button>
+
+<script>
+  const root = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+
+  function applyTheme(theme: 'light' | 'dark') {
+    root.classList.toggle('dark', theme === 'dark');
+    localStorage.setItem('theme', theme);
+    if (toggle && icon) {
+      const darkLabel = toggle.dataset.darkLabel ?? 'Dark mode';
+      const lightLabel = toggle.dataset.lightLabel ?? 'Light mode';
+      icon.textContent = theme === 'dark' ? '☀' : '☾';
+      toggle.setAttribute('aria-label', theme === 'dark' ? lightLabel : darkLabel);
+    }
+  }
+
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark' || saved === 'light') {
+    applyTheme(saved);
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    applyTheme('dark');
+  }
+
+  toggle?.addEventListener('click', () => {
+    applyTheme(root.classList.contains('dark') ? 'light' : 'dark');
+  });
+</script>

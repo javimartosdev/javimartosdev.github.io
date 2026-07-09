@@ -1,0 +1,8 @@
+---
+import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
+import { getTranslations } from '../../i18n';
+
+const t = getTranslations('en');
+---
+
+<PortfolioLayout locale="en" t={t} />

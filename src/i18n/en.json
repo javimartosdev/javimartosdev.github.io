@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "Javier Martos | Full Stack Developer",
+    "description": "Portfolio of Javier Martos Carrascosa — web developer in training with team management experience."
+  },
+  "nav": {
+    "about": "Profile",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education"
+  },
+  "hero": {
+    "name": "Javier Martos Carrascosa",
+    "subtitle": "Full Stack Developer | Manager with 15+ years of experience",
+    "location": "Retamar, Almería, Spain"
+  },
+  "sections": {
+    "about": "Profile",
+    "projects": "Featured Projects",
+    "experience": "Professional Experience",
+    "stack": "Tech Stack",
+    "languages": "Languages",
+    "softSkills": "Soft Skills",
+    "education": "Education",
+    "complementary": "Additional Training"
+  },
+  "about": "Team management and problem-solving specialist (Mercadona) transitioning into web development. Strong foundation in Java and PHP with an analytical, results-driven mindset.",
+  "experience": {
+    "role": "Supermarket Store Manager",
+    "company": "Mercadona",
+    "period": "2009 — Present",
+    "items": [
+      "Team Leadership: Direct management of 20+ people, coordinating shifts, training, and professional development to maximize performance.",
+      "Process Optimization: Operational improvements in supply chain and stock management, reducing waste and improving efficiency.",
+      "Analysis & Strategy: Data-driven decisions based on sales KPIs and commercial targets to ensure store profitability.",
+      "Problem Solving: Handling incidents in high-pressure environments while maintaining service excellence and customer satisfaction."
+    ]
+  },
+  "languages": {
+    "english": "English: A2"
+  },
+  "softSkills": ["Leadership", "Adaptability", "Commitment"],
+  "education": {
+    "daw": {
+      "title": "Web Application Development (DAW)",
+      "school": "DigiTech | 2024 — 2026"
+    },
+    "bachillerato": {
+      "title": "High School Diploma",
+      "school": "IES Fuente Nueva | 2007"
+    }
+  },
+  "complementary": [
+    {
+      "title": "Introduction to Web Development: HTML and CSS",
+      "school": "Google Actívate | September 2024"
+    },
+    {
+      "title": "Introduction to Cybersecurity",
+      "school": "Cisco Networking Academy (DIGITECH) | August 2024"
+    },
+    {
+      "title": "NDG Linux Unhatched (Linux Command Line)",
+      "school": "Cisco Networking Academy / NDG | August 2024"
+    }
+  ],
+  "projects": {
+    "habit-dock": {
+      "title": "Habit Dock",
+      "description": "Personal focus suite: Seinfeld-style habit calendar, tasks, and stats. Built with Next.js, Drizzle, and PostgreSQL.",
+      "status": "In development"
+    },
+    "pomodoro-java": {
+      "title": "Pomodoro Timer Java",
+      "description": "Migration from Python to Java 17. Statistics tracking and native audio."
+    },
+    "inventario": {
+      "title": "Inventory Management",
+      "description": "Full-stack PHP/MySQL system for stock optimization.",
+      "status": "In development"
+    }
+  },
+  "downloadCv": "Download CV (PDF)",
+  "footer": "© 2026 Javier Martos Carrascosa",
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "language": {
+    "es": "ES",
+    "en": "EN"
+  }
+}
