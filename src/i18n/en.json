@@ -24,7 +24,7 @@
     "education": "Education",
     "complementary": "Additional Training"
   },
-  "about": "Team management and problem-solving specialist (Mercadona) transitioning into web development. Strong foundation in Java and PHP with an analytical, results-driven mindset.",
+  "about": "Team management and problem-solving specialist (Mercadona) transitioning into web development. Strong foundation in Java and PHP. First full-stack app shipped: Habit Dock, a production PWA built with Next.js and PostgreSQL.",
   "experience": {
     "role": "Supermarket Store Manager",
     "company": "Mercadona",
@@ -64,11 +64,12 @@
       "school": "Cisco Networking Academy / NDG | August 2024"
     }
   ],
+  "liveDemo": "Live app",
   "projects": {
     "habit-dock": {
       "title": "Habit Dock",
-      "description": "Personal focus suite: Seinfeld-style habit calendar, tasks, and stats. Built with Next.js, Drizzle, and PostgreSQL.",
-      "status": "In development"
+      "description": "First full-stack app in production: Seinfeld-style habit calendar, tasks, and stats. Installable PWA on iPhone. Multi-user auth, deployed on Vercel with PostgreSQL (Neon).",
+      "status": "Live"
     },
     "pomodoro-java": {
       "title": "Pomodoro Timer Java",

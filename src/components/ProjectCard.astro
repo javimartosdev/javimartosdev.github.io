@@ -3,11 +3,13 @@ interface Props {
   title: string;
   description: string;
   github?: string;
+  live?: string;
+  liveLabel: string;
   status?: string;
   stack: string[];
 }
 
-const { title, description, github, status, stack } = Astro.props;
+const { title, description, github, live, liveLabel, status, stack } = Astro.props;
 ---
 
 <article class="mb-4 rounded-lg border border-[var(--border)] bg-[var(--bg)] p-4 transition-shadow hover:shadow-md">
@@ -28,6 +30,17 @@ const { title, description, github, status, stack } = Astro.props;
           aria-label={`GitHub — ${title}`}
         >
           GitHub ↗
+        </a>
+      )}
+      {live && (
+        <a
+          href={live}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium text-[var(--accent)] hover:underline"
+          aria-label={`${liveLabel} — ${title}`}
+        >
+          {liveLabel} ↗
         </a>
       )}
     </div>

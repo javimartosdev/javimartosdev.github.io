@@ -1,6 +1,7 @@
 export interface ProjectEntry {
   id: string;
   github?: string;
+  live?: string;
   stack: string[];
 }
 
@@ -8,7 +9,8 @@ export const projects: ProjectEntry[] = [
   {
     id: 'habit-dock',
     github: 'https://github.com/javimartosdev/habit-dock',
-    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Drizzle'],
+    live: 'https://habit-dock.vercel.app',
+    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'PWA'],
   },
   {
     id: 'pomodoro-java',
@@ -30,5 +32,8 @@ export const stackTags = [
   'Java',
   'MySQL',
   'Next.js',
+  'PostgreSQL',
+  'Tailwind CSS',
+  'PWA',
   'Astro',
 ];

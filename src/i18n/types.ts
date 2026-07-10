@@ -42,6 +42,7 @@ export interface Translation {
     bachillerato: { title: string; school: string };
   };
   complementary: Array<{ title: string; school: string }>;
+  liveDemo: string;
   projects: Record<
     string,
     {
