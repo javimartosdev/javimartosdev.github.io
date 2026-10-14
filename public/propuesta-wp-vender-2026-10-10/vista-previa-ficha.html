@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vista previa de la ficha — De Mami a Mami</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f6f7fb;
+    color: #313131;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+  }
+  .nota {
+    background: #ffffff;
+    border-bottom: 1px solid #e6e6e9;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .nota img { height: 48px; width: auto; }
+  .nota p { margin: 0; font-size: 14px; color: #6b6b76; max-width: 640px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 16px 48px; }
+  .mp-profile-location {
+    background: #ffffff;
+    border: 1px solid #e6e6e9;
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 22px;
+    align-items: stretch;
+  }
+  .ficha-foto {
+    width: 220px;
+    flex: 0 0 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    align-self: stretch;
+    min-height: 180px;
+    background: #e6e6e9;
+  }
+  .ficha-texto { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .mp-heading h1 {
+    font: normal normal bold 18px / 22px "Lato", sans-serif;
+    color: #465be0;
+    margin: 0 0 10px;
+  }
+  .mp-description {
+    margin: 0 0 12px;
+    color: #8a8a93;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .rico { margin: 0 0 8px; font-size: 14px; line-height: 1.5; color: #4a4a55; }
+  .rico strong { color: #313131; }
+  ul.rico {
+    margin: 0 0 10px;
+    padding-left: 18px;
+  }
+  ul.rico li { margin: 3px 0; }
+  .ficha-accion { margin-top: auto; display: flex; justify-content: flex-end; padding-top: 12px; }
+  .mp-profile-location-book {
+    border: 2px solid #18dec5;
+    border-radius: 4px;
+    background: transparent;
+    color: #18dec5;
+    min-width: 165px;
+    min-height: 40px;
+    font: normal normal bold 12px / 15px "Lato", sans-serif;
+    cursor: pointer;
+  }
+  @media (max-width: 700px) {
+    .mp-profile-location { flex-direction: column; padding: 18px; }
+    .ficha-foto { width: 100%; flex-basis: auto; height: 180px; }
+  }
+</style>
+</head>
+<body>
+<div class="nota">
+  <img src="logo-de-mami-a-mami.png" alt="De Mami a Mami">
+  <p>Vista previa para WP Vender. No es la web. Así quedaría la ficha: foto a la izquierda y el texto partido.</p>
+</div>
+<div class="wrap">
+
+  <article class="mp-profile-location">
+    <img class="ficha-foto" src="princesa.webp" alt="La Princesa y Tiara en Teatro Carolina">
+    <div class="ficha-texto">
+      <div class="mp-heading"><h1>La Princesa y Tiara</h1></div>
+      <p class="mp-description">Teatro infantil en Teatro Carolina, Valencia.</p>
+      <p class="rico"><strong>Cuándo.</strong> Sábado 17 y domingo 18 de octubre. Pases a las 12:30 y a las 17:00.</p>
+      <p class="rico"><strong>Entrada.</strong> 10 €.</p>
+      <p class="rico"><strong>Grupo.</strong> Actividades para niños en Valencia.</p>
+      <div class="ficha-accion">
+        <button class="mp-profile-location-book" type="button">Reservar Ahora</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="mp-profile-location">
+    <img class="ficha-foto" src="revuela.jpg" alt="La Revuela">
+    <div class="ficha-texto">
+      <div class="mp-heading"><h1>Glow Revuela (370€)</h1></div>
+      <p class="mp-description">Decoración glow y luz UV, pintura y accesorios neón, purpurina, joyas, karaoke, juegos y dinamización musical.</p>
+      <p class="rico"><strong>Incluye.</strong></p>
+      <ul class="rico">
+        <li>3 h de celebración y 2 monitores</li>
+        <li>Pintacaras, tatuajes, globoflexia y dinamización musical</li>
+        <li>Vigilancia del parque de bolas y espacio privado La Revuela</li>
+      </ul>
+      <p class="rico"><strong>Precio.</strong> Hasta 23 niños en el precio base. Niño extra +15 €. A partir de 24 niños, monitor adicional.</p>
+      <p class="rico"><strong>Cancelación.</strong> Con más de 7 días, devolución íntegra. Con menos de 7 días, no reembolsable.</p>
+      <div class="ficha-accion">
+        <button class="mp-profile-location-book" type="button">Reservar Ahora</button>
+      </div>
+    </div>
+  </article>
+
+</div>
+</body>
+</html>
