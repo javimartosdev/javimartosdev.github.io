@@ -24,14 +24,22 @@
     gap: 16px;
   }
   .nota img { height: 48px; width: auto; }
-  .nota p { margin: 0; font-size: 14px; color: #6b6b76; max-width: 640px; }
+  .nota p { margin: 0; font-size: 14px; color: #6b6b76; max-width: 720px; }
   .wrap { max-width: 860px; margin: 0 auto; padding: 28px 16px 48px; }
+  .paso {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #5a9aa6;
+    margin: 8px 0 8px;
+  }
   .mp-profile-location {
     background: #ffffff;
     border: 1px solid #e6e6e9;
     border-radius: 12px;
     padding: 25px 30px;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
     display: flex;
     gap: 22px;
     align-items: stretch;
@@ -59,10 +67,7 @@
   }
   .rico { margin: 0 0 8px; font-size: 14px; line-height: 1.5; color: #4a4a55; }
   .rico strong { color: #313131; }
-  ul.rico {
-    margin: 0 0 10px;
-    padding-left: 18px;
-  }
+  ul.rico { margin: 0 0 10px; padding-left: 18px; }
   ul.rico li { margin: 3px 0; }
   .ficha-accion { margin-top: auto; display: flex; justify-content: flex-end; padding-top: 12px; }
   .mp-profile-location-book {
@@ -75,19 +80,77 @@
     font: normal normal bold 12px / 15px "Lato", sans-serif;
     cursor: pointer;
   }
+  .reserva {
+    background: #ffffff;
+    border: 1px solid #e6e6e9;
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 36px;
+  }
+  .reserva h2 {
+    font-size: 16px;
+    margin: 0 0 14px;
+    color: #465be0;
+  }
+  .fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #e6e6e9;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .fila.obligatoria { background: #f3fbfb; border-color: #18dec5; }
+  .fila small { display: block; color: #8a8a93; font-size: 12px; margin-top: 2px; }
+  .tag {
+    color: #0e9f8c;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .stepper { display: flex; align-items: center; gap: 8px; }
+  .stepper button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #18dec5;
+    background: #fff;
+    color: #0e9f8c;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .stepper span { min-width: 18px; text-align: center; font-weight: 700; }
+  .total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #18dec5;
+    font-weight: 700;
+  }
+  .aviso {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: #6b6b76;
+  }
   @media (max-width: 700px) {
     .mp-profile-location { flex-direction: column; padding: 18px; }
     .ficha-foto { width: 100%; flex-basis: auto; height: auto; }
+    .reserva { padding: 18px; }
   }
 </style>
 </head>
 <body>
 <div class="nota">
   <img src="logo-de-mami-a-mami.png" alt="De Mami a Mami">
-  <p>Vista previa para WP Vender. No es la web. Así quedaría la ficha: foto a la izquierda y el texto partido.</p>
+  <p>Vista previa para WP Vender. No es la web. Hoy la plaza multiplica el precio entero. Aquí el precio base se queda y se suman cajas: niño extra, monitor, y en eventos la entrada VIP o la comida.</p>
 </div>
 <div class="wrap">
 
+  <p class="paso">Evento · la ficha</p>
   <article class="mp-profile-location">
     <img class="ficha-foto" src="princesa.webp" alt="La Princesa y Tiara en Teatro Carolina">
     <div class="ficha-texto">
@@ -97,11 +160,42 @@
       <p class="rico"><strong>Entrada.</strong> 10 €.</p>
       <p class="rico"><strong>Grupo.</strong> Actividades para niños en Valencia.</p>
       <div class="ficha-accion">
-        <button class="mp-profile-location-book" type="button">Reservar Ahora</button>
+        <button class="mp-profile-location-book" type="button" data-ir="compra-evento">Reservar Ahora</button>
       </div>
     </div>
   </article>
 
+  <section class="reserva" id="compra-evento">
+    <h2>Al comprar las entradas</h2>
+    <div class="fila">
+      <div>Entrada<small>10 € · la entrada de este evento</small></div>
+      <div class="stepper" data-precio="10" data-grupo="evento">
+        <button type="button" data-delta="-1">−</button>
+        <span>2</span>
+        <button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="fila">
+      <div>Acceso VIP<small>10 € · caja extra, la pone el organizador</small></div>
+      <div class="stepper" data-precio="10" data-grupo="evento">
+        <button type="button" data-delta="-1">−</button>
+        <span>1</span>
+        <button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="fila">
+      <div>Comida<small>10 € · caja extra, la pone el organizador</small></div>
+      <div class="stepper" data-precio="10" data-grupo="evento">
+        <button type="button" data-delta="-1">−</button>
+        <span>0</span>
+        <button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="total"><span>Total</span><span data-total="evento">30 €</span></div>
+    <p class="aviso">La entrada no se convierte en otra entrada. El extra se suma. VIP y comida son el ejemplo que ya están desarrollando en eventos.</p>
+  </section>
+
+  <p class="paso">Servicio · la ficha</p>
   <article class="mp-profile-location">
     <img class="ficha-foto" src="revuela.jpg" alt="La Revuela">
     <div class="ficha-texto">
@@ -116,11 +210,78 @@
       <p class="rico"><strong>Precio.</strong> Hasta 23 niños en el precio base. Niño extra +15 €. A partir de 24 niños, monitor adicional.</p>
       <p class="rico"><strong>Cancelación.</strong> Con más de 7 días, devolución íntegra. Con menos de 7 días, no reembolsable.</p>
       <div class="ficha-accion">
-        <button class="mp-profile-location-book" type="button">Reservar Ahora</button>
+        <button class="mp-profile-location-book" type="button" data-ir="reserva-servicio">Reservar Ahora</button>
       </div>
     </div>
   </article>
 
+  <section class="reserva" id="reserva-servicio">
+    <h2>Al reservar el servicio</h2>
+    <div class="fila">
+      <div>Fecha<small>sábado 18 de octubre · 11:00</small></div>
+    </div>
+    <div class="fila">
+      <div>Precio base<small>370 € · hasta 23 niños incluidos. No se multiplica.</small></div>
+      <div class="stepper" data-precio="370" data-grupo="servicio" data-fijo="1">
+        <span>1</span>
+      </div>
+    </div>
+    <div class="fila">
+      <div>Niño extra<small>15 € por niño, a partir del que no entra en el precio</small></div>
+      <div class="stepper" data-precio="15" data-grupo="servicio" data-nino="1">
+        <button type="button" data-delta="-1">−</button>
+        <span>2</span>
+        <button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="fila obligatoria" id="fila-monitor">
+      <div>Monitor adicional <span class="tag">obligatorio</span><small>40 € · ejemplo. El organizador pone el precio. No se puede quitar si hay niños extra.</small></div>
+      <div class="stepper" data-precio="40" data-grupo="servicio" data-monitor="1">
+        <button type="button" data-delta="-1">−</button>
+        <span>1</span>
+        <button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="total"><span>Total</span><span data-total="servicio">440 €</span></div>
+    <p class="aviso">370 + dos niños extra (30) + un monitor (40) = 440. El total se ve antes de pagar.</p>
+  </section>
+
 </div>
+<script>
+(function () {
+  function numero(el) { return parseInt(el.querySelector("span").textContent, 10) || 0; }
+  function pintar(grupo) {
+    var suma = 0;
+    document.querySelectorAll('.stepper[data-grupo="' + grupo + '"]').forEach(function (s) {
+      suma += numero(s) * parseInt(s.getAttribute("data-precio"), 10);
+    });
+    document.querySelector('[data-total="' + grupo + '"]').textContent = suma + " €";
+  }
+  document.querySelectorAll(".stepper button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var box = btn.parentElement;
+      var n = numero(box) + parseInt(btn.getAttribute("data-delta"), 10);
+      if (n < 0) n = 0;
+      if (box.hasAttribute("data-monitor")) {
+        var ninos = numero(document.querySelector("[data-nino]"));
+        if (ninos > 0 && n < 1) n = 1;
+      }
+      box.querySelector("span").textContent = String(n);
+      if (box.hasAttribute("data-nino")) {
+        var monitor = document.querySelector("[data-monitor]");
+        if (n > 0 && numero(monitor) < 1) monitor.querySelector("span").textContent = "1";
+      }
+      pintar(box.getAttribute("data-grupo"));
+    });
+  });
+  document.querySelectorAll("[data-ir]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.getElementById(btn.getAttribute("data-ir")).scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+  pintar("evento");
+  pintar("servicio");
+})();
+</script>
 </body>
 </html>
