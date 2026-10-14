@@ -178,6 +178,65 @@
     font-size: 14px;
   }
   footer.phase strong { display: block; margin-bottom: 4px; }
+  .ficha-block { margin-top: 28px; }
+  .ficha-block h2 { font-size: 22px; margin-bottom: 8px; }
+  .ficha {
+    display: grid;
+    grid-template-columns: 168px 1fr;
+    gap: 18px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 14px;
+    box-shadow: 0 8px 24px rgba(90, 154, 166, .08);
+  }
+  .photo {
+    background: linear-gradient(160deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: #fff;
+    border-radius: 12px;
+    min-height: 168px;
+    display: flex;
+    align-items: flex-end;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .02em;
+  }
+  .ficha h3 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--teal-dark);
+  }
+  .lead { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+  .ficha h4 {
+    margin: 12px 0 4px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .ficha ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 14px; }
+  .ficha li { margin: 2px 0; }
+  .fine { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+  .reserve {
+    margin-top: 14px;
+    margin-left: auto;
+    display: inline-block;
+    border: 2px solid var(--teal);
+    color: var(--teal-dark);
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .ficha-body { display: flex; flex-direction: column; }
+  .ficha-body .reserve { align-self: flex-end; }
+  @media (max-width: 700px) {
+    .ficha { grid-template-columns: 1fr; }
+    .photo { min-height: 120px; }
+  }
 </style>
 </head>
 <body>
@@ -266,6 +325,52 @@
     </article>
 
   </div>
+
+  <section class="ficha-block">
+    <h2>Ficha con foto y texto</h2>
+    <div class="banner">Ejemplo para WP Vender, no la web en marcha. La foto va a la izquierda y el texto se parte: qué es, qué incluye y las condiciones. El recuadro «Foto» ocupa el sitio de la imagen.</div>
+
+    <article class="ficha">
+      <div class="photo">Foto del servicio</div>
+      <div class="ficha-body">
+        <h3>Glow Revuela (370 €)</h3>
+        <p class="lead">Decoración glow y luz UV, pintura y accesorios neón, purpurina, joyas, karaoke, juegos y dinamización musical.</p>
+        <h4>Incluye</h4>
+        <ul>
+          <li>3 h de celebración y 2 monitores</li>
+          <li>Pintacaras, tatuajes, globoflexia y dinamización musical</li>
+          <li>Vigilancia del parque de bolas y espacio privado La Revuela</li>
+        </ul>
+        <h4>Precio</h4>
+        <ul>
+          <li>Hasta 23 niños en el precio base</li>
+          <li>Niño extra +15 €</li>
+          <li>A partir de 24 niños, monitor adicional</li>
+        </ul>
+        <p class="fine">Cancelación con más de 7 días: devolución íntegra. Con menos de 7 días: no reembolsable.</p>
+        <span class="reserve">Reservar Ahora</span>
+      </div>
+    </article>
+
+    <article class="ficha">
+      <div class="photo">Foto del evento</div>
+      <div class="ficha-body">
+        <h3>La Princesa y Tiara</h3>
+        <p class="lead">Teatro infantil en Teatro Carolina, Valencia.</p>
+        <h4>Cuándo</h4>
+        <ul>
+          <li>Sábado 17 y domingo 18 de octubre</li>
+          <li>Pases a las 12:30 y a las 17:00</li>
+        </ul>
+        <h4>Entrada</h4>
+        <ul>
+          <li>10 € por entrada</li>
+        </ul>
+        <span class="reserve">Reservar Ahora</span>
+      </div>
+    </article>
+  </section>
+
   <footer class="phase">
     <strong>Segunda fase, si hace falta</strong>
     El precio base que ya incluye hasta 15 niños, y el extra que solo cuenta a partir del 16, puede pedirse después. Este boceto cubre primero las líneas con cantidad y la regla de obligatorio.
