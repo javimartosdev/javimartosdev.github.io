@@ -3,378 +3,269 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Propuesta WP Vender — extras en servicios y eventos</title>
+<title>Propuesta para WP Vender — De Mami a Mami</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --teal: #7EB9C3;
-    --teal-dark: #5a9aa6;
-    --ink: #313131;
-    --muted: #6b7280;
-    --line: #d7e3e6;
-    --paper: #f3f8f9;
-    --card: #fff;
-    --note: #f3fafb;
-  }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: "Nunito", "Segoe UI", Helvetica, Arial, sans-serif;
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.45;
-  }
-  .topbar {
-    background: var(--teal);
-    color: #fff;
-    font-size: 13px;
-    padding: 8px 28px;
-  }
-  .topbar span { opacity: .95; }
-  header.site {
+  body { margin: 0; background: #f6f7fb; color: #313131; font-family: "Lato", Helvetica, Arial, sans-serif; }
+  .nota { background: #fff; border-bottom: 1px solid #e6e6e9; padding: 14px 28px; display: flex; align-items: center; gap: 16px; }
+  .nota img { height: 48px; width: auto; }
+  .nota p { margin: 0; font-size: 14px; color: #6b6b76; max-width: 760px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 16px 56px; }
+  h1 { font-size: 26px; margin: 0 0 12px; }
+  h2 { font-size: 20px; margin: 36px 0 8px; color: #465be0; }
+  h3 { font-size: 16px; margin: 0 0 10px; }
+  p, li { font-size: 15px; line-height: 1.5; }
+  .lead { color: #4a4a55; }
+  .caja {
     background: #fff;
-    border-bottom: 1px solid var(--line);
-    padding: 16px 28px 18px;
-    display: flex;
-    align-items: center;
-    gap: 22px;
+    border: 1px solid #e6e6e9;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 14px 0;
   }
-  header.site img {
-    height: 64px;
-    width: auto;
-    display: block;
-  }
-  header.site h1 { font-size: 22px; font-weight: 750; margin: 0; color: var(--ink); }
-  header.site p { margin: 4px 0 0; color: var(--muted); max-width: 640px; font-size: 14px; }
-  h2 { font-size: 16px; margin: 0 0 12px; font-weight: 750; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 24px 48px; }
-  .banner {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--teal);
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 22px;
+  .aviso {
+    background: #f3fbfb;
+    border-left: 4px solid #18dec5;
+    padding: 10px 14px;
+    margin: 12px 0;
     font-size: 14px;
   }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-  }
-  @media (max-width: 900px) {
-    .grid { grid-template-columns: 1fr; }
-  }
-  .screen {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 16px 16px 14px;
-    box-shadow: 0 8px 24px rgba(90, 154, 166, .08);
-  }
-  .kicker {
-    font-size: 11px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--teal-dark);
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-  .frame {
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: #f7fbfc;
-    padding: 12px;
-  }
-  .bar {
-    height: 32px;
-    border-radius: 8px;
-    background: var(--teal);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  label.f {
-    display: block;
-    font-size: 12px;
-    color: var(--muted);
-    margin: 8px 0 3px;
-  }
-  .box, .row {
-    border: 1px solid #e3eef0;
-    background: #fff;
-    border-radius: 8px;
-    min-height: 34px;
-    padding: 7px 10px;
-    font-size: 13px;
-  }
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    margin-top: 6px;
-  }
-  .row strong { font-weight: 650; }
-  .step {
-    display: inline-block;
-    min-width: 42px;
-    text-align: center;
-    border: 1px solid var(--teal);
-    color: var(--teal-dark);
-    border-radius: 8px;
-    padding: 2px 8px;
-    font-size: 12px;
-    font-weight: 800;
-    background: #fff;
-  }
-  .locked {
-    background: #e7f4f6;
-    border-color: var(--teal);
-  }
-  .tag {
-    font-size: 11px;
-    color: var(--teal-dark);
-    font-weight: 800;
-  }
-  .total {
-    margin-top: 10px;
-    border: 1px solid var(--teal);
-    background: #fff;
+  .paso { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #5a9aa6; margin: 22px 0 8px; }
+  label.f { display: block; font-size: 12px; color: #6b6b76; margin: 10px 0 4px; }
+  .box {
+    border: 1px solid #e6e6e9;
     border-radius: 8px;
     padding: 8px 10px;
+    font-size: 14px;
+    background: #fff;
+  }
+  .fila {
     display: flex;
     justify-content: space-between;
-    font-weight: 800;
-  }
-  .btn {
-    margin-top: 10px;
-    background: var(--teal);
-    color: #fff;
-    text-align: center;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #e6e6e9;
     border-radius: 8px;
-    padding: 9px;
-    font-size: 13px;
-    font-weight: 800;
-  }
-  .note {
-    margin-top: 10px;
-    font-size: 12px;
-    color: var(--muted);
-    border-left: 3px solid var(--teal);
-    padding-left: 8px;
-  }
-  footer.phase {
-    margin-top: 22px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 14px 16px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
     font-size: 14px;
-  }
-  footer.phase strong { display: block; margin-bottom: 4px; }
-  .ficha-block { margin-top: 28px; }
-  .ficha-block h2 { font-size: 22px; margin-bottom: 8px; }
-  .ficha {
-    display: grid;
-    grid-template-columns: 168px 1fr;
-    gap: 18px;
     background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 16px;
-    margin-top: 14px;
-    box-shadow: 0 8px 24px rgba(90, 154, 166, .08);
   }
-  .photo {
-    background: linear-gradient(160deg, var(--teal) 0%, var(--teal-dark) 100%);
-    color: #fff;
+  .fila.obligatoria { background: #f3fbfb; border-color: #18dec5; }
+  .fila small, .box small { display: block; color: #8a8a93; font-size: 12px; margin-top: 2px; }
+  .tag { color: #0e9f8c; font-size: 11px; font-weight: 700; }
+  .mp-profile-location {
+    background: #fff;
+    border: 1px solid #e6e6e9;
     border-radius: 12px;
-    min-height: 168px;
+    padding: 25px 30px;
+    margin: 14px 0;
     display: flex;
-    align-items: flex-end;
-    padding: 12px;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: .02em;
+    gap: 22px;
   }
-  .ficha h3 {
-    margin: 0 0 6px;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--teal-dark);
+  .ficha-foto { width: 280px; flex: 0 0 280px; height: auto; object-fit: contain; border-radius: 8px; align-self: center; background: #f3f3f3; }
+  .ficha-texto { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .mp-heading h3 { font: normal normal bold 18px/22px "Lato", sans-serif; color: #465be0; margin: 0 0 10px; }
+  .mp-description { margin: 0 0 12px; color: #8a8a93; font-size: 14px; line-height: 1.55; }
+  .rico { margin: 0 0 8px; font-size: 14px; line-height: 1.5; color: #4a4a55; }
+  .rico strong { color: #313131; }
+  ul.rico { margin: 0 0 10px; padding-left: 18px; }
+  .ficha-accion { margin-top: auto; display: flex; justify-content: flex-end; padding-top: 12px; }
+  .mp-profile-location-book {
+    border: 2px solid #18dec5;
+    border-radius: 4px;
+    background: transparent;
+    color: #18dec5;
+    min-width: 165px;
+    min-height: 40px;
+    font: normal normal bold 12px/15px "Lato", sans-serif;
+    cursor: pointer;
   }
-  .lead { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
-  .ficha h4 {
-    margin: 12px 0 4px;
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--ink);
+  .stepper { display: flex; align-items: center; gap: 8px; }
+  .stepper button {
+    width: 28px; height: 28px; border: 1px solid #18dec5; background: #fff; color: #0e9f8c;
+    border-radius: 4px; font-weight: 700; cursor: pointer;
   }
-  .ficha ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 14px; }
-  .ficha li { margin: 2px 0; }
-  .fine { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
-  .reserve {
-    margin-top: 14px;
-    margin-left: auto;
-    display: inline-block;
-    border: 2px solid var(--teal);
-    color: var(--teal-dark);
-    background: #fff;
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 800;
+  .stepper span { min-width: 18px; text-align: center; font-weight: 700; }
+  .total {
+    display: flex; justify-content: space-between; margin-top: 12px; padding: 12px;
+    border-radius: 8px; border: 2px solid #18dec5; font-weight: 700;
   }
-  .ficha-body { display: flex; flex-direction: column; }
-  .ficha-body .reserve { align-self: flex-end; }
+  .pie { font-size: 13px; color: #6b6b76; }
   @media (max-width: 700px) {
-    .ficha { grid-template-columns: 1fr; }
-    .photo { min-height: 120px; }
+    .mp-profile-location { flex-direction: column; padding: 18px; }
+    .ficha-foto { width: 100%; flex-basis: auto; }
   }
 </style>
 </head>
 <body>
-<div class="topbar"><span>Boceto interno · no es la web</span></div>
-<header class="site">
+<div class="nota">
   <img src="logo-de-mami-a-mami.png" alt="De Mami a Mami">
-  <div>
-    <h1>Extras en servicios y eventos</h1>
-    <p>Boceto para revisar con Almudena antes de enviarlo a WP Vender. Ejemplo de servicio: cumpleaños de La Revuela. Ejemplo de evento: entrada de niño y de adulto.</p>
-  </div>
-</header>
-<div class="wrap">
-  <div class="banner">Un solo módulo de extras sirve para los dos casos. El organizador crea las líneas. Quien reserva elige la cantidad. Una línea puede volverse obligatoria si otra está por encima de cero.</div>
-  <div class="grid">
-
-    <article class="screen">
-      <div class="kicker">1 · Organizador · Servicio</div>
-      <h2>Editar el servicio</h2>
-      <div class="frame">
-        <div class="bar">Panel del profesional · Abre tu agenda · Servicio</div>
-        <label class="f">Nombre del servicio</label>
-        <div class="box">Cumpleaños en el parque</div>
-        <label class="f">Precio base</label>
-        <div class="box">370 €</div>
-        <label class="f">Extras que puede añadir quien reserva</label>
-        <div class="row"><span><strong>Niño extra</strong> · 15 € / unidad</span><span>mín. 0 · máx. 20</span></div>
-        <div class="row"><span><strong>Monitor adicional</strong> · 40 € / unidad</span><span>mín. 0 · máx. 2</span></div>
-        <div class="row"><span><strong>Tarta</strong> · 25 €</span><span>opcional</span></div>
-        <label class="f">Regla</label>
-        <div class="box locked">Si Niño extra es mayor que 0, Monitor adicional queda marcado y no se puede quitar.</div>
-        <div class="btn">Añadir otro extra</div>
-      </div>
-      <p class="note">El organizador define nombre, precio, cantidad mínima y máxima, y si es opcional o obligatorio. La misma lista vale para tarta, hora extra o kit de materiales.</p>
-    </article>
-
-    <article class="screen">
-      <div class="kicker">2 · Cliente · Reserva</div>
-      <h2>Reservar el servicio</h2>
-      <div class="frame">
-        <div class="bar">Ficha · La Revuela · Reservar</div>
-        <label class="f">Fecha</label>
-        <div class="box">sábado 18 de octubre · 11:00</div>
-        <label class="f">Plazas del precio base</label>
-        <div class="row"><span>Hasta 15 niños incluidos</span><span class="step">1</span></div>
-        <label class="f">Extras</label>
-        <div class="row"><span>Niño extra · 15 €</span><span class="step">2</span></div>
-        <div class="row locked"><span>Monitor adicional · 40 € <span class="tag">obligatorio</span></span><span class="step">1</span></div>
-        <div class="row"><span>Tarta · 25 €</span><span class="step">0</span></div>
-        <div class="total"><span>Total</span><span>440 €</span></div>
-        <div class="btn">Continuar al pago</div>
-      </div>
-      <p class="note">370 + dos niños extra (30) + un monitor (40) = 440. El total se ve antes de pagar. El monitor no se puede dejar en cero mientras haya niños extra.</p>
-    </article>
-
-    <article class="screen">
-      <div class="kicker">3 · Organizador · Evento</div>
-      <h2>Editar el evento</h2>
-      <div class="frame">
-        <div class="bar">Panel · Evento · Entradas</div>
-        <label class="f">Tipos de entrada</label>
-        <div class="row"><span><strong>Niño</strong></span><span>10 €</span></div>
-        <div class="row"><span><strong>Adulto</strong></span><span>15 €</span></div>
-        <label class="f">Extras, además de la entrada</label>
-        <div class="row"><span><strong>Acceso VIP</strong></span><span>10 € · cantidad elegible</span></div>
-        <div class="row"><span><strong>Comida</strong></span><span>10 € · cantidad elegible</span></div>
-        <div class="btn">Añadir tipo de entrada o extra</div>
-      </div>
-      <p class="note">El extra no es otra entrada. Se suma a la entrada y quien compra elige cuántos quiere. Las mismas reglas del servicio valen aquí.</p>
-    </article>
-
-    <article class="screen">
-      <div class="kicker">4 · Cliente · Entradas</div>
-      <h2>Comprar entradas</h2>
-      <div class="frame">
-        <div class="bar">Ficha del evento · Entradas</div>
-        <label class="f">Entradas</label>
-        <div class="row"><span>Niño · 10 €</span><span class="step">2</span></div>
-        <div class="row"><span>Adulto · 15 €</span><span class="step">1</span></div>
-        <label class="f">Extras</label>
-        <div class="row"><span>Acceso VIP · 10 €</span><span class="step">1</span></div>
-        <div class="row"><span>Comida · 10 €</span><span class="step">3</span></div>
-        <div class="total"><span>Total</span><span>75 €</span></div>
-        <div class="btn">Continuar al pago</div>
-      </div>
-      <p class="note">Dos niños (20) + un adulto (15) + un VIP (10) + tres comidas (30) = 75. El total se actualiza antes del pago.</p>
-    </article>
-
-  </div>
-
-  <section class="ficha-block">
-    <h2>Ficha con foto y texto</h2>
-    <div class="banner">La vista con el estilo de la web, la foto de verdad a la izquierda y el texto partido está en <a href="vista-previa-ficha.html">vista previa de la ficha</a>. No es la web en marcha.</div>
-
-    <article class="ficha">
-      <div class="photo">Foto del servicio</div>
-      <div class="ficha-body">
-        <h3>Glow Revuela (370 €)</h3>
-        <p class="lead">Decoración glow y luz UV, pintura y accesorios neón, purpurina, joyas, karaoke, juegos y dinamización musical.</p>
-        <h4>Incluye</h4>
-        <ul>
-          <li>3 h de celebración y 2 monitores</li>
-          <li>Pintacaras, tatuajes, globoflexia y dinamización musical</li>
-          <li>Vigilancia del parque de bolas y espacio privado La Revuela</li>
-        </ul>
-        <h4>Precio</h4>
-        <ul>
-          <li>Hasta 23 niños en el precio base</li>
-          <li>Niño extra +15 €</li>
-          <li>A partir de 24 niños, monitor adicional</li>
-        </ul>
-        <p class="fine">Cancelación con más de 7 días: devolución íntegra. Con menos de 7 días: no reembolsable.</p>
-        <span class="reserve">Reservar Ahora</span>
-      </div>
-    </article>
-
-    <article class="ficha">
-      <div class="photo">Foto del evento</div>
-      <div class="ficha-body">
-        <h3>La Princesa y Tiara</h3>
-        <p class="lead">Teatro infantil en Teatro Carolina, Valencia.</p>
-        <h4>Cuándo</h4>
-        <ul>
-          <li>Sábado 17 y domingo 18 de octubre</li>
-          <li>Pases a las 12:30 y a las 17:00</li>
-        </ul>
-        <h4>Entrada</h4>
-        <ul>
-          <li>10 € por entrada</li>
-        </ul>
-        <span class="reserve">Reservar Ahora</span>
-      </div>
-    </article>
-  </section>
-
-  <footer class="phase">
-    <strong>Segunda fase, si hace falta</strong>
-    El precio base que ya incluye hasta 15 niños, y el extra que solo cuenta a partir del 16, puede pedirse después. Este boceto cubre primero las líneas con cantidad y la regla de obligatorio.
-  </footer>
+  <p>Propuesta para WP Vender. No es la web en marcha. Es una sola página: primero el módulo que pedimos, después dos ejemplos de cómo lo usaría un organizador.</p>
 </div>
+<div class="wrap">
+
+  <h1>Un módulo de líneas, para servicios y para eventos</h1>
+  <p class="lead">Pedimos un único módulo. El organizador crea las líneas que quiera. Cada línea tiene nombre, precio, cantidad mínima, cantidad máxima y si puede ser obligatoria. Quien reserva elige la cantidad y ve el total antes de pagar.</p>
+  <div class="aviso">Niño extra, monitor adicional, acceso VIP y comida no son campos del programa. Son nombres que un organizador ha escrito en el ejemplo. Otro negocio escribiría otros nombres, sin un desarrollo nuevo.</div>
+
+  <h2>1. Lo que ve el organizador</h2>
+  <p>Así crea una línea. Los textos de las cajas los cambia él.</p>
+  <div class="caja">
+    <label class="f">Nombre de la línea</label>
+    <div class="box">El organizador escribe el nombre</div>
+    <label class="f">Precio</label>
+    <div class="box">El organizador escribe el precio</div>
+    <label class="f">Cantidad</label>
+    <div class="box">Mínimo y máximo</div>
+    <label class="f">Regla, si la necesita</label>
+    <div class="box">Si la línea A es mayor que 0, la línea B no puede bajar de 1.</div>
+    <p class="pie">El mismo formulario sirve en un servicio y en un evento. Solo cambian los nombres que él escribe.</p>
+  </div>
+
+  <h2>2. Ejemplo en un servicio</h2>
+  <p>La Revuela vende un cumpleaños. Hoy el selector de plazas multiplica los 370 €. Eso no es el precio. El precio base incluye hasta 23 niños y no se multiplica. A partir de ahí, el organizador suma líneas.</p>
+  <p class="paso">Líneas que ha escrito este organizador</p>
+  <div class="caja">
+    <div class="fila"><div>Precio base<small>370 €. Incluye hasta 23 niños. No se multiplica por el número de plazas.</small></div></div>
+    <div class="fila"><div>Niño extra<small>Nombre escrito por él. 15 € por niño que no entra en el precio base.</small></div></div>
+    <div class="fila"><div>Monitor adicional<small>Nombre escrito por él. 40 € es el precio que ha puesto en este ejemplo.</small></div></div>
+    <div class="box">Regla escrita por él: si Niño extra es mayor que 0, Monitor adicional no puede quedar en cero.</div>
+  </div>
+
+  <p class="paso">La ficha, con la foto a la izquierda</p>
+  <p>El texto de condiciones se queda en la ficha, junto al botón, para que quien reserva lo lea antes de pagar.</p>
+  <article class="mp-profile-location">
+    <img class="ficha-foto" src="revuela.jpg" alt="La Revuela">
+    <div class="ficha-texto">
+      <div class="mp-heading"><h3>Glow Revuela (370€)</h3></div>
+      <p class="mp-description">Decoración glow y luz UV, pintura y accesorios neón, purpurina, joyas, karaoke, juegos y dinamización musical.</p>
+      <p class="rico"><strong>Incluye.</strong> 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia, vigilancia del parque de bolas y espacio privado.</p>
+      <p class="rico"><strong>Precio.</strong> Hasta 23 niños en el precio base. Niño extra +15 €. A partir de 24 niños, monitor adicional.</p>
+      <p class="rico"><strong>Cancelación.</strong> Con más de 7 días, devolución íntegra. Con menos de 7 días, no reembolsable.</p>
+      <div class="ficha-accion"><button class="mp-profile-location-book" type="button" data-ir="reserva-servicio">Reservar Ahora</button></div>
+    </div>
+  </article>
+
+  <div class="caja" id="reserva-servicio">
+    <h3>Al reservar, elige cantidades</h3>
+    <div class="fila">
+      <div>Fecha<small>sábado 18 de octubre · 11:00</small></div>
+    </div>
+    <div class="fila">
+      <div>Precio base<small>370 €. Una sola vez. No se multiplica.</small></div>
+      <div class="stepper"><span>1</span></div>
+    </div>
+    <div class="fila">
+      <div>Niño extra<small>15 €</small></div>
+      <div class="stepper" data-precio="15" data-grupo="servicio" data-nino="1">
+        <button type="button" data-delta="-1">−</button><span>2</span><button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="fila obligatoria">
+      <div>Monitor adicional <span class="tag">obligatorio por la regla</span><small>40 € en este ejemplo. No baja de 1 mientras haya niños extra.</small></div>
+      <div class="stepper" data-precio="40" data-grupo="servicio" data-monitor="1">
+        <button type="button" data-delta="-1">−</button><span>1</span><button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="total"><span>Total antes de pagar</span><span data-total="servicio">440 €</span></div>
+    <p class="pie">370 + dos niños extra (30) + un monitor (40) = 440. Puedes mover las cantidades.</p>
+  </div>
+
+  <h2>3. El mismo módulo en un evento</h2>
+  <p>Otro organizador abre el mismo formulario y escribe otros nombres. En este evento la entrada publicada es de 10 €. Las otras dos líneas son un ejemplo de nombres, para enseñar que el módulo también suma extras a una entrada.</p>
+  <p class="paso">Líneas que ha escrito este organizador</p>
+  <div class="caja">
+    <div class="fila"><div>Entrada<small>10 €. Es el precio publicado del evento.</small></div></div>
+    <div class="fila"><div>Acceso VIP<small>Nombre de ejemplo. 10 € lo ha puesto él para este dibujo. No es una función llamada VIP.</small></div></div>
+    <div class="fila"><div>Comida<small>Otro nombre de ejemplo. 10 €, también puesto por él en el dibujo.</small></div></div>
+  </div>
+
+  <p class="paso">La ficha, con la foto a la izquierda</p>
+  <article class="mp-profile-location">
+    <img class="ficha-foto" src="princesa.webp" alt="La Princesa y Tiara en Teatro Carolina">
+    <div class="ficha-texto">
+      <div class="mp-heading"><h3>La Princesa y Tiara</h3></div>
+      <p class="mp-description">Teatro infantil en Teatro Carolina, Valencia.</p>
+      <p class="rico"><strong>Cuándo.</strong> Sábado 17 y domingo 18 de octubre. Pases a las 12:30 y a las 17:00.</p>
+      <p class="rico"><strong>Entrada.</strong> 10 €.</p>
+      <p class="rico"><strong>Grupo.</strong> Actividades para niños en Valencia.</p>
+      <div class="ficha-accion"><button class="mp-profile-location-book" type="button" data-ir="compra-evento">Reservar Ahora</button></div>
+    </div>
+  </article>
+
+  <div class="caja" id="compra-evento">
+    <h3>Al comprar, elige cantidades</h3>
+    <div class="fila">
+      <div>Entrada<small>10 €</small></div>
+      <div class="stepper" data-precio="10" data-grupo="evento">
+        <button type="button" data-delta="-1">−</button><span>2</span><button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="fila">
+      <div>Acceso VIP<small>10 € · nombre de ejemplo</small></div>
+      <div class="stepper" data-precio="10" data-grupo="evento">
+        <button type="button" data-delta="-1">−</button><span>1</span><button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="fila">
+      <div>Comida<small>10 € · nombre de ejemplo</small></div>
+      <div class="stepper" data-precio="10" data-grupo="evento">
+        <button type="button" data-delta="-1">−</button><span>0</span><button type="button" data-delta="1">+</button>
+      </div>
+    </div>
+    <div class="total"><span>Total antes de pagar</span><span data-total="evento">30 €</span></div>
+    <p class="pie">Dos entradas (20) + un acceso VIP de ejemplo (10) = 30. El extra se suma a la entrada. No es otro tipo de entrada.</p>
+  </div>
+
+  <h2>Resumen de lo que pedimos</h2>
+  <div class="caja">
+    <p>El organizador crea líneas con nombre, precio, mínimo, máximo y una regla de obligatorio.</p>
+    <p>Quien reserva elige la cantidad de cada línea y ve el total antes de pagar.</p>
+    <p>El precio base de un servicio puede incluir hasta un número de niños y no se multiplica por las plazas.</p>
+    <p>El mismo módulo se usa en servicios y en eventos.</p>
+    <p class="pie">Esta página no está en demamiamami.com. Es el dibujo para desarrollar.</p>
+  </div>
+
+</div>
+<script>
+(function () {
+  function numero(el) { return parseInt(el.querySelector("span").textContent, 10) || 0; }
+  function pintar(grupo) {
+    var suma = grupo === "servicio" ? 370 : 0;
+    document.querySelectorAll('.stepper[data-grupo="' + grupo + '"]').forEach(function (s) {
+      suma += numero(s) * parseInt(s.getAttribute("data-precio"), 10);
+    });
+    document.querySelector('[data-total="' + grupo + '"]').textContent = suma + " €";
+  }
+  document.querySelectorAll(".stepper button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var box = btn.parentElement;
+      var n = numero(box) + parseInt(btn.getAttribute("data-delta"), 10);
+      if (n < 0) n = 0;
+      if (box.hasAttribute("data-monitor")) {
+        var ninos = numero(document.querySelector("[data-nino]"));
+        if (ninos > 0 && n < 1) n = 1;
+      }
+      box.querySelector("span").textContent = String(n);
+      if (box.hasAttribute("data-nino")) {
+        var monitor = document.querySelector("[data-monitor]");
+        if (n > 0 && numero(monitor) < 1) monitor.querySelector("span").textContent = "1";
+      }
+      pintar(box.getAttribute("data-grupo"));
+    });
+  });
+  document.querySelectorAll("[data-ir]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.getElementById(btn.getAttribute("data-ir")).scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+  pintar("evento");
+  pintar("servicio");
+})();
+</script>
 </body>
 </html>
