@@ -1,271 +1,281 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Propuesta para WP Vender — De Mami a Mami</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; }
-  body { margin: 0; background: #f6f7fb; color: #313131; font-family: "Lato", Helvetica, Arial, sans-serif; }
-  .nota { background: #fff; border-bottom: 1px solid #e6e6e9; padding: 14px 28px; display: flex; align-items: center; gap: 16px; }
-  .nota img { height: 48px; width: auto; }
-  .nota p { margin: 0; font-size: 14px; color: #6b6b76; max-width: 760px; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 16px 56px; }
-  h1 { font-size: 26px; margin: 0 0 12px; }
-  h2 { font-size: 20px; margin: 36px 0 8px; color: #465be0; }
-  h3 { font-size: 16px; margin: 0 0 10px; }
-  p, li { font-size: 15px; line-height: 1.5; }
-  .lead { color: #4a4a55; }
-  .caja {
-    background: #fff;
-    border: 1px solid #e6e6e9;
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin: 14px 0;
-  }
-  .aviso {
-    background: #f3fbfb;
-    border-left: 4px solid #18dec5;
-    padding: 10px 14px;
-    margin: 12px 0;
-    font-size: 14px;
-  }
-  .paso { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #5a9aa6; margin: 22px 0 8px; }
-  label.f { display: block; font-size: 12px; color: #6b6b76; margin: 10px 0 4px; }
-  .box {
-    border: 1px solid #e6e6e9;
-    border-radius: 8px;
-    padding: 8px 10px;
-    font-size: 14px;
-    background: #fff;
-  }
-  .fila {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    border: 1px solid #e6e6e9;
-    border-radius: 8px;
-    padding: 10px 12px;
-    margin-bottom: 8px;
-    font-size: 14px;
-    background: #fff;
-  }
-  .fila.obligatoria { background: #f3fbfb; border-color: #18dec5; }
-  .fila small, .box small { display: block; color: #8a8a93; font-size: 12px; margin-top: 2px; }
-  .tag { color: #0e9f8c; font-size: 11px; font-weight: 700; }
-  .mp-profile-location {
-    background: #fff;
-    border: 1px solid #e6e6e9;
-    border-radius: 12px;
-    padding: 25px 30px;
-    margin: 14px 0;
-    display: flex;
-    gap: 22px;
-  }
-  .ficha-foto { width: 280px; flex: 0 0 280px; height: auto; object-fit: contain; border-radius: 8px; align-self: center; background: #f3f3f3; }
-  .ficha-texto { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-  .mp-heading h3 { font: normal normal bold 18px/22px "Lato", sans-serif; color: #465be0; margin: 0 0 10px; }
-  .mp-description { margin: 0 0 12px; color: #8a8a93; font-size: 14px; line-height: 1.55; }
-  .rico { margin: 0 0 8px; font-size: 14px; line-height: 1.5; color: #4a4a55; }
-  .rico strong { color: #313131; }
-  ul.rico { margin: 0 0 10px; padding-left: 18px; }
-  .ficha-accion { margin-top: auto; display: flex; justify-content: flex-end; padding-top: 12px; }
-  .mp-profile-location-book {
-    border: 2px solid #18dec5;
-    border-radius: 4px;
-    background: transparent;
-    color: #18dec5;
-    min-width: 165px;
-    min-height: 40px;
-    font: normal normal bold 12px/15px "Lato", sans-serif;
-    cursor: pointer;
-  }
-  .stepper { display: flex; align-items: center; gap: 8px; }
-  .stepper button {
-    width: 28px; height: 28px; border: 1px solid #18dec5; background: #fff; color: #0e9f8c;
-    border-radius: 4px; font-weight: 700; cursor: pointer;
-  }
-  .stepper span { min-width: 18px; text-align: center; font-weight: 700; }
-  .total {
-    display: flex; justify-content: space-between; margin-top: 12px; padding: 12px;
-    border-radius: 8px; border: 2px solid #18dec5; font-weight: 700;
-  }
-  .pie { font-size: 13px; color: #6b6b76; }
-  @media (max-width: 700px) {
-    .mp-profile-location { flex-direction: column; padding: 18px; }
-    .ficha-foto { width: 100%; flex-basis: auto; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Functional Spec — ListingPro Services · De Mami a Mami</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="nota">
+
+<header class="site-header">
   <img src="logo-de-mami-a-mami.png" alt="De Mami a Mami">
-  <p>Propuesta para WP Vender. No es la web en marcha. Es una sola página: primero el módulo que pedimos, después dos ejemplos de cómo lo usaría un organizador.</p>
-</div>
-<div class="wrap">
-
-  <h1>Un módulo de líneas, para servicios y para eventos</h1>
-  <p class="lead">Pedimos un único módulo. El organizador crea las líneas que quiera. Cada línea tiene nombre, precio, cantidad mínima, cantidad máxima y si puede ser obligatoria. Quien reserva elige la cantidad y ve el total antes de pagar.</p>
-  <div class="aviso">Niño extra, monitor adicional, acceso VIP y comida no son campos del programa. Son nombres que un organizador ha escrito en el ejemplo. Otro negocio escribiría otros nombres, sin un desarrollo nuevo.</div>
-
-  <h2>1. Lo que ve el organizador</h2>
-  <p>Así crea una línea. Los textos de las cajas los cambia él.</p>
-  <div class="caja">
-    <label class="f">Nombre de la línea</label>
-    <div class="box">El organizador escribe el nombre</div>
-    <label class="f">Precio</label>
-    <div class="box">El organizador escribe el precio</div>
-    <label class="f">Cantidad</label>
-    <div class="box">Mínimo y máximo</div>
-    <label class="f">Regla, si la necesita</label>
-    <div class="box">Si la línea A es mayor que 0, la línea B no puede bajar de 1.</div>
-    <p class="pie">El mismo formulario sirve en un servicio y en un evento. Solo cambian los nombres que él escribe.</p>
+  <div class="header-meta">
+    <strong data-i18n="headerTitle">Especificación funcional — Servicios (ListingPro)</strong>
+    <span data-i18n="headerSub">Mockup aislado para WPBender · No conectado a demamiamami.com</span>
   </div>
-
-  <h2>2. Ejemplo en un servicio</h2>
-  <p>La Revuela vende un cumpleaños. Hoy el selector de plazas multiplica los 370 €. Eso no es el precio. El precio base incluye hasta 23 niños y no se multiplica. A partir de ahí, el organizador suma líneas.</p>
-  <p class="paso">Líneas que ha escrito este organizador</p>
-  <div class="caja">
-    <div class="fila"><div>Precio base<small>370 €. Incluye hasta 23 niños. No se multiplica por el número de plazas.</small></div></div>
-    <div class="fila"><div>Niño extra<small>Nombre escrito por él. 15 € por niño que no entra en el precio base.</small></div></div>
-    <div class="fila"><div>Monitor adicional<small>Nombre escrito por él. 40 € es el precio que ha puesto en este ejemplo.</small></div></div>
-    <div class="box">Regla escrita por él: si Niño extra es mayor que 0, Monitor adicional no puede quedar en cero.</div>
+  <span class="isolation-badge" data-i18n="isolation">Solo propuesta</span>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" data-lang="es" class="active">🇪🇸 ES</button>
+    <button type="button" data-lang="en">🇬🇧 EN</button>
   </div>
+</header>
 
-  <p class="paso">La ficha, con la foto a la izquierda</p>
-  <p>El texto de condiciones se queda en la ficha, junto al botón, para que quien reserva lo lea antes de pagar.</p>
-  <article class="mp-profile-location">
-    <img class="ficha-foto" src="revuela.jpg" alt="La Revuela">
-    <div class="ficha-texto">
-      <div class="mp-heading"><h3>Glow Revuela (370€)</h3></div>
-      <p class="mp-description">Decoración glow y luz UV, pintura y accesorios neón, purpurina, joyas, karaoke, juegos y dinamización musical.</p>
-      <p class="rico"><strong>Incluye.</strong> 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia, vigilancia del parque de bolas y espacio privado.</p>
-      <p class="rico"><strong>Precio.</strong> Hasta 23 niños en el precio base. Niño extra +15 €. A partir de 24 niños, monitor adicional.</p>
-      <p class="rico"><strong>Cancelación.</strong> Con más de 7 días, devolución íntegra. Con menos de 7 días, no reembolsable.</p>
-      <div class="ficha-accion"><button class="mp-profile-location-book" type="button" data-ir="reserva-servicio">Reservar Ahora</button></div>
-    </div>
-  </article>
+<nav class="section-nav" aria-label="Sections">
+  <a href="#backend-listing" class="active" data-i18n="nav1">1. Backend · Anuncio</a>
+  <a href="#backend-service" data-i18n="nav2">2. Backend · Servicio</a>
+  <a href="#frontend-booking" data-i18n="nav3">3. Frontend · Reserva</a>
+</nav>
 
-  <div class="caja" id="reserva-servicio">
-    <h3>Al reservar, elige cantidades</h3>
-    <div class="fila">
-      <div>Fecha<small>sábado 18 de octubre · 11:00</small></div>
-    </div>
-    <div class="fila">
-      <div>Precio base<small>370 €. Una sola vez. No se multiplica.</small></div>
-      <div class="stepper"><span>1</span></div>
-    </div>
-    <div class="fila">
-      <div>Niño extra<small>15 €</small></div>
-      <div class="stepper" data-precio="15" data-grupo="servicio" data-nino="1">
-        <button type="button" data-delta="-1">−</button><span>2</span><button type="button" data-delta="1">+</button>
+<main>
+
+  <!-- SECTION 1 -->
+  <section id="backend-listing" class="section-block">
+    <h2 data-i18n="s1Title">Backend — Nivel anuncio (Listing)</h2>
+    <p class="section-lead" data-i18n="s1Lead">Debajo del bloque nativo de Categorías.</p>
+
+    <div class="lp-dashboard-wrap">
+      <p class="lp-panel-title" data-i18n="editListing">Editar anuncio — La Revuela</p>
+
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-i18n="nativeCategories">Categorías (nativo ListingPro)</div>
+        <div class="lp-metabox-body">
+          <div class="lp-field">
+            <input type="text" readonly value="Ludoteca · Cumpleaños infantiles" data-i18n-placeholder="catPlaceholder">
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-metabox spec-anchor">
+        <span class="spec-badge" title="WPBender Spec #1">#1</span>
+        <div class="lp-metabox-head" data-i18n="resourcesTitle">Recursos o profesionales del anuncio</div>
+        <div class="lp-metabox-body">
+          <div class="lp-field">
+            <label data-i18n="labelType">Etiqueta en el frontend para el cliente</label>
+            <div class="lp-radio-row">
+              <label><input type="radio" name="res-type" checked> <span data-i18n="typeRooms">Salas / Espacios</span></label>
+              <label><input type="radio" name="res-type"> <span data-i18n="typeStaff">Profesionales / Especialistas</span></label>
+              <label><input type="radio" name="res-type"> <span data-i18n="typeGeneric">Genérico / Turnos</span></label>
+            </div>
+          </div>
+          <div class="lp-chip-row" id="resource-chips">
+            <span class="lp-chip" data-resource-chip="jarana"><span class="chip-label" data-i18n="chipJarana">Sala Jarana</span> <button type="button" aria-label="Remove">&times;</button></span>
+            <span class="lp-chip" data-resource-chip="marea"><span class="chip-label" data-i18n="chipMarea">Sala Marea</span> <button type="button" aria-label="Remove">&times;</button></span>
+          </div>
+          <button type="button" class="lp-btn lp-btn-dashed" id="add-resource" data-i18n="addResource">+ Añadir recurso / profesional</button>
+        </div>
       </div>
     </div>
-    <div class="fila obligatoria">
-      <div>Monitor adicional <span class="tag">obligatorio por la regla</span><small>40 € en este ejemplo. No baja de 1 mientras haya niños extra.</small></div>
-      <div class="stepper" data-precio="40" data-grupo="servicio" data-monitor="1">
-        <button type="button" data-delta="-1">−</button><span>1</span><button type="button" data-delta="1">+</button>
+
+    <div class="spec-card" id="spec-card-1">
+      <h4 data-i18n="spec1Title">WPBender Spec #1 — Recursos a nivel Listing</h4>
+      <p data-i18n-html="spec1p1"></p>
+      <p data-i18n-html="spec1p2"></p>
+      <p data-i18n="spec1p3"></p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section id="backend-service" class="section-block">
+    <h2 data-i18n="s2Title">Backend — Editor de servicio</h2>
+    <p class="section-lead" data-i18n="s2Lead">Tres extensiones sobre el formulario actual.</p>
+
+    <div class="lp-dashboard-wrap">
+      <p class="lp-panel-title" data-i18n="serviceEditor">Añadir / editar servicio</p>
+
+      <div class="lp-metabox spec-anchor">
+        <span class="spec-badge">#2a</span>
+        <div class="lp-metabox-head" data-i18n="richLabel">Descripción del servicio</div>
+        <div class="lp-metabox-body">
+          <div class="wysiwyg-mock">
+            <div class="wysiwyg-toolbar">
+              <button type="button"><b>B</b></button>
+              <button type="button"><i>I</i></button>
+              <button type="button">H3</button>
+              <button type="button">H4</button>
+              <button type="button">• List</button>
+            </div>
+            <div class="wysiwyg-body">
+              <p><strong>Glow Revuela</strong> — cumpleaños con decoración UV y dinamización musical.</p>
+              <h4 data-i18n="richInc">Incluye</h4>
+              <ul>
+                <li>3 h de celebración, 2 monitores, espacio privado</li>
+                <li>Pintacaras, tatuajes, globoflexia</li>
+              </ul>
+              <h4 data-i18n="richPrice">Precio</h4>
+              <p>Hasta 23 niños en precio base. Extras configurables abajo.</p>
+              <h4 data-i18n="richCancel">Cancelación</h4>
+              <p>Más de 7 días: devolución íntegra.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="total"><span>Total antes de pagar</span><span data-total="servicio">440 €</span></div>
-    <p class="pie">370 + dos niños extra (30) + un monitor (40) = 440. Puedes mover las cantidades.</p>
-  </div>
-
-  <h2>3. El mismo módulo en un evento</h2>
-  <p>Otro organizador abre el mismo formulario y escribe otros nombres. En este evento la entrada publicada es de 10 €. Las otras dos líneas son un ejemplo de nombres, para enseñar que el módulo también suma extras a una entrada.</p>
-  <p class="paso">Líneas que ha escrito este organizador</p>
-  <div class="caja">
-    <div class="fila"><div>Entrada<small>10 €. Es el precio publicado del evento.</small></div></div>
-    <div class="fila"><div>Acceso VIP<small>Nombre de ejemplo. 10 € lo ha puesto él para este dibujo. No es una función llamada VIP.</small></div></div>
-    <div class="fila"><div>Comida<small>Otro nombre de ejemplo. 10 €, también puesto por él en el dibujo.</small></div></div>
-  </div>
-
-  <p class="paso">La ficha, con la foto a la izquierda</p>
-  <article class="mp-profile-location">
-    <img class="ficha-foto" src="princesa.webp" alt="La Princesa y Tiara en Teatro Carolina">
-    <div class="ficha-texto">
-      <div class="mp-heading"><h3>La Princesa y Tiara</h3></div>
-      <p class="mp-description">Teatro infantil en Teatro Carolina, Valencia.</p>
-      <p class="rico"><strong>Cuándo.</strong> Sábado 17 y domingo 18 de octubre. Pases a las 12:30 y a las 17:00.</p>
-      <p class="rico"><strong>Entrada.</strong> 10 €.</p>
-      <p class="rico"><strong>Grupo.</strong> Actividades para niños en Valencia.</p>
-      <div class="ficha-accion"><button class="mp-profile-location-book" type="button" data-ir="compra-evento">Reservar Ahora</button></div>
+    <div class="spec-card">
+      <h4 data-i18n="spec2aTitle">WPBender Spec #2a — Rich Text</h4>
+      <p data-i18n-html="spec2a"></p>
     </div>
-  </article>
 
-  <div class="caja" id="compra-evento">
-    <h3>Al comprar, elige cantidades</h3>
-    <div class="fila">
-      <div>Entrada<small>10 €</small></div>
-      <div class="stepper" data-precio="10" data-grupo="evento">
-        <button type="button" data-delta="-1">−</button><span>2</span><button type="button" data-delta="1">+</button>
+    <div class="lp-dashboard-wrap">
+      <div class="lp-metabox spec-anchor">
+        <span class="spec-badge">#2b</span>
+        <div class="lp-metabox-head" data-i18n="basePrice">Precio base (€)</div>
+        <div class="lp-metabox-body">
+          <div class="lp-field">
+            <input type="number" value="100" min="0" step="1">
+          </div>
+          <label class="lp-field" style="display:flex;align-items:center;gap:8px;font-weight:400;">
+            <input type="checkbox" id="dyn-pricing-check" checked>
+            <span data-i18n="dynCheck">¿Precios distintos por día de la semana?</span>
+          </label>
+          <div id="dyn-pricing-panel">
+            <div id="day-rates">
+              <div class="pricing-row">
+                <div class="day-pills">
+                  <button type="button" class="on" data-dow="1">L</button>
+                  <button type="button" class="on" data-dow="2">M</button>
+                  <button type="button" class="on" data-dow="3">X</button>
+                  <button type="button" class="on" data-dow="4">J</button>
+                  <button type="button" data-dow="5">V</button>
+                  <button type="button" data-dow="6">S</button>
+                  <button type="button" data-dow="0">D</button>
+                </div>
+                <input type="number" class="rate-price" value="100" min="0" aria-label="Price">
+                <button type="button" class="lp-btn remove-rate">&times;</button>
+              </div>
+              <div class="pricing-row">
+                <div class="day-pills">
+                  <button type="button" class="on" data-dow="5">V</button>
+                </div>
+                <input type="number" value="130" min="0">
+                <button type="button" class="lp-btn remove-rate">&times;</button>
+              </div>
+              <div class="pricing-row">
+                <div class="day-pills">
+                  <button type="button" class="on" data-dow="6">S</button>
+                  <button type="button" class="on" data-dow="0">D</button>
+                </div>
+                <input type="number" value="160" min="0">
+                <button type="button" class="lp-btn remove-rate">&times;</button>
+              </div>
+            </div>
+            <button type="button" class="lp-btn lp-btn-dashed" id="add-day-rate" data-i18n="addDayRate">+ Añadir tarifa por días</button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="fila">
-      <div>Acceso VIP<small>10 € · nombre de ejemplo</small></div>
-      <div class="stepper" data-precio="10" data-grupo="evento">
-        <button type="button" data-delta="-1">−</button><span>1</span><button type="button" data-delta="1">+</button>
+    <div class="spec-card">
+      <h4 data-i18n="spec2bTitle">WPBender Spec #2b — Precio por día</h4>
+      <p data-i18n-html="spec2b"></p>
+    </div>
+
+    <div class="lp-dashboard-wrap">
+      <div class="lp-metabox spec-anchor">
+        <span class="spec-badge">#2c</span>
+        <div class="lp-metabox-head" data-i18n="extrasTitle">Cargos extras personalizables</div>
+        <div class="lp-metabox-body">
+          <div id="extra-rows">
+            <div class="extra-row">
+              <input type="text" value="Niño extra">
+              <input type="number" value="15" min="0">
+              <select><option data-i18n="calcQty">Por cantidad</option></select>
+              <button type="button" class="lp-btn">&times;</button>
+            </div>
+            <div class="extra-row">
+              <input type="text" value="Monitor adicional">
+              <input type="number" value="40" min="0">
+              <select><option data-i18n="calcQty">Por cantidad</option></select>
+              <button type="button" class="lp-btn">&times;</button>
+            </div>
+          </div>
+          <button type="button" class="lp-btn lp-btn-dashed" id="add-extra-row" data-i18n="addExtra">+ Añadir cargo extra</button>
+          <p style="margin-top:20px;font-size:12px;color:#888;" data-i18n="translationNote"></p>
+          <button type="button" class="lp-btn lp-btn-primary" style="margin-top:12px;" data-i18n="addServiceBtn">Añadir servicio</button>
+        </div>
       </div>
     </div>
-    <div class="fila">
-      <div>Comida<small>10 € · nombre de ejemplo</small></div>
-      <div class="stepper" data-precio="10" data-grupo="evento">
-        <button type="button" data-delta="-1">−</button><span>0</span><button type="button" data-delta="1">+</button>
+    <div class="spec-card">
+      <h4 data-i18n="spec2cTitle">WPBender Spec #2c — Extras</h4>
+      <p data-i18n-html="spec2c"></p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section id="frontend-booking" class="section-block">
+    <h2 data-i18n="s3Title">Frontend — Ficha y flujo de reserva</h2>
+    <p class="section-lead" data-i18n="s3Lead">Todo el cálculo dentro del widget.</p>
+
+    <div class="frontend-preview">
+      <article class="service-card">
+        <div class="service-card-media">
+          <img src="revuela.jpg" alt="La Revuela">
+          <div class="aspect-cota" data-i18n="cotaSquare">Imagen 1:1 estricta</div>
+        </div>
+        <div class="service-card-body">
+          <h3>Glow Revuela (370 €)</h3>
+          <div class="rich-html wysiwyg-body" style="padding:0;min-height:0;border:none;">
+            <p>Decoración glow, pintura neón, karaoke y juegos con monitores.</p>
+            <p><strong data-i18n="richInc">Incluye</strong> 3 h, 2 monitores, hasta 23 niños en base.</p>
+            <p><strong data-i18n="richPrice">Precio</strong> Base 370 € (no se multiplica por plazas). Extras en reserva.</p>
+          </div>
+          <div class="service-card-actions">
+            <button type="button" class="btn-reserve" id="open-booking" data-i18n="reserveNow">Reservar ahora</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="booking-widget" id="booking-widget">
+        <div class="booking-widget-head" data-i18n="widgetTitle">Reserva — simulación</div>
+        <div class="booking-steps">
+          <div class="booking-step">
+            <h4 data-i18n="stepService">Paso 1 — Servicio</h4>
+            <select id="book-service" class="lp-field" style="max-width:100%;">
+              <option value="glow" data-i18n="svcGlow">Glow Revuela</option>
+              <option value="room" data-i18n="svcRoom">Alquiler sala</option>
+            </select>
+          </div>
+          <div class="booking-step">
+            <h4 data-i18n="stepResource">Paso 2 — Sala / profesional</h4>
+            <select id="book-resource"></select>
+          </div>
+          <div class="booking-step">
+            <h4 data-i18n="stepDate">Paso 3 — Fecha y horario</h4>
+            <p id="day-hint" style="font-size:13px;color:#666;margin:0 0 8px;"></p>
+            <div class="cal-grid" id="cal-grid"></div>
+            <div class="slot-row" style="margin-top:14px;">
+              <button type="button" data-slot="a" data-i18n="slot1">11:00 – 14:00</button>
+              <button type="button" data-slot="b" data-i18n="slot2">16:00 – 19:00</button>
+              <button type="button" data-slot="c" data-i18n="slot3">12:00 – 21:00</button>
+            </div>
+          </div>
+          <div class="booking-step">
+            <h4 data-i18n="stepExtras">Paso 4 — Extras</h4>
+            <div id="extras-container"></div>
+          </div>
+          <div class="booking-step">
+            <h4 data-i18n="stepSummary">Paso 5 — Resumen</h4>
+            <div class="booking-summary">
+              <div class="line"><span data-i18n="dayRate">Tarifa del día</span><span id="sum-day-rate">370 €</span></div>
+              <div class="line"><span data-i18n="extrasSum">Extras</span><span id="sum-extras">0 €</span></div>
+              <div class="total"><span data-i18n="totalPay">Total</span><span id="sum-total">370 €</span></div>
+              <button type="button" class="btn-pay" data-i18n="btnBook">Continuar al pago (mock)</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="total"><span>Total antes de pagar</span><span data-total="evento">30 €</span></div>
-    <p class="pie">Dos entradas (20) + un acceso VIP de ejemplo (10) = 30. El extra se suma a la entrada. No es otro tipo de entrada.</p>
-  </div>
 
-  <h2>Resumen de lo que pedimos</h2>
-  <div class="caja">
-    <p>El organizador crea líneas con nombre, precio, mínimo, máximo y una regla de obligatorio.</p>
-    <p>Quien reserva elige la cantidad de cada línea y ve el total antes de pagar.</p>
-    <p>El precio base de un servicio puede incluir hasta un número de niños y no se multiplica por las plazas.</p>
-    <p>El mismo módulo se usa en servicios y en eventos.</p>
-    <p class="pie">Esta página no está en demamiamami.com. Es el dibujo para desarrollar.</p>
-  </div>
+    <div class="spec-card">
+      <h4 data-i18n="spec3Title">WPBender Spec #3 — Widget</h4>
+      <p data-i18n="spec3"></p>
+    </div>
+  </section>
 
-</div>
-<script>
-(function () {
-  function numero(el) { return parseInt(el.querySelector("span").textContent, 10) || 0; }
-  function pintar(grupo) {
-    var suma = grupo === "servicio" ? 370 : 0;
-    document.querySelectorAll('.stepper[data-grupo="' + grupo + '"]').forEach(function (s) {
-      suma += numero(s) * parseInt(s.getAttribute("data-precio"), 10);
-    });
-    document.querySelector('[data-total="' + grupo + '"]').textContent = suma + " €";
-  }
-  document.querySelectorAll(".stepper button").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var box = btn.parentElement;
-      var n = numero(box) + parseInt(btn.getAttribute("data-delta"), 10);
-      if (n < 0) n = 0;
-      if (box.hasAttribute("data-monitor")) {
-        var ninos = numero(document.querySelector("[data-nino]"));
-        if (ninos > 0 && n < 1) n = 1;
-      }
-      box.querySelector("span").textContent = String(n);
-      if (box.hasAttribute("data-nino")) {
-        var monitor = document.querySelector("[data-monitor]");
-        if (n > 0 && numero(monitor) < 1) monitor.querySelector("span").textContent = "1";
-      }
-      pintar(box.getAttribute("data-grupo"));
-    });
-  });
-  document.querySelectorAll("[data-ir]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      document.getElementById(btn.getAttribute("data-ir")).scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-  pintar("evento");
-  pintar("servicio");
-})();
-</script>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
