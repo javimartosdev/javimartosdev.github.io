@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Functional Spec — ListingPro Services · De Mami a Mami</title>
+  <title>Functional Spec — ListingPro Services (demo)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261015-servicios-final">
+  <link rel="stylesheet" href="styles.css?v=20261015-demo">
 </head>
 <body>
 
 <header class="site-header">
-  <img src="logo-de-mami-a-mami.png" alt="De Mami a Mami">
+  <img src="logo-de-mami-a-mami.png" alt="Marketplace familiar (demo)">
   <div class="header-meta">
     <strong data-i18n="headerTitle">Especificación funcional — Servicios (ListingPro)</strong>
-    <span data-i18n="headerSub">Mockup aislado para WPBender · No conectado a demamiamami.com</span>
+    <span data-i18n="headerSub">Mockup aislado para el equipo de desarrollo · No conectado al sitio en producción</span>
   </div>
   <span class="isolation-badge" data-i18n="isolation">Solo propuesta</span>
-  <span class="isolation-badge" style="background:#e8f4fd;border-color:#465be0;color:#465be0;" title="Build">v2026-10-15-servicios</span>
+  <span class="isolation-badge" style="background:#e8f4fd;border-color:#465be0;color:#465be0;" title="Build">v2026-10-15-demo</span>
   <div class="lang-toggle" role="group" aria-label="Language">
     <button type="button" data-lang="es" class="active">🇪🇸 ES</button>
     <button type="button" data-lang="en">🇬🇧 EN</button>
@@ -63,7 +63,7 @@
       </div>
 
       <div class="lp-metabox spec-anchor">
-        <span class="spec-badge" title="WPBender Spec #1">#1</span>
+        <span class="spec-badge" title="Technical spec #1">#1</span>
         <div class="lp-metabox-head" data-i18n="resourcesTitle">Recursos o profesionales del anuncio</div>
         <div class="lp-metabox-body">
           <div class="lp-field">
@@ -75,8 +75,8 @@
             </div>
           </div>
           <div class="lp-chip-row" id="resource-chips">
-            <span class="lp-chip" data-resource-chip="jarana"><span class="chip-label" data-i18n="chipJarana">Sala Jarana</span> <button type="button" aria-label="Remove">&times;</button></span>
-            <span class="lp-chip" data-resource-chip="marea"><span class="chip-label" data-i18n="chipMarea">Sala Marea</span> <button type="button" aria-label="Remove">&times;</button></span>
+            <span class="lp-chip" data-resource-chip="sol"><span class="chip-label" data-i18n="chipSol">Sala Sol</span> <button type="button" aria-label="Remove">&times;</button></span>
+            <span class="lp-chip" data-resource-chip="luna"><span class="chip-label" data-i18n="chipLuna">Sala Luna</span> <button type="button" aria-label="Remove">&times;</button></span>
           </div>
           <button type="button" class="lp-btn lp-btn-dashed" id="add-resource" data-i18n="addResource">+ Añadir recurso / profesional</button>
         </div>
@@ -84,7 +84,7 @@
     </div>
 
     <div class="spec-card" id="spec-card-1">
-      <h4 data-i18n="spec1Title">WPBender Spec #1 — Recursos a nivel Listing</h4>
+      <h4 data-i18n="spec1Title">Especificación técnica #1 — Recursos a nivel Listing</h4>
       <p data-i18n-html="spec1p1"></p>
       <p data-i18n-html="spec1p2"></p>
       <p data-i18n="spec1p3"></p>
@@ -112,7 +112,7 @@
               <button type="button">• List</button>
             </div>
             <div class="wysiwyg-body">
-              <p><strong>Glow Revuela</strong> — cumpleaños con decoración UV y dinamización musical.</p>
+              <p><strong>Fiesta Neón</strong> — cumpleaños con decoración UV y dinamización musical.</p>
               <h4 data-i18n="richInc">Incluye</h4>
               <ul>
                 <li>3 h de celebración, 2 monitores, espacio privado</li>
@@ -128,7 +128,7 @@
       </div>
     </div>
     <div class="spec-card">
-      <h4 data-i18n="spec2aTitle">WPBender Spec #2a — Rich Text</h4>
+      <h4 data-i18n="spec2aTitle">Especificación técnica #2a — Rich Text</h4>
       <p data-i18n-html="spec2a"></p>
     </div>
 
@@ -181,7 +181,7 @@
       </div>
     </div>
     <div class="spec-card">
-      <h4 data-i18n="spec2bTitle">WPBender Spec #2b — Precio por día</h4>
+      <h4 data-i18n="spec2bTitle">Especificación técnica #2b — Precio por día</h4>
       <p data-i18n-html="spec2b"></p>
     </div>
 
@@ -211,7 +211,7 @@
       </div>
     </div>
     <div class="spec-card">
-      <h4 data-i18n="spec2cTitle">WPBender Spec #2c — Extras</h4>
+      <h4 data-i18n="spec2cTitle">Especificación técnica #2c — Extras</h4>
       <p data-i18n-html="spec2c"></p>
     </div>
   </section>
@@ -224,15 +224,15 @@
     <div class="frontend-preview">
       <article class="service-card">
         <div class="service-card-media">
-          <img src="revuela.jpg" alt="La Revuela">
+          <img src="revuela.jpg" alt="Ludoteca El Pitillito — servicio demo">
           <div class="aspect-cota" data-i18n="cotaSquare">Imagen 1:1 estricta</div>
         </div>
         <div class="service-card-body">
-          <h3>Glow Revuela (370 €)</h3>
+          <h3>Fiesta Neón 3 h (289 €)</h3>
           <div class="rich-html wysiwyg-body" style="padding:0;min-height:0;border:none;">
             <p>Decoración glow, pintura neón, karaoke y juegos con monitores.</p>
-            <p><strong data-i18n="richInc">Incluye</strong> 3 h, 2 monitores, hasta 23 niños en base.</p>
-            <p><strong data-i18n="richPrice">Precio</strong> Base 370 € (no se multiplica por plazas). Extras en reserva.</p>
+            <p><strong data-i18n="richInc">Incluye</strong> 3 h, 2 monitores, hasta 20 niños en base.</p>
+            <p><strong data-i18n="richPrice">Precio</strong> Base 289 € (no se multiplica por plazas). Extras en reserva.</p>
           </div>
           <div class="service-card-actions">
             <button type="button" class="btn-reserve" id="open-booking" data-i18n="reserveNow">Reservar ahora</button>
@@ -246,7 +246,7 @@
           <div class="booking-step">
             <h4 data-i18n="stepService">Paso 1 — Servicio</h4>
             <select id="book-service" class="lp-field" style="max-width:100%;">
-              <option value="glow" data-i18n="svcGlow">Glow Revuela</option>
+              <option value="party" data-i18n="svcParty">Fiesta Neón 3 h</option>
               <option value="room" data-i18n="svcRoom">Alquiler sala</option>
             </select>
           </div>
@@ -271,9 +271,9 @@
           <div class="booking-step">
             <h4 data-i18n="stepSummary">Paso 5 — Resumen</h4>
             <div class="booking-summary">
-              <div class="line"><span data-i18n="dayRate">Tarifa del día</span><span id="sum-day-rate">370 €</span></div>
+              <div class="line"><span data-i18n="dayRate">Tarifa del día</span><span id="sum-day-rate">289 €</span></div>
               <div class="line"><span data-i18n="extrasSum">Extras</span><span id="sum-extras">0 €</span></div>
-              <div class="total"><span data-i18n="totalPay">Total</span><span id="sum-total">370 €</span></div>
+              <div class="total"><span data-i18n="totalPay">Total</span><span id="sum-total">289 €</span></div>
               <button type="button" class="btn-pay" data-i18n="btnBook">Continuar al pago (mock)</button>
             </div>
           </div>
@@ -282,13 +282,13 @@
     </div>
 
     <div class="spec-card">
-      <h4 data-i18n="spec3Title">WPBender Spec #3 — Widget</h4>
+      <h4 data-i18n="spec3Title">Especificación técnica #3 — Widget</h4>
       <p data-i18n="spec3"></p>
     </div>
   </section>
 
 </main>
 
-<script src="script.js?v=20261015-servicios-final"></script>
+<script src="script.js?v=20261015-demo"></script>
 </body>
 </html>

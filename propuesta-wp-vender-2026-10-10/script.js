@@ -1,4 +1,4 @@
-/* WP Vender / WPBender — Functional Spec (isolated mockup, no production) */
+/* ListingPro services spec — isolated mockup (fictional data, no production) */
 (function () {
   "use strict";
 
@@ -7,7 +7,7 @@
   const I18N = {
     es: {
       headerTitle: "Especificación funcional — Servicios (ListingPro)",
-      headerSub: "Mockup aislado para WPBender · No conectado a demamiamami.com",
+      headerSub: "Mockup aislado para el equipo de desarrollo · No conectado al sitio en producción",
       isolation: "Solo propuesta",
       milestoneBanner:
         "<strong>Hito — Solo servicios (ListingPro)</strong> Esta página es la propuesta para revisión y aprobación. No incluye EventPro, venta de entradas ni flujos de eventos. La parte de eventos no se definirá hasta tu visto bueno al 100&nbsp;% de este entregable.",
@@ -17,22 +17,22 @@
       check1: "Multi-recurso en el alta del anuncio (salas / profesionales / turnos)",
       check2: "Editor de servicio: texto enriquecido, tarifas dinámicas por día de la semana, repetidor de extras",
       check3: "Flujo de reserva: foto cuadrada 1:1, selector de recurso, calendario que aplica tarifa del día, extras y total en vivo",
-      checkFoot: "Conmutador ES/EN para ti y para WPBender. Naranja = especificación técnica.",
+      checkFoot: "Conmutador ES/EN para revisión interna y desarrollo. Naranja = especificación técnica.",
       nav1: "1. Backend · Anuncio",
       nav2: "2. Backend · Servicio",
       nav3: "3. Frontend · Reserva",
       s1Title: "Backend — Nivel anuncio (Listing)",
       s1Lead: "Debajo del bloque nativo de Categorías. Define recursos compartidos por todo el anuncio (salas o profesionales).",
-      editListing: "Editar anuncio — La Revuela",
+      editListing: "Editar anuncio — Ludoteca El Pitillito",
       nativeCategories: "Categorías (nativo ListingPro)",
-      catPlaceholder: "Ludoteca · Cumpleaños infantiles",
+      catPlaceholder: "Ludoteca · Fiestas infantiles",
       resourcesTitle: "Recursos o profesionales del anuncio",
       labelType: "Etiqueta en el frontend para el cliente",
       typeRooms: "Salas / Espacios",
       typeStaff: "Profesionales / Especialistas",
       typeGeneric: "Genérico / Turnos",
       addResource: "+ Añadir recurso / profesional",
-      spec1Title: "WPBender Spec #1 — Recursos a nivel Listing",
+      spec1Title: "Especificación técnica #1 — Recursos a nivel Listing",
       spec1p1: "Meta en el post <code>listing</code> (post meta o tabla custom). Un solo conjunto de recursos por anuncio, no por servicio.",
       spec1p2: "Disponibilidad: en cada slot horario el sistema permite hasta <strong>N reservas simultáneas</strong>, donde N = recursos definidos que no estén ya reservados en ese tramo.",
       spec1p3: "El cliente elige sala/profesional en el widget de reserva (Sección 3).",
@@ -51,12 +51,12 @@
       calcOnce: "Cargo único (checkbox)",
       addExtra: "+ Añadir cargo extra",
       addServiceBtn: "Añadir servicio",
-      translationNote: "Nota: corregir bug de traducción — no reutilizar la cadena «Abrir horario» (booking slots / CubeWP) en este botón.",
-      spec2aTitle: "WPBender Spec #2a — Rich Text",
+      translationNote: "Nota: el botón de guardar debe decir «Añadir servicio», distinto de otros módulos del panel.",
+      spec2aTitle: "Especificación técnica #2a — Rich Text",
       spec2a: "Sustituir <code>textarea</code> por editor WYSIWYG (wp_editor o equivalente). Guardar HTML saneado en meta del servicio. Renderizar en ficha pública con <code>wp_kses_post</code>.",
-      spec2bTitle: "WPBender Spec #2b — Precio por día de semana",
+      spec2bTitle: "Especificación técnica #2b — Precio por día de semana",
       spec2b: "El cliente <strong>no</strong> elige tarifa en un desplegable. Al pulsar un día en el calendario de reserva, el sistema aplica la regla que coincida (días de la fila → precio). Si no hay regla, usar Precio base.",
-      spec2cTitle: "WPBender Spec #2c — Extras repetidor",
+      spec2cTitle: "Especificación técnica #2c — Extras repetidor",
       spec2c: "Filas libres: nombre, precio, tipo (multiplicador vs único). Sin campos fijos. Solo servicios ListingPro — no confundir con entradas de eventos (EventPro). Persistir como JSON/meta del servicio.",
       s3Title: "Frontend — Ficha y flujo de reserva",
       s3Lead: "Vista pública. Todo el cálculo ocurre dentro del widget al pulsar Reservar.",
@@ -72,13 +72,13 @@
       extrasSum: "Suma de extras",
       totalPay: "Total a pagar",
       btnBook: "Continuar al pago (mock)",
-      spec3Title: "WPBender Spec #3 — Widget de reserva",
+      spec3Title: "Especificación técnica #3 — Widget de reserva",
       spec3: "Flujo en modal o columna lateral ListingPro Bookings: servicio → recurso (listing meta) → calendario (precio día) → extras del servicio → total → Stripe.",
       days: ["D", "L", "M", "X", "J", "V", "S"],
       daysLong: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
-      chipJarana: "Sala Jarana",
-      chipMarea: "Sala Marea",
-      svcGlow: "Glow Revuela — Cumpleaños (precio base fijo)",
+      chipSol: "Sala Sol",
+      chipLuna: "Sala Luna",
+      svcParty: "Fiesta Neón 3 h (precio base fijo)",
       svcRoom: "Alquiler de sala — Tarifa por día",
       slot1: "11:00 – 14:00",
       slot2: "16:00 – 19:00",
@@ -92,7 +92,7 @@
     },
     en: {
       headerTitle: "Functional Spec — Services (ListingPro)",
-      headerSub: "Isolated mockup for WPBender · Not connected to demamiamami.com",
+      headerSub: "Isolated mockup for the development team · Not connected to production",
       isolation: "Proposal only",
       milestoneBanner:
         "<strong>Milestone — Services only (ListingPro)</strong> This page is for review and approval. It excludes EventPro, ticket sales, and event booking flows. The events scope will not be defined until this deliverable is 100&nbsp;% approved.",
@@ -102,13 +102,13 @@
       check1: "Multi-resource on listing submit (rooms / staff / shifts)",
       check2: "Service editor: rich text, weekday dynamic pricing, custom extra charges repeater",
       check3: "Booking flow: 1:1 square image, resource picker, calendar day-rate, extras, live total",
-      checkFoot: "ES/EN toggle for internal review and WPBender. Orange = technical spec.",
+      checkFoot: "ES/EN toggle for internal review and development. Orange = technical spec.",
       nav1: "1. Backend · Listing",
       nav2: "2. Backend · Service",
       nav3: "3. Frontend · Booking",
       s1Title: "Backend — Listing level",
       s1Lead: "Below native Categories block. Resources shared across the whole listing (rooms or staff).",
-      editListing: "Edit listing — La Revuela",
+      editListing: "Edit listing — El Pitillito Play Centre",
       nativeCategories: "Categories (native ListingPro)",
       catPlaceholder: "Play centre · Kids parties",
       resourcesTitle: "Listing resources or staff",
@@ -117,7 +117,7 @@
       typeStaff: "Professionals / Specialists",
       typeGeneric: "Generic / Shifts",
       addResource: "+ Add resource / staff",
-      spec1Title: "WPBender Spec #1 — Listing-level resources",
+      spec1Title: "Technical spec #1 — Listing-level resources",
       spec1p1: "Store on <code>listing</code> post (post meta or custom table). One resource set per listing, not per service.",
       spec1p2: "Availability: each time slot allows up to <strong>N concurrent bookings</strong>, N = resources not already booked in that slot.",
       spec1p3: "Customer picks room/staff in booking widget (Section 3).",
@@ -137,11 +137,11 @@
       addExtra: "+ Add extra charge",
       addServiceBtn: "Add service",
       translationNote: "Note: fix translation bug — do not reuse booking-slots string «Open schedule» (CubeWP) for this button.",
-      spec2aTitle: "WPBender Spec #2a — Rich Text",
+      spec2aTitle: "Technical spec #2a — Rich Text",
       spec2a: "Replace plain <code>textarea</code> with WYSIWYG (wp_editor). Save sanitized HTML on service meta. Frontend: <code>wp_kses_post</code>.",
-      spec2bTitle: "WPBender Spec #2b — Dynamic pricing by weekday",
+      spec2bTitle: "Technical spec #2b — Dynamic pricing by weekday",
       spec2b: "Customer does <strong>not</strong> pick a rate dropdown. Calendar day click applies matching day rule → price; else Base price.",
-      spec2cTitle: "WPBender Spec #2c — Extra charges repeater",
+      spec2cTitle: "Technical spec #2c — Extra charges repeater",
       spec2c: "Free-form rows: name, price, type (multiplier vs one-time). ListingPro services only — not EventPro ticket lines. JSON/meta on service.",
       s3Title: "Frontend — Service page & booking flow",
       s3Lead: "Public view. All pricing happens inside the widget after Reserve.",
@@ -157,13 +157,13 @@
       extrasSum: "Extras total",
       totalPay: "Total to pay",
       btnBook: "Continue to payment (mock)",
-      spec3Title: "WPBender Spec #3 — Booking widget",
+      spec3Title: "Technical spec #3 — Booking widget",
       spec3: "Flow in ListingPro Bookings modal/sidebar: service → resource (listing meta) → calendar (day price) → service extras → total → Stripe.",
       days: ["S", "M", "T", "W", "T", "F", "S"],
       daysLong: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      chipJarana: "Jarana Room",
-      chipMarea: "Marea Room",
-      svcGlow: "Glow Revuela — Party (fixed base price)",
+      chipSol: "Sun Room",
+      chipLuna: "Moon Room",
+      svcParty: "Neon Party 3 h (fixed base price)",
       svcRoom: "Room rental — Day-based rate",
       slot1: "11:00 – 14:00",
       slot2: "16:00 – 19:00",
@@ -180,9 +180,9 @@
   let lang = localStorage.getItem(STORAGE_KEY) || "es";
 
   const SERVICES = {
-    glow: {
-      id: "glow",
-      baseFixed: 370,
+    party: {
+      id: "party",
+      baseFixed: 289,
       dynamic: false,
       extras: [
         { id: "child", nameKey: "extraChild", price: 15, type: "qty" },
@@ -203,9 +203,9 @@
   };
 
   const state = {
-    resources: ["jarana", "marea"],
-    serviceId: "glow",
-    resourceId: "jarana",
+    resources: ["sol", "luna"],
+    serviceId: "party",
+    resourceId: "sol",
     selectedDay: null,
     selectedDow: null,
     selectedSlot: null,
@@ -247,7 +247,7 @@
   }
 
   function updateChipLabels() {
-    const map = { jarana: "chipJarana", marea: "chipMarea" };
+    const map = { sol: "chipSol", luna: "chipLuna" };
     document.querySelectorAll("[data-resource-chip]").forEach((chip) => {
       const id = chip.getAttribute("data-resource-chip");
       const span = chip.querySelector(".chip-label");
@@ -321,10 +321,10 @@
       sel.appendChild(opt);
     });
     if (!sel.options.length) {
-      ["jarana", "marea"].forEach((id) => {
+      ["sol", "luna"].forEach((id) => {
         const opt = document.createElement("option");
         opt.value = id;
-        opt.textContent = labels[id];
+        opt.textContent = labels[id] || id;
         sel.appendChild(opt);
       });
     }
@@ -380,7 +380,7 @@
 
   /* ——— Booking widget ——— */
   function getService() {
-    return SERVICES[state.serviceId] || SERVICES.glow;
+    return SERVICES[state.serviceId] || SERVICES.party;
   }
 
   function priceForDay(svc, dow) {

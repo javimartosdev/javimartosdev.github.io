@@ -291,7 +291,7 @@ main {
   .pricing-row { grid-template-columns: 1fr; }
 }
 
-/* ——— WPBender spec callouts ——— */
+/* ——— Technical spec callouts ——— */
 .spec-anchor { position: relative; }
 .spec-badge {
   position: absolute;
