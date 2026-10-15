@@ -508,39 +508,61 @@ main {
   cursor: pointer;
 }
 .stepper span { min-width: 20px; text-align: center; font-weight: 700; }
-.booking-summary {
-  background: #f3fbfb;
-  border: 2px solid var(--lp-accent);
-  border-radius: 8px;
-  padding: 14px 16px;
-  margin-top: 8px;
-}
-.booking-summary .line {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-.booking-summary .total {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 800;
-  font-size: 16px;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--lp-accent);
-}
-.booking-summary .btn-pay {
-  margin-top: 14px;
+/* Checkout total — copied from listingpro/assets/css/main.css */
+.lp-checkout-wrapper {
+  background-color: #fff;
+  display: inline-block;
   width: 100%;
-  padding: 12px;
-  background: var(--lp-accent);
-  border: none;
+  border-radius: 5px;
+  border: 1px solid #ececec;
+  margin-bottom: 0;
+  padding-bottom: 15px;
+}
+.lp-checkout-wrapper .lp-booking-dt,
+.lp-checkout-wrapper .lp-persons,
+.lp-checkout-wrapper .lp-duration,
+.lp-checkout-wrapper .lp-booking-type {
+  text-transform: uppercase;
+}
+.lp-user-listings {
+  border-bottom: solid 1px #ececec;
+  width: 100%;
+  float: none;
+  padding: 20px 15px;
+}
+.lp-listing-clm .lp-booking-dt,
+.lp-listing-clm .lp-persons,
+.lp-listing-clm .lp-duration,
+.lp-listing-clm .lp-booking-type {
+  border-bottom: 1px solid #dedede;
+  float: left;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 27px;
+  width: 100%;
+}
+.lp-user-listings.clearfix .lp-listing-clm .col-md-4 p,
+.lp-user-listings.clearfix .lp-listing-clm .col-xs-4 p {
+  display: inline-block;
+  font-size: 12px;
+  line-height: normal;
+  margin-bottom: 0;
+  padding: 6px 1px 0 0;
+}
+.booking-summary .lp-pay-publsh {
+  background: #41a6df;
+  border: 0;
   color: #fff;
+  border-radius: 5px;
+  padding: 10px 23px;
   font-weight: 700;
-  font-size: 14px;
-  border-radius: 4px;
+  font-family: "Quicksand", sans-serif;
+  margin: 15px 15px 0 0;
+  float: right;
   cursor: pointer;
+}
+.booking-summary .lp-pay-publsh:hover {
+  background-color: #363f48;
 }
 
 .hidden { display: none !important; }

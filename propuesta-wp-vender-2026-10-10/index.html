@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261015-prod-shot">
+  <link rel="stylesheet" href="styles.css?v=20261015-checkout">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -280,11 +280,24 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
             <label data-i18n="lblExtras">Servicios adicionales</label>
             <div id="extras-container"></div>
           </div>
-          <div class="booking-summary">
-            <div class="line"><span data-i18n="dayRate">Tarifa del día</span><span id="sum-day-rate">289 €</span></div>
-            <div class="line"><span data-i18n="extrasSum">Extras</span><span id="sum-extras">0 €</span></div>
-            <div class="total"><span data-i18n="totalPay">Total</span><span id="sum-total">289 €</span></div>
-            <button type="button" class="btn-pay" data-i18n="btnBook">Continuar al pago (mock)</button>
+          <div class="lp-checkout-wrapper booking-summary">
+            <div class="lp-user-listings clearfix">
+              <div class="row lp-listing-clm">
+                <div class="col-md-4 col-xs-4">
+                  <span class="lp-booking-type" data-i18n="dayRate">Tarifa del día seleccionado</span>
+                  <p id="sum-day-rate">289 €</p>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <span class="lp-booking-type" data-i18n="extrasSum">Suma de extras</span>
+                  <p id="sum-extras">0 €</p>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <span class="lp-booking-type" data-i18n="totalPay">Total a pagar</span>
+                  <p id="sum-total">289 €</p>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="lp-pay-publsh" data-i18n="btnBook">Continuar al pago (mock)</button>
           </div>
         </div>
       </div>
