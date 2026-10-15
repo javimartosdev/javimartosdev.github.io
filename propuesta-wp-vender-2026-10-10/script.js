@@ -15,7 +15,7 @@
         "Fuera de alcance en esta entrega: compra de entradas, actos publicados como eventos, tribus como evento, módulos EventPro y cualquier pantalla de «evento» en panel o ficha pública.",
       checklistTitle: "Entregable único — Servicios (ListingPro)",
       check1: "Multi-recurso en el alta del anuncio (salas / profesionales / turnos)",
-      check2: "Editor de servicio: texto enriquecido, tarifas dinámicas por día de la semana, repetidor de extras",
+      check2: "Editor de servicio (CubeWP actual): extensiones dentro de cada fila — WYSIWYG, tarifas por día, servicios adicionales",
       check3: "Flujo de reserva: foto cuadrada 1:1, selector de recurso, calendario que aplica tarifa del día, extras y total en vivo",
       checkFoot: "Conmutador ES/EN para revisión interna y desarrollo. Naranja = especificación técnica.",
       nav1: "1. Backend · Anuncio",
@@ -37,36 +37,44 @@
       spec1p2: "Disponibilidad: en cada slot horario el sistema permite hasta <strong>N reservas simultáneas</strong>, donde N = recursos definidos que no estén ya reservados en ese tramo.",
       spec1p3: "El cliente elige sala/profesional en el widget de reserva (Sección 3).",
       s2Title: "Backend — Editor de servicio",
-      s2Lead: "Formulario actual del proveedor al crear/editar un servicio. Tres extensiones marcadas.",
-      serviceEditor: "Añadir / editar servicio",
-      richLabel: "Descripción del servicio",
-      basePrice: "Precio base (€)",
-      dynCheck: "¿Este servicio tiene precios distintos según el día de la semana o fin de semana?",
-      addDayRate: "+ Añadir tarifa por días",
+      s2Lead:
+        "Réplica del bloque «Servicios» en edit-listing (CubeWP). Las mejoras #2a–#2c se integran debajo de Precio/Duración, sin cambiar cajas ni botones nativos.",
+      serviceEditor: "Edit your Listing — extracto (La Revuela)",
+      servicesSection: "Servicios",
+      servicesLabel: "Servicios",
+      fldTitle: "Título",
+      fldDesc: "Descripción",
+      fldPrice: "Precio",
+      fldDuration: "Duración",
+      weekdayRates: "Tarifa según día de la semana",
+      weekdayRatesHint:
+        "Misma idea que el selector de días del horario comercial: filas con días + importe. El total en reserva = tarifa del día + sala + extras.",
+      dynCheck: "Activar precios distintos por día de la semana",
+      addDayRate: "Añadir tramo de días",
+      addRepeaterBtn: "ABRIR HORARIO",
       priceEur: "Precio (€)",
-      extrasTitle: "Cargos / servicios extras personalizables",
+      extrasTitle: "Servicios adicionales",
+      spec2Title: "Especificación técnica #2 — Editor de servicios (ListingPro + CubeWP)",
       extraName: "Nombre del cargo extra",
       calcType: "Tipo de cálculo",
       calcQty: "Por cantidad / unidad",
       calcOnce: "Cargo único (checkbox)",
-      addExtra: "+ Añadir cargo extra",
-      addServiceBtn: "Añadir servicio",
-      spec2aTitle: "Especificación técnica #2a — Rich Text",
-      spec2a: "Sustituir <code>textarea</code> por editor WYSIWYG (wp_editor o equivalente). Guardar HTML saneado en meta del servicio. Renderizar en ficha pública con <code>wp_kses_post</code>.",
-      spec2bTitle: "Especificación técnica #2b — Precio por día de semana",
-      spec2b: "El cliente <strong>no</strong> elige tarifa en un desplegable. Al pulsar un día en el calendario de reserva, el sistema aplica la regla que coincida (días de la fila → precio). Si no hay regla, usar Precio base.",
-      spec2cTitle: "Especificación técnica #2c — Extras repetidor",
-      spec2c: "Filas libres: nombre, precio, tipo (multiplicador vs único). Sin campos fijos. Solo servicios ListingPro — no confundir con entradas de eventos (EventPro). Persistir como JSON/meta del servicio.",
+      addExtra: "+ Añadir servicio adicional",
+      spec2a:
+        "<strong>#2a Rich text:</strong> el campo «Descripción» pasa de <code>textarea</code> a editor visual (como «Cuéntanos más»). HTML saneado en meta; ficha con <code>wp_kses_post</code>.",
+      spec2b:
+        "<strong>#2b Precio por día:</strong> bloque nuevo bajo Duración. El cliente no elige tarifa manualmente: al elegir fecha en reserva, aplica la fila cuyos días coincidan. «Precio» nativo = referencia o lunes–jueves.",
+      spec2c:
+        "<strong>#2c Servicios adicionales:</strong> repetidor anidado (nombre, precio, tipo). No mezclar con EventPro/entradas. JSON en meta del servicio.",
       s3Title: "Frontend — Ficha y flujo de reserva",
       s3Lead: "Vista pública. Todo el cálculo ocurre dentro del widget al pulsar Reservar.",
       cotaSquare: "Imagen 1:1 estricta — altura del contenedor, object-fit: cover, sin estirar",
       reserveNow: "Reservar ahora",
       widgetTitle: "Reserva — simulación interactiva",
-      stepService: "Paso 1 — Selecciona el servicio",
-      stepResource: "Paso 2 — Selecciona sala / profesional",
-      stepDate: "Paso 3 — Fecha y horario",
-      stepExtras: "Paso 4 — Cargos extras",
-      stepSummary: "Paso 5 — Resumen y total",
+      lblService: "Servicio",
+      lblResource: "Sala / profesional",
+      lblDate: "Fecha y horario",
+      lblExtras: "Servicios adicionales",
       dayRate: "Tarifa del día seleccionado",
       extrasSum: "Suma de extras",
       totalPay: "Total a pagar",
@@ -99,7 +107,7 @@
         "Out of scope: ticket purchase, published events, tribe-as-event listings, EventPro modules, and any “event” UI in dashboard or public pages.",
       checklistTitle: "Single deliverable — Services (ListingPro)",
       check1: "Multi-resource on listing submit (rooms / staff / shifts)",
-      check2: "Service editor: rich text, weekday dynamic pricing, custom extra charges repeater",
+      check2: "Service editor (current CubeWP): extensions inside each row — WYSIWYG, weekday rates, add-ons",
       check3: "Booking flow: 1:1 square image, resource picker, calendar day-rate, extras, live total",
       checkFoot: "ES/EN toggle for internal review and development. Orange = technical spec.",
       nav1: "1. Backend · Listing",
@@ -121,36 +129,44 @@
       spec1p2: "Availability: each time slot allows up to <strong>N concurrent bookings</strong>, N = resources not already booked in that slot.",
       spec1p3: "Customer picks room/staff in booking widget (Section 3).",
       s2Title: "Backend — Service editor",
-      s2Lead: "Current provider form when creating/editing a service. Three functional extensions.",
-      serviceEditor: "Add / edit service",
-      richLabel: "Service description",
-      basePrice: "Base price (€)",
-      dynCheck: "This service has different prices by weekday or weekend?",
-      addDayRate: "+ Add day-based rate",
+      s2Lead:
+        "Replica of the «Services» block on edit-listing (CubeWP). Improvements #2a–#2c sit below Price/Duration without changing native UI chrome.",
+      serviceEditor: "Edit your Listing — excerpt (demo venue)",
+      servicesSection: "Services",
+      servicesLabel: "Services",
+      fldTitle: "Title",
+      fldDesc: "Description",
+      fldPrice: "Price",
+      fldDuration: "Duration",
+      weekdayRates: "Rate by weekday",
+      weekdayRatesHint:
+        "Same pattern as business-hours day pickers: rows of days + amount. Booking total = day rate + room + add-ons.",
+      dynCheck: "Enable different prices by weekday",
+      addDayRate: "Add day range",
+      addRepeaterBtn: "ABRIR HORARIO",
       priceEur: "Price (€)",
-      extrasTitle: "Custom extra charges",
-      extraName: "Extra charge name",
+      extrasTitle: "Additional services",
+      extraName: "Add-on name",
       calcType: "Calculation type",
       calcQty: "Per quantity / unit",
       calcOnce: "One-time charge (checkbox)",
-      addExtra: "+ Add extra charge",
-      addServiceBtn: "Add service",
-      spec2aTitle: "Technical spec #2a — Rich Text",
-      spec2a: "Replace plain <code>textarea</code> with WYSIWYG (wp_editor). Save sanitized HTML on service meta. Frontend: <code>wp_kses_post</code>.",
-      spec2bTitle: "Technical spec #2b — Dynamic pricing by weekday",
-      spec2b: "Customer does <strong>not</strong> pick a rate dropdown. Calendar day click applies matching day rule → price; else Base price.",
-      spec2cTitle: "Technical spec #2c — Extra charges repeater",
-      spec2c: "Free-form rows: name, price, type (multiplier vs one-time). ListingPro services only — not EventPro ticket lines. JSON/meta on service.",
+      addExtra: "+ Add additional service",
+      spec2Title: "Technical spec #2 — Service editor (ListingPro + CubeWP)",
+      spec2a:
+        "<strong>#2a Rich text:</strong> «Description» becomes a visual editor (like listing body). Sanitized HTML in meta; public page uses <code>wp_kses_post</code>.",
+      spec2b:
+        "<strong>#2b Weekday price:</strong> new block under Duration. Customer does not pick a rate; calendar day selects the matching row. Native «Price» = reference or Mon–Thu default.",
+      spec2c:
+        "<strong>#2c Add-ons:</strong> nested repeater (name, price, type). Not EventPro tickets. JSON in service meta.",
       s3Title: "Frontend — Service page & booking flow",
       s3Lead: "Public view. All pricing happens inside the widget after Reserve.",
       cotaSquare: "Strict 1:1 square image — full container height, object-fit: cover, no stretch",
       reserveNow: "Book now",
       widgetTitle: "Booking — interactive simulation",
-      stepService: "Step 1 — Select service",
-      stepResource: "Step 2 — Select space / professional",
-      stepDate: "Step 3 — Date & time slot",
-      stepExtras: "Step 4 — Extra charges",
-      stepSummary: "Step 5 — Summary & total",
+      lblService: "Service",
+      lblResource: "Space / professional",
+      lblDate: "Date & time",
+      lblExtras: "Additional services",
       dayRate: "Selected day rate",
       extrasSum: "Extras total",
       totalPay: "Total to pay",
@@ -332,47 +348,85 @@
   function initServiceEditor() {
     const dyn = document.getElementById("dyn-pricing-check");
     const panel = document.getElementById("dyn-pricing-panel");
+    const dayRates = document.getElementById("day-rates");
     dyn?.addEventListener("change", () => {
-      panel?.classList.toggle("hidden", !dyn.checked);
+      dayRates?.classList.toggle("hidden", !dyn.checked);
     });
+
+    document.querySelectorAll("#services-repeater .cwp-repeating-single-field-actions").forEach((bar) => {
+      bar.addEventListener("click", (e) => {
+        if (e.target.closest(".cwp-repeating-single-field-remove")) return;
+        const content = bar.parentElement?.querySelector(".cwp-repeating-single-field-content");
+        if (!content) return;
+        const collapsed = bar.classList.toggle("cubewp-collapse");
+        content.classList.toggle("cwp-hide", collapsed);
+      });
+    });
+
+    const weekdayOptions =
+      lang === "es"
+        ? ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "domingo"]
+        : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    function makeDaySelect() {
+      const sel = document.createElement("select");
+      sel.className = "weekday form-control";
+      weekdayOptions.forEach((d) => {
+        const opt = document.createElement("option");
+        opt.value = d;
+        opt.textContent = d;
+        sel.appendChild(opt);
+      });
+      return sel;
+    }
+
     document.getElementById("add-day-rate")?.addEventListener("click", () => {
       const wrap = document.getElementById("day-rates");
-      const row = document.createElement("div");
-      row.className = "pricing-row";
-      row.innerHTML =
-        '<div class="day-pills"></div><input type="number" class="rate-price" value="100" min="0" step="1"><button type="button" class="lp-btn remove-rate">&times;</button>';
-      const pills = row.querySelector(".day-pills");
-      for (let d = 0; d < 7; d++) {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.textContent = t("days")[d];
-        b.dataset.dow = String(d);
-        b.addEventListener("click", () => b.classList.toggle("on"));
-        pills.appendChild(b);
-      }
-      row.querySelector(".remove-rate").addEventListener("click", () => row.remove());
-      wrap.appendChild(row);
-    });
-    document.querySelectorAll("#day-rates .day-pills button").forEach((b) => {
-      b.addEventListener("click", () => b.classList.toggle("on"));
+      if (!wrap) return;
+      const ul = document.createElement("ul");
+      ul.className = "hours-select clearfix inline-layout up-4 dmm-day-rate-row";
+      const liDay = document.createElement("li");
+      liDay.appendChild(makeDaySelect());
+      ul.appendChild(liDay);
+      const liPrice = document.createElement("li");
+      const price = document.createElement("input");
+      price.type = "number";
+      price.className = "form-control rate-price";
+      price.value = "350";
+      price.min = "0";
+      liPrice.appendChild(price);
+      ul.appendChild(liPrice);
+      const liBtn = document.createElement("li");
+      const rm = document.createElement("button");
+      rm.type = "button";
+      rm.className = "ybtn ybtn--small remove-rate";
+      rm.innerHTML = '<span><i class="fa fa-times"></i></span>';
+      rm.addEventListener("click", () => ul.remove());
+      liBtn.appendChild(rm);
+      ul.appendChild(liBtn);
+      wrap.appendChild(ul);
     });
     document.querySelectorAll("#day-rates .remove-rate").forEach((btn) => {
-      btn.addEventListener("click", () => btn.closest(".pricing-row")?.remove());
+      btn.addEventListener("click", () => btn.closest(".dmm-day-rate-row")?.remove());
     });
+
     document.getElementById("add-extra-row")?.addEventListener("click", () => {
       const wrap = document.getElementById("extra-rows");
       const row = document.createElement("div");
-      row.className = "extra-row";
+      row.className = "extra-row hours-rate-row";
       row.innerHTML =
-        '<input type="text" placeholder="' +
+        '<input type="text" class="form-control" placeholder="' +
         t("extraName") +
-        '"><input type="number" value="10" min="0"><select><option>' +
+        '"><input type="number" class="form-control" value="10" min="0"><select class="form-control"><option>' +
         t("calcQty") +
         "</option><option>" +
         t("calcOnce") +
-        '</option></select><button type="button" class="lp-btn remove-extra">&times;</button>';
+        '</option></select><button type="button" class="ybtn ybtn--small remove-extra">×</button>';
       row.querySelector(".remove-extra").addEventListener("click", () => row.remove());
       wrap.appendChild(row);
+    });
+    document.querySelectorAll("#extra-rows .remove-extra").forEach((btn) => {
+      btn.addEventListener("click", () => btn.closest(".extra-row")?.remove());
     });
   }
 

@@ -7,9 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261015-demo">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.demamiamami.com/wp-content/themes/listingpro/assets/lib/bootstrap/css/bootstrap.min.css?ver=7.1.3">
+  <link rel="stylesheet" href="https://www.demamiamami.com/wp-content/themes/listingpro/assets/lib/font-awesome/css/font-awesome.min.css?ver=7.1.3">
+  <link rel="stylesheet" href="assets/css/cubewp-styles.css">
+  <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
+  <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
+  <link rel="stylesheet" href="styles.css?v=20261015-prod-shot">
 </head>
-<body>
+<body class="spec-proposal-chrome">
 
 <header class="site-header">
   <img src="logo-de-mami-a-mami.png" alt="Marketplace familiar (demo)">
@@ -18,7 +24,7 @@
     <span data-i18n="headerSub">Mockup aislado para el equipo de desarrollo · No conectado al sitio en producción</span>
   </div>
   <span class="isolation-badge" data-i18n="isolation">Solo propuesta</span>
-  <span class="isolation-badge" style="background:#e8f4fd;border-color:#465be0;color:#465be0;" title="Build">v2026-10-15-demo</span>
+  <span class="isolation-badge" style="background:#e8f4fd;border-color:#465be0;color:#465be0;" title="Build">v2026-10-15-prod-exact</span>
   <div class="lang-toggle" role="group" aria-label="Language">
     <button type="button" data-lang="es" class="active">🇪🇸 ES</button>
     <button type="button" data-lang="en">🇬🇧 EN</button>
@@ -91,126 +97,133 @@
     </div>
   </section>
 
-  <!-- SECTION 2 -->
+  <!-- SECTION 2 — clone ListingPro edit-listing Servicios (CubeWP) + extensions inside row -->
   <section id="backend-service" class="section-block">
     <h2 data-i18n="s2Title">Backend — Editor de servicio</h2>
-    <p class="section-lead" data-i18n="s2Lead">Tres extensiones sobre el formulario actual.</p>
+    <p class="section-lead" data-i18n="s2Lead">Misma pantalla que «Editar anuncio» en producción; lo nuevo va dentro de cada fila del repetidor.</p>
 
-    <div class="lp-dashboard-wrap">
-      <p class="lp-panel-title" data-i18n="serviceEditor">Añadir / editar servicio</p>
+    <div class="dmm-lp-submit-frame spec-anchor">
+      <span class="spec-badge" title="Service editor">#2</span>
+      <div class="lp_section_inner clearfix" style="background-color: #eff3f6;">
+        <div class="clearfix container">
+          <div class="page-container-four clearfix submit_new_style submit_new_style-outer">
+            <div class="col-md-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-8 page-style2-content-wrap">
+                  <div class="white-section border-bottom lp-style-wrap-border section-id-Services">
+                    <h4 class="white-section-heading" data-i18n="servicesSection">Servicios</h4>
+                    <div class="row">
+                      <div class="form-group col-md-12 col-xs-12">
+                        <div class="cwp-field-container cwp-field-repeating_field form-group is-required" data-id="services_fields" data-name="services_fields" data-type="repeating_field">
+                          <label for="services_fields" data-i18n="servicesLabel">Servicios <span class="cwp-required">*</span></label>
+                          <div class="cwp-repeating-field-container" id="services-repeater">
+                            <div class="cwp-repeating-field-wrapper">
 
-      <div class="lp-metabox spec-anchor">
-        <span class="spec-badge">#2a</span>
-        <div class="lp-metabox-head" data-i18n="richLabel">Descripción del servicio</div>
-        <div class="lp-metabox-body">
-          <div class="wysiwyg-mock">
-            <div class="wysiwyg-toolbar">
-              <button type="button"><b>B</b></button>
-              <button type="button"><i>I</i></button>
-              <button type="button">H3</button>
-              <button type="button">H4</button>
-              <button type="button">• List</button>
-            </div>
-            <div class="wysiwyg-body">
-              <p><strong>Fiesta Neón</strong> — cumpleaños con decoración UV y dinamización musical.</p>
-              <h4 data-i18n="richInc">Incluye</h4>
-              <ul>
-                <li>3 h de celebración, 2 monitores, espacio privado</li>
-                <li>Pintacaras, tatuajes, globoflexia</li>
-              </ul>
-              <h4 data-i18n="richPrice">Precio</h4>
-              <p>Hasta 23 niños en precio base. Extras configurables abajo.</p>
-              <h4 data-i18n="richCancel">Cancelación</h4>
-              <p>Más de 7 días: devolución íntegra.</p>
+                              <div class="cwp-repeating-single-field-row" id="service-row-demo">
+                                <div class="cwp-repeating-single-field">
+                                  <div class="cwp-repeating-single-field-actions">
+                                    <div class="cwp-repeating-single-field-move"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path class="a" d="M8.273,11.909V10.091H3.727L5.545,8.273l-.909-.909L1,11l3.636,3.636.909-.909L3.727,11.909Zm9.091-4.545-.909.909,1.818,1.818H13.727v1.818h4.545l-1.818,1.818.909.909L21,11ZM11.909,18.273V13.727H10.091v4.545L8.273,16.455l-.909.909L11,21l2.357-2.357,1.28-1.28-.909-.909ZM10.091,3.727V8.273h1.818V3.727l1.818,1.818.909-.909L11,1,7.364,4.636l.909.909Z" transform="translate(-1 -1)"/></svg></div>
+                                    <div class="cwp-repeating-single-field-collapse"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg></div>
+                                    <div class="cwp-repeating-single-field-remove"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/></svg></div>
+                                  </div>
+                                  <div class="cwp-repeating-single-field-content">
+                                    <div class="cwp-field-container cwp-field-text form-group" data-name="service_title" data-type="text">
+                                      <label for="svc_title" data-i18n="fldTitle">Título</label>
+                                      <input type="text" id="svc_title" name="cwp_user_form[cwp_meta][services_fields][service_title][]" class="form-control" value="Glow Revuela">
+                                    </div>
+                                    <div class="cwp-field-container cwp-field-textarea form-group dmm-ext-2a" data-name="service_description" data-type="textarea">
+                                      <label for="svc_desc" data-i18n="fldDesc">Descripción</label>
+                                      <textarea id="svc_desc" name="cwp_user_form[cwp_meta][services_fields][service_description][]" class="form-control" rows="8">Decoración glow y luz UV, pintura y accesorios neón, purpurina, joyas, karaoke, juegos y dinamización musical.
+
+Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y dinamización musical. Vigilancia del parque de bolas. Espacio privado La Revuela. Hasta 23 niños en el precio base; niño extra +15 €. A partir de 24 niños, monitor adicional. Cancelación con más de 7 días: devolución íntegra; con menos de 7 días: no reembolsable.</textarea>
+                                    </div>
+                                    <div class="cwp-field-container cwp-field-number form-group" data-name="service_price" data-type="number">
+                                      <label for="svc_price" data-i18n="fldPrice">Precio</label>
+                                      <input type="number" id="svc_price" name="cwp_user_form[cwp_meta][services_fields][service_price][]" class="form-control" value="370">
+                                    </div>
+                                    <div class="cwp-field-container cwp-field-number form-group" data-name="service_duration" data-type="number">
+                                      <label for="svc_duration" data-i18n="fldDuration">Duración</label>
+                                      <input type="number" id="svc_duration" name="cwp_user_form[cwp_meta][services_fields][service_duration][]" class="form-control" value="180" placeholder="30 min, 60 min, 90min...">
+                                    </div>
+
+                                    <div class="cwp-field-container form-group dmm-ext-2b">
+                                      <label data-i18n="weekdayRates">Tarifa según día de la semana</label>
+                                      <p class="description" data-i18n="weekdayRatesHint"></p>
+                                      <div class="checkbox form-group">
+                                        <input type="checkbox" id="dyn-pricing-check" checked>
+                                        <label for="dyn-pricing-check" data-i18n="dynCheck">Activar precios distintos por día de la semana</label>
+                                      </div>
+                                      <div class="day-hours" id="dyn-pricing-panel">
+                                        <div id="day-rates">
+                                          <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
+                                            <li><select class="weekday"><option selected>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><select class="weekday"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option selected>Jueves</option><option>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><input type="number" class="form-control rate-price" value="350" min="0" aria-label="Precio"></li>
+                                            <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
+                                          </ul>
+                                          <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
+                                            <li><select class="weekday"><option selected>Viernes</option></select></li>
+                                            <li><input type="number" class="form-control" value="370" min="0" aria-label="Precio"></li>
+                                            <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
+                                          </ul>
+                                          <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
+                                            <li><select class="weekday"><option selected>Sábado</option></select></li>
+                                            <li><select class="weekday"><option selected>domingo</option></select></li>
+                                            <li><input type="number" class="form-control" value="390" min="0" aria-label="Precio"></li>
+                                            <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
+                                          </ul>
+                                        </div>
+                                        <button type="button" class="ybtn ybtn--small add-hours" id="add-day-rate"><span><i class="fa fa-plus-square"></i></span></button>
+                                      </div>
+                                    </div>
+
+                                    <div class="cwp-field-container form-group dmm-ext-2c">
+                                      <label data-i18n="extrasTitle">Servicios adicionales</label>
+                                      <div id="extra-rows">
+                                        <div class="cwp-field-container cwp-field-text form-group extra-row">
+                                          <input type="text" class="form-control" value="Niño extra">
+                                          <input type="number" class="form-control" value="15" min="0" style="margin-top:10px;">
+                                          <select class="form-control" style="margin-top:10px;"><option data-i18n="calcQty">Por cantidad</option><option data-i18n="calcOnce">Cargo único</option></select>
+                                          <button type="button" class="ybtn ybtn--small remove-extra" style="margin-top:10px;">×</button>
+                                        </div>
+                                        <div class="cwp-field-container cwp-field-text form-group extra-row">
+                                          <input type="text" class="form-control" value="Monitor adicional">
+                                          <input type="number" class="form-control" value="40" min="0" style="margin-top:10px;">
+                                          <select class="form-control" style="margin-top:10px;"><option data-i18n="calcQty">Por cantidad</option></select>
+                                          <button type="button" class="ybtn ybtn--small remove-extra" style="margin-top:10px;">×</button>
+                                        </div>
+                                      </div>
+                                      <button type="button" class="cwp-add-new-repeating-field" id="add-extra-row" data-i18n="addExtra">+ Añadir servicio adicional</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+
+                            </div>
+                            <button class="cwp-add-new-repeating-field" type="button" id="add-service-row" data-i18n="addRepeaterBtn">ABRIR HORARIO</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="spec-card">
-      <h4 data-i18n="spec2aTitle">Especificación técnica #2a — Rich Text</h4>
+      <h4 data-i18n="spec2Title">Especificación técnica #2 — Editor de servicios (ListingPro + CubeWP)</h4>
       <p data-i18n-html="spec2a"></p>
-    </div>
-
-    <div class="lp-dashboard-wrap">
-      <div class="lp-metabox spec-anchor">
-        <span class="spec-badge">#2b</span>
-        <div class="lp-metabox-head" data-i18n="basePrice">Precio base (€)</div>
-        <div class="lp-metabox-body">
-          <div class="lp-field">
-            <input type="number" value="100" min="0" step="1">
-          </div>
-          <label class="lp-field" style="display:flex;align-items:center;gap:8px;font-weight:400;">
-            <input type="checkbox" id="dyn-pricing-check" checked>
-            <span data-i18n="dynCheck">¿Precios distintos por día de la semana?</span>
-          </label>
-          <div id="dyn-pricing-panel">
-            <div id="day-rates">
-              <div class="pricing-row">
-                <div class="day-pills">
-                  <button type="button" class="on" data-dow="1">L</button>
-                  <button type="button" class="on" data-dow="2">M</button>
-                  <button type="button" class="on" data-dow="3">X</button>
-                  <button type="button" class="on" data-dow="4">J</button>
-                  <button type="button" data-dow="5">V</button>
-                  <button type="button" data-dow="6">S</button>
-                  <button type="button" data-dow="0">D</button>
-                </div>
-                <input type="number" class="rate-price" value="100" min="0" aria-label="Price">
-                <button type="button" class="lp-btn remove-rate">&times;</button>
-              </div>
-              <div class="pricing-row">
-                <div class="day-pills">
-                  <button type="button" class="on" data-dow="5">V</button>
-                </div>
-                <input type="number" value="130" min="0">
-                <button type="button" class="lp-btn remove-rate">&times;</button>
-              </div>
-              <div class="pricing-row">
-                <div class="day-pills">
-                  <button type="button" class="on" data-dow="6">S</button>
-                  <button type="button" class="on" data-dow="0">D</button>
-                </div>
-                <input type="number" value="160" min="0">
-                <button type="button" class="lp-btn remove-rate">&times;</button>
-              </div>
-            </div>
-            <button type="button" class="lp-btn lp-btn-dashed" id="add-day-rate" data-i18n="addDayRate">+ Añadir tarifa por días</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="spec-card">
-      <h4 data-i18n="spec2bTitle">Especificación técnica #2b — Precio por día</h4>
       <p data-i18n-html="spec2b"></p>
-    </div>
-
-    <div class="lp-dashboard-wrap">
-      <div class="lp-metabox spec-anchor">
-        <span class="spec-badge">#2c</span>
-        <div class="lp-metabox-head" data-i18n="extrasTitle">Cargos extras personalizables</div>
-        <div class="lp-metabox-body">
-          <div id="extra-rows">
-            <div class="extra-row">
-              <input type="text" value="Niño extra">
-              <input type="number" value="15" min="0">
-              <select><option data-i18n="calcQty">Por cantidad</option></select>
-              <button type="button" class="lp-btn">&times;</button>
-            </div>
-            <div class="extra-row">
-              <input type="text" value="Monitor adicional">
-              <input type="number" value="40" min="0">
-              <select><option data-i18n="calcQty">Por cantidad</option></select>
-              <button type="button" class="lp-btn">&times;</button>
-            </div>
-          </div>
-          <button type="button" class="lp-btn lp-btn-dashed" id="add-extra-row" data-i18n="addExtra">+ Añadir cargo extra</button>
-          <button type="button" class="lp-btn lp-btn-primary" style="margin-top:12px;" data-i18n="addServiceBtn">Añadir servicio</button>
-        </div>
-      </div>
-    </div>
-    <div class="spec-card">
-      <h4 data-i18n="spec2cTitle">Especificación técnica #2c — Extras</h4>
       <p data-i18n-html="spec2c"></p>
     </div>
   </section>
@@ -223,7 +236,7 @@
     <div class="frontend-preview">
       <article class="service-card">
         <div class="service-card-media">
-          <img src="revuela.jpg" alt="Ludoteca El Pitillito — servicio demo">
+          <img src="fiesta-neon-pitillito.jpg" alt="Ludoteca El Pitillito — Fiesta Neón (demo)">
           <div class="aspect-cota" data-i18n="cotaSquare">Imagen 1:1 estricta</div>
         </div>
         <div class="service-card-body">
@@ -241,21 +254,21 @@
 
       <div class="booking-widget" id="booking-widget">
         <div class="booking-widget-head" data-i18n="widgetTitle">Reserva — simulación</div>
-        <div class="booking-steps">
-          <div class="booking-step">
-            <h4 data-i18n="stepService">Paso 1 — Servicio</h4>
-            <select id="book-service" class="lp-field" style="max-width:100%;">
+        <div class="booking-panel">
+          <div class="booking-field">
+            <label for="book-service" data-i18n="lblService">Servicio</label>
+            <select id="book-service" class="form-control">
               <option value="party" data-i18n="svcParty">Fiesta Neón 3 h</option>
               <option value="room" data-i18n="svcRoom">Alquiler sala</option>
             </select>
           </div>
-          <div class="booking-step">
-            <h4 data-i18n="stepResource">Paso 2 — Sala / profesional</h4>
-            <select id="book-resource"></select>
+          <div class="booking-field">
+            <label for="book-resource" data-i18n="lblResource">Sala / profesional</label>
+            <select id="book-resource" class="form-control"></select>
           </div>
-          <div class="booking-step">
-            <h4 data-i18n="stepDate">Paso 3 — Fecha y horario</h4>
-            <p id="day-hint" style="font-size:13px;color:#666;margin:0 0 8px;"></p>
+          <div class="booking-field">
+            <label data-i18n="lblDate">Fecha y horario</label>
+            <p id="day-hint" class="booking-hint"></p>
             <div class="cal-grid" id="cal-grid"></div>
             <div class="slot-row" style="margin-top:14px;">
               <button type="button" data-slot="a" data-i18n="slot1">11:00 – 14:00</button>
@@ -263,18 +276,15 @@
               <button type="button" data-slot="c" data-i18n="slot3">12:00 – 21:00</button>
             </div>
           </div>
-          <div class="booking-step">
-            <h4 data-i18n="stepExtras">Paso 4 — Extras</h4>
+          <div class="booking-field">
+            <label data-i18n="lblExtras">Servicios adicionales</label>
             <div id="extras-container"></div>
           </div>
-          <div class="booking-step">
-            <h4 data-i18n="stepSummary">Paso 5 — Resumen</h4>
-            <div class="booking-summary">
-              <div class="line"><span data-i18n="dayRate">Tarifa del día</span><span id="sum-day-rate">289 €</span></div>
-              <div class="line"><span data-i18n="extrasSum">Extras</span><span id="sum-extras">0 €</span></div>
-              <div class="total"><span data-i18n="totalPay">Total</span><span id="sum-total">289 €</span></div>
-              <button type="button" class="btn-pay" data-i18n="btnBook">Continuar al pago (mock)</button>
-            </div>
+          <div class="booking-summary">
+            <div class="line"><span data-i18n="dayRate">Tarifa del día</span><span id="sum-day-rate">289 €</span></div>
+            <div class="line"><span data-i18n="extrasSum">Extras</span><span id="sum-extras">0 €</span></div>
+            <div class="total"><span data-i18n="totalPay">Total</span><span id="sum-total">289 €</span></div>
+            <button type="button" class="btn-pay" data-i18n="btnBook">Continuar al pago (mock)</button>
           </div>
         </div>
       </div>
@@ -288,6 +298,6 @@
 
 </main>
 
-<script src="script.js?v=20261015-demo"></script>
+<script src="script.js?v=20261015-prod-exact"></script>
 </body>
 </html>

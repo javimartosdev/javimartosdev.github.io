@@ -415,19 +415,31 @@ main {
   font-weight: 700;
   font-size: 15px;
 }
-.booking-steps { padding: 18px; }
-.booking-step {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+.booking-panel { padding: 18px; }
+.booking-field {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
   border-bottom: 1px solid #eee;
 }
-.booking-step:last-of-type { border-bottom: none; }
-.booking-step h4 {
-  margin: 0 0 10px;
+.booking-field label {
+  display: block;
   font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--lp-muted);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #333;
+}
+.booking-field .form-control {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  font-family: inherit;
+}
+.booking-hint {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 8px;
 }
 .cal-grid {
   display: grid;
@@ -571,6 +583,117 @@ main {
   font-size: 14px;
 }
 .deliverable-checklist li { margin-bottom: 6px; }
+
+/* ListingPro submit frame: production CSS handles form; only layout helpers here */
+.dmm-lp-submit-frame {
+  position: relative;
+  font-family: "Quicksand", Helvetica, Arial, sans-serif;
+  margin-bottom: 8px;
+}
+.dmm-lp-submit-frame .container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.spec-proposal-chrome .site-header,
+.spec-proposal-chrome .section-nav,
+.spec-proposal-chrome .section-block > h2,
+.spec-proposal-chrome .section-lead,
+.spec-proposal-chrome .milestone-banner,
+.spec-proposal-chrome .deliverable-checklist,
+.spec-proposal-chrome .spec-card,
+.spec-proposal-chrome .frontend-preview {
+  font-family: var(--font);
+}
+.dmm-ext-2a,
+.dmm-ext-2b,
+.dmm-ext-2c {
+  margin-top: 0;
+  padding-top: 0;
+  border: 0;
+}
+.dmm-day-rate-row {
+  margin-bottom: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+/* Match live edit-listing screenshot: icons stacked, no gray action bar */
+#backend-service .spec-badge { display: none; }
+#backend-service .dmm-lp-submit-frame,
+#backend-service .white-section,
+#backend-service .cwp-field-container label,
+#backend-service .form-control {
+  font-family: "Quicksand", Helvetica, Arial, sans-serif;
+}
+#backend-service .white-section {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 8px 4px 24px;
+}
+#backend-service .white-section-heading { display: none; }
+#backend-service .cwp-field-container > label,
+#backend-service .cwp-repeating-single-field-content label,
+#backend-service .submit_new_style .form-group label {
+  color: #111 !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  margin: 14px 0 8px;
+  display: block;
+}
+#backend-service .cwp-repeating-single-field {
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+#backend-service .cwp-repeating-single-field-actions {
+  background: transparent !important;
+  border: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  overflow: visible !important;
+}
+#backend-service .cwp-repeating-single-field-move,
+#backend-service .cwp-repeating-single-field-collapse,
+#backend-service .cwp-repeating-single-field-remove {
+  float: none !important;
+  display: block !important;
+  margin: 2px 0 !important;
+  width: 22px;
+  height: 22px;
+  color: #222;
+}
+#backend-service .cwp-repeating-single-field-actions.cubewp-collapse .cwp-repeating-single-field-collapse {
+  transform: none !important;
+  margin: 2px 0 !important;
+}
+#backend-service .cwp-repeating-single-field-content {
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 4px 0 8px !important;
+  background: transparent !important;
+}
+#backend-service .form-control,
+#backend-service .submit_new_style .form-control {
+  height: auto !important;
+  min-height: 42px;
+  border: 1px solid #d5d5d5 !important;
+  border-radius: 4px !important;
+  padding: 10px 12px !important;
+  font-size: 15px !important;
+  color: #333;
+  box-shadow: none !important;
+}
+#backend-service textarea.form-control,
+#backend-service .submit_new_style textarea.form-control {
+  height: auto !important;
+  min-height: 120px !important;
+}
+#backend-service .cwp-add-new-repeating-field {
+  margin-top: 16px;
+}
 
 @media (max-width: 768px) {
   .service-card { flex-direction: column; }
