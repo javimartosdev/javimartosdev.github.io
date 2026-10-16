@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261015-selects">
+  <link rel="stylesheet" href="styles.css?v=20261016-booking2">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -146,6 +146,14 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
                                       <input type="number" id="svc_duration" name="cwp_user_form[cwp_meta][services_fields][service_duration][]" class="form-control" value="180" placeholder="30 min, 60 min, 90min...">
                                     </div>
 
+                                    <div class="cwp-field-container form-group dmm-ext-seats">
+                                      <div class="checkbox form-group">
+                                        <input type="checkbox" id="seats-check">
+                                        <label for="seats-check" data-i18n="seatsCheck">Activar número de plazas</label>
+                                      </div>
+                                      <p class="description" id="seats-hint" data-i18n="seatsOffHint">Apagado: el precio no se multiplica por plazas.</p>
+                                    </div>
+
                                     <div class="cwp-field-container form-group dmm-ext-2b">
                                       <label data-i18n="weekdayRates">Tarifa según día de la semana</label>
                                       <p class="description" data-i18n="weekdayRatesHint"></p>
@@ -156,24 +164,25 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
                                       <div class="day-hours" id="dyn-pricing-panel">
                                         <div id="day-rates">
                                           <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
-                                            <li><select class="weekday"><option selected>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
-                                            <li><select class="weekday"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option selected>Jueves</option><option>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><span class="dmm-from" data-i18n="rangeFrom">de</span><select class="weekday from-day"><option selected>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><span class="dmm-to" data-i18n="rangeTo">a</span><select class="weekday to-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option selected>Jueves</option><option>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
                                             <li><input type="number" class="form-control rate-price" value="350" min="0" aria-label="Precio"></li>
                                             <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
                                           </ul>
                                           <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
-                                            <li><select class="weekday"><option selected>Viernes</option></select></li>
-                                            <li><input type="number" class="form-control" value="370" min="0" aria-label="Precio"></li>
+                                            <li><span class="dmm-from" data-i18n="rangeFrom">de</span><select class="weekday from-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option selected>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><span class="dmm-to" data-i18n="rangeTo">a</span><select class="weekday to-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option selected>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><input type="number" class="form-control rate-price" value="370" min="0" aria-label="Precio"></li>
                                             <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
                                           </ul>
                                           <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
-                                            <li><select class="weekday"><option selected>Sábado</option></select></li>
-                                            <li><select class="weekday"><option selected>domingo</option></select></li>
-                                            <li><input type="number" class="form-control" value="390" min="0" aria-label="Precio"></li>
+                                            <li><span class="dmm-from" data-i18n="rangeFrom">de</span><select class="weekday from-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option selected>Sábado</option><option>domingo</option></select></li>
+                                            <li><span class="dmm-to" data-i18n="rangeTo">a</span><select class="weekday to-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option selected>domingo</option></select></li>
+                                            <li><input type="number" class="form-control rate-price" value="390" min="0" aria-label="Precio"></li>
                                             <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
                                           </ul>
                                         </div>
-                                        <button type="button" class="ybtn ybtn--small add-hours" id="add-day-rate"><span><i class="fa fa-plus-square"></i></span></button>
+                                        <button type="button" class="dmm-add-plus" id="add-day-rate" data-i18n-aria="addDayRate" aria-label="Añadir tramo de días"><i class="fa fa-plus" aria-hidden="true"></i></button>
                                       </div>
                                     </div>
 
@@ -206,7 +215,6 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
                               <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
 
                             </div>
-                            <button class="cwp-add-new-repeating-field" type="button" id="add-service-row" data-i18n="addRepeaterBtn">ABRIR HORARIO</button>
                           </div>
                         </div>
                       </div>
@@ -255,49 +263,58 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
       <div class="booking-widget" id="booking-widget">
         <div class="booking-widget-head" data-i18n="widgetTitle">Reserva — simulación</div>
         <div class="booking-panel">
-          <div class="booking-field">
-            <label for="book-service" data-i18n="lblService">Servicio</label>
-            <select id="book-service" class="form-control">
-              <option value="party" data-i18n="svcParty">Fiesta Neón 3 h</option>
-              <option value="room" data-i18n="svcRoom">Alquiler sala</option>
-            </select>
-          </div>
-          <div class="booking-field">
-            <label for="book-resource" data-i18n="lblResource">Sala / profesional</label>
-            <select id="book-resource" class="form-control"></select>
-          </div>
-          <div class="booking-field">
-            <label data-i18n="lblDate">Fecha y horario</label>
-            <p id="day-hint" class="booking-hint"></p>
-            <div class="cal-grid" id="cal-grid"></div>
-            <div class="slot-row" style="margin-top:14px;">
-              <button type="button" data-slot="a" data-i18n="slot1">11:00 – 14:00</button>
-              <button type="button" data-slot="b" data-i18n="slot2">16:00 – 19:00</button>
-              <button type="button" data-slot="c" data-i18n="slot3">12:00 – 21:00</button>
+          <div id="booking-step-1">
+            <div class="booking-field">
+              <label for="book-service" data-i18n="lblService">Servicio</label>
+              <select id="book-service" class="form-control">
+                <option value="party" data-i18n="svcParty">Fiesta Neón 3 h</option>
+                <option value="room" data-i18n="svcRoom">Alquiler sala</option>
+                <option value="course" data-i18n="svcCourse">Taller de porteo</option>
+              </select>
             </div>
-          </div>
-          <div class="booking-field">
-            <label data-i18n="lblExtras">Servicios adicionales</label>
-            <div id="extras-container"></div>
-          </div>
-          <div class="lp-checkout-wrapper booking-summary">
-            <div class="lp-user-listings clearfix">
-              <div class="row lp-listing-clm">
-                <div class="col-md-4 col-xs-4">
-                  <span class="lp-booking-type" data-i18n="dayRate">Tarifa del día seleccionado</span>
-                  <p id="sum-day-rate">289 €</p>
-                </div>
-                <div class="col-md-4 col-xs-4">
-                  <span class="lp-booking-type" data-i18n="extrasSum">Suma de extras</span>
-                  <p id="sum-extras">0 €</p>
-                </div>
-                <div class="col-md-4 col-xs-4">
-                  <span class="lp-booking-type" data-i18n="totalPay">Total a pagar</span>
-                  <p id="sum-total">289 €</p>
-                </div>
+            <div class="booking-field">
+              <label for="book-resource" data-i18n="lblResource">Sala / profesional</label>
+              <select id="book-resource" class="form-control"></select>
+            </div>
+            <div class="booking-field">
+              <label data-i18n="lblDate">Fecha y horario</label>
+              <p id="day-hint" class="booking-hint"></p>
+              <div class="cal-grid" id="cal-grid"></div>
+              <div class="slot-row" style="margin-top:14px;">
+                <button type="button" data-slot="a" data-i18n="slot1">11:00 – 14:00</button>
+                <button type="button" data-slot="b" data-i18n="slot2">16:00 – 19:00</button>
+                <button type="button" data-slot="c" data-i18n="slot3">12:00 – 21:00</button>
               </div>
             </div>
-            <button type="button" class="lp-pay-publsh" data-i18n="btnBook">Continuar al pago (mock)</button>
+            <div class="booking-step-actions">
+              <button type="button" class="lp-pay-publsh" id="to-step-2" data-i18n="btnContinue">Continuar</button>
+            </div>
+          </div>
+          <div id="booking-step-2" class="hidden">
+            <button type="button" class="btn-back" id="back-step" data-i18n="btnBack">Atrás</button>
+            <div class="booking-field">
+              <label data-i18n="lblExtras">Servicios adicionales</label>
+              <div id="extras-container"></div>
+            </div>
+            <div class="booking-field hidden" id="seats-field">
+              <label data-i18n="lblSeats">Número de plazas</label>
+              <div class="stepper" id="seats-stepper">
+                <button type="button" data-delta="-1" aria-label="Menos">−</button>
+                <span id="seats-count">1</span>
+                <button type="button" data-delta="1" aria-label="Más">+</button>
+              </div>
+            </div>
+            <div class="lp-checkout-wrapper booking-summary">
+              <div class="lp-user-listings clearfix">
+                <div class="row lp-listing-clm">
+                  <div class="col-md-12 col-xs-12">
+                    <span class="lp-booking-type" data-i18n="totalPay">Total a pagar</span>
+                    <p id="sum-total">289 €</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="lp-pay-publsh" data-i18n="btnBook">Continuar al pago (mock)</button>
+            </div>
           </div>
         </div>
       </div>
@@ -311,6 +328,6 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
 
 </main>
 
-<script src="script.js?v=20261015-prod-exact"></script>
+<script src="script.js?v=20261016-booking"></script>
 </body>
 </html>

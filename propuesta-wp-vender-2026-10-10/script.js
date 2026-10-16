@@ -51,7 +51,11 @@
         "Misma idea que el selector de días del horario comercial: filas con días + importe. El total en reserva = tarifa del día + sala + extras.",
       dynCheck: "Activar precios distintos por día de la semana",
       addDayRate: "Añadir tramo de días",
-      addRepeaterBtn: "ABRIR HORARIO",
+      rangeFrom: "de",
+      rangeTo: "a",
+      seatsCheck: "Activar número de plazas",
+      seatsOffHint: "Apagado: el precio no se multiplica por plazas.",
+      seatsOnHint: "Encendido: el cliente elige plazas (mínimo 1) y el total se multiplica.",
       priceEur: "Precio (€)",
       extrasTitle: "Servicios adicionales",
       spec2Title: "Especificación técnica #2 — Editor de servicios (ListingPro + CubeWP)",
@@ -63,7 +67,7 @@
       spec2a:
         "<strong>#2a Rich text:</strong> el campo «Descripción» pasa de <code>textarea</code> a editor visual (como «Cuéntanos más»). HTML saneado en meta; ficha con <code>wp_kses_post</code>.",
       spec2b:
-        "<strong>#2b Precio por día:</strong> bloque nuevo bajo Duración. El cliente no elige tarifa manualmente: al elegir fecha en reserva, aplica la fila cuyos días coincidan. «Precio» nativo = referencia o lunes–jueves.",
+        "<strong>#2b Precio por día:</strong> cada fila es un tramo (de un día a otro) y un importe. El checkbox muestra u oculta las filas. Otro checkbox, número de plazas: apagado, el precio no se multiplica.",
       spec2c:
         "<strong>#2c Servicios adicionales:</strong> repetidor anidado (nombre, precio, tipo). No mezclar con EventPro/entradas. JSON en meta del servicio.",
       s3Title: "Frontend — Ficha y flujo de reserva",
@@ -78,15 +82,19 @@
       dayRate: "Tarifa del día seleccionado",
       extrasSum: "Suma de extras",
       totalPay: "Total a pagar",
+      btnContinue: "Continuar",
+      btnBack: "Atrás",
+      lblSeats: "Número de plazas",
       btnBook: "Continuar al pago (mock)",
       spec3Title: "Especificación técnica #3 — Widget de reserva",
-      spec3: "Flujo en modal o columna lateral ListingPro Bookings: servicio → recurso (listing meta) → calendario (precio día) → extras del servicio → total → Stripe.",
+      spec3: "Dos pantallas: servicio, sala y día; después extras y, si el servicio lo tiene activado, número de plazas (mínimo 1). Solo se muestra el total.",
       days: ["D", "L", "M", "X", "J", "V", "S"],
       daysLong: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
       chipSol: "Sala Sol",
       chipLuna: "Sala Luna",
       svcParty: "Fiesta Neón 3 h (precio base fijo)",
       svcRoom: "Alquiler de sala — Tarifa por día",
+      svcCourse: "Taller de porteo (precio por plaza)",
       slot1: "11:00 – 14:00",
       slot2: "16:00 – 19:00",
       slot3: "12:00 – 21:00 (bloque)",
@@ -143,7 +151,11 @@
         "Same pattern as business-hours day pickers: rows of days + amount. Booking total = day rate + room + add-ons.",
       dynCheck: "Enable different prices by weekday",
       addDayRate: "Add day range",
-      addRepeaterBtn: "ABRIR HORARIO",
+      rangeFrom: "from",
+      rangeTo: "to",
+      seatsCheck: "Enable number of seats",
+      seatsOffHint: "Off: the price is not multiplied by seats.",
+      seatsOnHint: "On: the customer picks seats (minimum 1) and the total is multiplied.",
       priceEur: "Price (€)",
       extrasTitle: "Additional services",
       extraName: "Add-on name",
@@ -155,7 +167,7 @@
       spec2a:
         "<strong>#2a Rich text:</strong> «Description» becomes a visual editor (like listing body). Sanitized HTML in meta; public page uses <code>wp_kses_post</code>.",
       spec2b:
-        "<strong>#2b Weekday price:</strong> new block under Duration. Customer does not pick a rate; calendar day selects the matching row. Native «Price» = reference or Mon–Thu default.",
+        "<strong>#2b Weekday price:</strong> each row is a range (from one weekday to another) plus an amount. The checkbox shows or hides the rows. A second checkbox, number of seats: off, the price is not multiplied.",
       spec2c:
         "<strong>#2c Add-ons:</strong> nested repeater (name, price, type). Not EventPro tickets. JSON in service meta.",
       s3Title: "Frontend — Service page & booking flow",
@@ -170,15 +182,19 @@
       dayRate: "Selected day rate",
       extrasSum: "Extras total",
       totalPay: "Total to pay",
+      btnContinue: "Continue",
+      btnBack: "Back",
+      lblSeats: "Number of seats",
       btnBook: "Continue to payment (mock)",
       spec3Title: "Technical spec #3 — Booking widget",
-      spec3: "Flow in ListingPro Bookings modal/sidebar: service → resource (listing meta) → calendar (day price) → service extras → total → Stripe.",
+      spec3: "Two screens: service, room and day; then extras and, if the service has it on, number of seats (minimum 1). Only the total is shown.",
       days: ["S", "M", "T", "W", "T", "F", "S"],
       daysLong: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       chipSol: "Sun Room",
       chipLuna: "Moon Room",
       svcParty: "Neon Party 3 h (fixed base price)",
       svcRoom: "Room rental — Day-based rate",
+      svcCourse: "Babywearing workshop (price per seat)",
       slot1: "11:00 – 14:00",
       slot2: "16:00 – 19:00",
       slot3: "12:00 – 21:00 (block)",
@@ -198,6 +214,7 @@
       id: "party",
       baseFixed: 289,
       dynamic: false,
+      useSeats: false,
       extras: [
         { id: "child", nameKey: "extraChild", price: 15, type: "qty" },
         { id: "monitor", nameKey: "extraMonitor", price: 40, type: "qty", minIfChild: true },
@@ -207,12 +224,20 @@
       id: "room",
       baseFixed: 100,
       dynamic: true,
+      useSeats: false,
       dayRates: [
         { days: [1, 2, 3, 4], price: 100 },
         { days: [5], price: 130 },
         { days: [0, 6], price: 160 },
       ],
       extras: [{ id: "clean", nameKey: "extraClean", price: 25, type: "once" }],
+    },
+    course: {
+      id: "course",
+      baseFixed: 45,
+      dynamic: false,
+      useSeats: true,
+      extras: [],
     },
   };
 
@@ -224,6 +249,7 @@
     selectedDow: null,
     selectedSlot: null,
     extras: { child: 0, monitor: 0, clean: false },
+    seats: 1,
   };
 
   function t(key) {
@@ -232,6 +258,9 @@
 
   function applyI18n() {
     document.documentElement.lang = lang === "es" ? "es" : "en";
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria")));
+    });
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       const val = t(key);
@@ -246,6 +275,11 @@
     document.querySelectorAll(".lang-toggle button").forEach((btn) => {
       btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
     });
+    const seatsHint = document.getElementById("seats-hint");
+    const seatsCheck = document.getElementById("seats-check");
+    if (seatsHint && seatsCheck) {
+      seatsHint.textContent = seatsCheck.checked ? t("seatsOnHint") : t("seatsOffHint");
+    }
     document.querySelectorAll("select option[data-i18n]").forEach((opt) => {
       opt.textContent = t(opt.getAttribute("data-i18n"));
     });
@@ -348,10 +382,18 @@
   function initServiceEditor() {
     const dyn = document.getElementById("dyn-pricing-check");
     const panel = document.getElementById("dyn-pricing-panel");
-    const dayRates = document.getElementById("day-rates");
     dyn?.addEventListener("change", () => {
-      dayRates?.classList.toggle("hidden", !dyn.checked);
+      panel?.classList.toggle("hidden", !dyn.checked);
     });
+
+    const seatsCheck = document.getElementById("seats-check");
+    const seatsHint = document.getElementById("seats-hint");
+    function syncSeatsHint() {
+      if (!seatsHint || !seatsCheck) return;
+      seatsHint.textContent = seatsCheck.checked ? t("seatsOnHint") : t("seatsOffHint");
+    }
+    seatsCheck?.addEventListener("change", syncSeatsHint);
+    syncSeatsHint();
 
     document.querySelectorAll("#services-repeater .cwp-repeating-single-field-actions").forEach((bar) => {
       bar.addEventListener("click", (e) => {
@@ -385,9 +427,22 @@
       if (!wrap) return;
       const ul = document.createElement("ul");
       ul.className = "hours-select clearfix inline-layout up-4 dmm-day-rate-row";
-      const liDay = document.createElement("li");
-      liDay.appendChild(makeDaySelect());
-      ul.appendChild(liDay);
+      const liFrom = document.createElement("li");
+      const fromLabel = document.createElement("span");
+      fromLabel.className = "dmm-from";
+      fromLabel.textContent = t("rangeFrom");
+      liFrom.appendChild(fromLabel);
+      liFrom.appendChild(makeDaySelect());
+      ul.appendChild(liFrom);
+      const liTo = document.createElement("li");
+      const toLabel = document.createElement("span");
+      toLabel.className = "dmm-to";
+      toLabel.textContent = t("rangeTo");
+      liTo.appendChild(toLabel);
+      const toSel = makeDaySelect();
+      toSel.selectedIndex = 3;
+      liTo.appendChild(toSel);
+      ul.appendChild(liTo);
       const liPrice = document.createElement("li");
       const price = document.createElement("input");
       price.type = "number";
@@ -506,7 +561,27 @@
       });
     });
     document.getElementById("open-booking")?.addEventListener("click", () => {
+      document.getElementById("booking-step-2")?.classList.add("hidden");
+      document.getElementById("booking-step-1")?.classList.remove("hidden");
       document.getElementById("booking-widget")?.scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById("to-step-2")?.addEventListener("click", () => {
+      document.getElementById("booking-step-1")?.classList.add("hidden");
+      document.getElementById("booking-step-2")?.classList.remove("hidden");
+    });
+    document.getElementById("back-step")?.addEventListener("click", () => {
+      document.getElementById("booking-step-2")?.classList.add("hidden");
+      document.getElementById("booking-step-1")?.classList.remove("hidden");
+    });
+    document.getElementById("seats-stepper")?.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      let n = (state.seats || 1) + parseInt(btn.dataset.delta, 10);
+      if (n < 1) n = 1;
+      state.seats = n;
+      const count = document.getElementById("seats-count");
+      if (count) count.textContent = String(n);
+      updateSummary();
     });
     document.getElementById("extras-container")?.addEventListener("click", (e) => {
       const tBtn = e.target.closest(".stepper button");
@@ -578,10 +653,10 @@
 
   function updateSummary() {
     const svc = getService();
-    const dayEl = document.getElementById("sum-day-rate");
-    const extEl = document.getElementById("sum-extras");
     const totEl = document.getElementById("sum-total");
-    if (!dayEl) return;
+    const seatsField = document.getElementById("seats-field");
+    if (seatsField) seatsField.classList.toggle("hidden", !svc.useSeats);
+    if (!totEl) return;
 
     let base = svc.baseFixed;
     if (state.selectedDow !== null) base = priceForDay(svc, state.selectedDow);
@@ -596,9 +671,8 @@
       }
     });
 
-    const total = base + extrasTotal;
-    dayEl.textContent = base + " €";
-    extEl.textContent = extrasTotal + " €";
+    const seats = svc.useSeats ? state.seats || 1 : 1;
+    const total = (base + extrasTotal) * seats;
     totEl.textContent = total + " €";
 
     const hint = document.getElementById("day-hint");
