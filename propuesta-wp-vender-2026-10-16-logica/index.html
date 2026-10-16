@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Servicios — funcionalidad básica</title>
+  <style>
+    body { font: 16px/1.45 system-ui, sans-serif; color: #111; background: #fff; margin: 0; }
+    main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+    h1 { font-size: 22px; margin: 0 0 8px; }
+    h2 { font-size: 18px; margin: 28px 0 8px; }
+    p, li { margin: 0 0 8px; }
+    ol, ul { margin: 0 0 12px; padding-left: 1.2em; }
+    .lang { float: right; }
+    .lang button { font: inherit; margin-left: 4px; }
+    .lang button[aria-pressed="true"] { font-weight: 700; }
+    .choice { display: block; border: 1px solid #111; padding: 10px 12px; margin: 8px 0; color: inherit; text-decoration: none; }
+    .choice strong { display: block; }
+    .note { border: 1px solid #111; padding: 10px 12px; margin: 16px 0; }
+    .box { border: 1px solid #111; padding: 12px; margin: 12px 0; }
+    label { display: block; font-weight: 700; margin: 10px 0 4px; }
+    input, select, button { font: inherit; }
+    .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+    .days button, .slots button { margin: 0 4px 4px 0; }
+    .days button[aria-pressed="true"], .slots button[aria-pressed="true"] { font-weight: 700; outline: 2px solid #111; }
+    .total { font-size: 20px; font-weight: 700; margin: 12px 0 0; }
+    .hidden { display: none; }
+    table { border-collapse: collapse; width: 100%; margin: 8px 0 16px; }
+    th, td { border: 1px solid #111; padding: 6px 8px; text-align: left; vertical-align: top; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="lang">
+    <button type="button" id="btn-es" aria-pressed="true">ES</button>
+    <button type="button" id="btn-en" aria-pressed="false">EN</button>
+  </div>
+
+  <article id="lang-es">
+    <h1>Servicios — funcionalidad básica</h1>
+    <p>Solo la lógica. Las pantallas que ya existen se quedan. No hay encargo de diseño.</p>
+
+    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261016-booking2">
+      <strong>Maqueta visual — CHECK</strong>
+      La que ya está revisada. No implementarla como cambio de diseño. Sirve de referencia.
+    </a>
+    <a class="choice" href="#reglas">
+      <strong>Esta página — la que hay que implementar</strong>
+      Reglas de negocio, con los mismos datos de ejemplo.
+    </a>
+
+    <div class="note">
+      <strong>Fuera de esto:</strong> eventos, entradas, un calendario nuevo, y cualquier cambio visual. El calendario de reservas que ya tiene la web se usa tal cual. El día elegido aplica solo el precio.
+    </div>
+
+    <h2 id="reglas">1. Qué se guarda en cada servicio</h2>
+    <p>Dentro de cada fila del repetidor de servicios que ya existe, debajo de Título, Descripción, Precio y Duración.</p>
+    <ul>
+      <li>La descripción pasa a texto enriquecido. En la ficha se muestra ese HTML.</li>
+      <li><strong>Activar número de plazas</strong> (apagado por defecto). Apagado: en la reserva no sale el campo y el precio no se multiplica. Encendido: el cliente elige plazas, mínimo 1, y el total se multiplica. El botón de restar tiene que poder volver a 1.</li>
+      <li><strong>Activar precios distintos por día de la semana.</strong> Apagado: se ocultan las filas y la reserva usa el Precio del servicio. Encendido: filas «de un día a otro» + importe. Un botón <strong>+</strong> añade fila. Se puede quitar una fila. Al reservar, el día del calendario elige la fila que contiene ese día de la semana. El cliente no elige la tarifa a mano.</li>
+      <li><strong>Servicios adicionales:</strong> nombre, precio, y tipo (por cantidad, o cargo único). Solo los de ese servicio.</li>
+    </ul>
+    <p>En este bloque no va el botón «Abrir horario». Guardar sigue siendo el botón que ya tiene el formulario del anuncio.</p>
+    <p>La sala o el profesional es el recurso que se ocupa. No suma un segundo precio. El precio lo lleva el servicio.</p>
+
+    <h2>2. Cómo se calcula la reserva</h2>
+    <p>Dos pasos, en el flujo de reserva que ya existe.</p>
+    <ol>
+      <li><strong>Pantalla 1.</strong> Servicio, recurso (sala o profesional del anuncio), día y hora. El jueves coge el precio del jueves si hay tarifas por día.</li>
+      <li><strong>Pantalla 2.</strong> Los servicios adicionales de ese servicio. Si el servicio tiene plazas activadas, el número de plazas. Después, solo el <strong>total</strong>. Sin línea de tarifa del día y sin línea de extras.</li>
+    </ol>
+    <p><strong>Total</strong> = (precio del día, o el Precio del servicio si no hay tarifas) + extras. Si las plazas están activadas, eso se multiplica por las plazas. Si no, no se multiplica.</p>
+
+    <h2>3. Ejemplo (datos inventados)</h2>
+    <table>
+      <thead>
+        <tr><th>Servicio</th><th>Plazas</th><th>Precio</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fiesta Neón</td>
+          <td>No</td>
+          <td>289 € siempre. Extras: niño extra 15 € por unidad, monitor 40 € por unidad.</td>
+        </tr>
+        <tr>
+          <td>Alquiler de sala</td>
+          <td>No</td>
+          <td>De lunes a jueves 100 €. Viernes 130 €. De sábado a domingo 160 €. Extra: limpieza 25 € una vez.</td>
+        </tr>
+        <tr>
+          <td>Taller de porteo</td>
+          <td>Sí, mínimo 1</td>
+          <td>45 € por plaza. Sin extras.</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>Fiesta Neón, un jueves, 1 niño extra: 289 + 15 = <strong>304 €</strong>. Aunque hubiera 2 personas, no se multiplica.</li>
+      <li>Alquiler de sala, un jueves, sin limpieza: <strong>100 €</strong>. Un sábado: <strong>160 €</strong>.</li>
+      <li>Taller, 2 plazas: 45 × 2 = <strong>90 €</strong>. Al bajar a 1: <strong>45 €</strong>. No baja de 1.</li>
+    </ul>
+
+    <h2>4. Probar la lógica</h2>
+    <p>Esto no es una pantalla de la web. Sirve para comprobar las cuentas.</p>
+  </article>
+
+  <article id="lang-en" class="hidden">
+    <h1>Services — basic functionality</h1>
+    <p>Business rules only. Keep the screens that already exist. This is not a design request.</p>
+
+    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261016-booking2">
+      <strong>Visual mock — CHECK</strong>
+      Already reviewed. Do not implement it as a redesign. Reference only.
+    </a>
+    <a class="choice" href="#rules">
+      <strong>This page — what to build</strong>
+      The rules, with the same sample data.
+    </a>
+
+    <div class="note">
+      <strong>Out of scope:</strong> events, tickets, a new calendar, and any visual change. Use the booking calendar the site already has. The chosen day only selects the price.
+    </div>
+
+    <h2 id="rules">1. What each service stores</h2>
+    <p>Inside each existing service-repeater row, below Title, Description, Price and Duration.</p>
+    <ul>
+      <li>Description becomes rich text and is shown on the public page.</li>
+      <li><strong>Enable number of seats</strong> (off by default). Off: hide the field and do not multiply the price. On: the customer picks seats, minimum 1, and the total is multiplied. Minus must be able to return to 1.</li>
+      <li><strong>Enable different prices by weekday.</strong> Off: hide the rows and use the service Price. On: rows of “from weekday to weekday” plus an amount. A <strong>+</strong> button adds a row. A row can be removed. On booking, the calendar day’s weekday selects the matching row. The customer does not pick the rate.</li>
+      <li><strong>Additional services:</strong> name, price, and type (per quantity, or one-time). Only those of that service.</li>
+    </ul>
+    <p>Do not put an “Open hours” button in this block. Saving stays the listing form’s existing save button.</p>
+    <p>The room or the professional is the resource being booked. It does not add a second price. The service carries the price.</p>
+
+    <h2>2. How the booking total is calculated</h2>
+    <p>Two steps, inside the booking flow that already exists.</p>
+    <ol>
+      <li><strong>Screen 1.</strong> Service, resource (room or professional on the listing), day and time. A Thursday uses Thursday’s price when weekday rates are on.</li>
+      <li><strong>Screen 2.</strong> That service’s additional services. If seats are enabled, the number of seats. Then the <strong>total</strong> only. No day-rate line and no extras line.</li>
+    </ol>
+    <p><strong>Total</strong> = (day price, or the service Price when weekday rates are off) + extras. If seats are enabled, multiply by seats. If not, do not multiply.</p>
+
+    <h2>3. Sample (fictional data)</h2>
+    <table>
+      <thead>
+        <tr><th>Service</th><th>Seats</th><th>Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Neon party</td>
+          <td>No</td>
+          <td>289 € always. Extras: extra child 15 € each, extra monitor 40 € each.</td>
+        </tr>
+        <tr>
+          <td>Room rental</td>
+          <td>No</td>
+          <td>Monday–Thursday 100 €. Friday 130 €. Saturday–Sunday 160 €. Extra: cleaning 25 € once.</td>
+        </tr>
+        <tr>
+          <td>Babywearing workshop</td>
+          <td>Yes, minimum 1</td>
+          <td>45 € per seat. No extras.</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>Neon party, a Thursday, 1 extra child: 289 + 15 = <strong>304 €</strong>. Two people do not multiply it.</li>
+      <li>Room rental, a Thursday, no cleaning: <strong>100 €</strong>. A Saturday: <strong>160 €</strong>.</li>
+      <li>Workshop, 2 seats: 45 × 2 = <strong>90 €</strong>. Back to 1: <strong>45 €</strong>. It cannot go below 1.</li>
+    </ul>
+
+    <h2>4. Try the logic</h2>
+    <p>This is not a site screen. It only checks the numbers.</p>
+  </article>
+
+  <div class="box" id="editor">
+    <strong data-es="Editor del servicio (esquema del alquiler de sala)" data-en="Service editor (room-rental outline)">Editor del servicio (esquema del alquiler de sala)</strong>
+    <p class="note" data-es="Las filas de aquí son el esquema. La prueba de abajo usa la tabla y no lee este formulario." data-en="The rows here are the outline. The try-out below uses the table and does not read this form.">Las filas de aquí son el esquema. La prueba de abajo usa la tabla y no lee este formulario.</p>
+    <label><input type="checkbox" id="seats-flag"> <span data-es="Activar número de plazas" data-en="Enable number of seats">Activar número de plazas</span></label>
+    <label><input type="checkbox" id="days-flag" checked> <span data-es="Activar precios distintos por día de la semana" data-en="Enable different prices by weekday">Activar precios distintos por día de la semana</span></label>
+    <div id="day-rows">
+      <div class="row rate-row">
+        <span data-es="de" data-en="from">de</span>
+        <select class="from" data-init="1"></select>
+        <span data-es="a" data-en="to">a</span>
+        <select class="to" data-init="4"></select>
+        <input class="price" type="number" value="100" min="0">
+        <button type="button" class="del">×</button>
+      </div>
+      <div class="row rate-row">
+        <span data-es="de" data-en="from">de</span>
+        <select class="from" data-init="5"></select>
+        <span data-es="a" data-en="to">a</span>
+        <select class="to" data-init="5"></select>
+        <input class="price" type="number" value="130" min="0">
+        <button type="button" class="del">×</button>
+      </div>
+      <div class="row rate-row">
+        <span data-es="de" data-en="from">de</span>
+        <select class="from" data-init="6"></select>
+        <span data-es="a" data-en="to">a</span>
+        <select class="to" data-init="0"></select>
+        <input class="price" type="number" value="160" min="0">
+        <button type="button" class="del">×</button>
+      </div>
+    </div>
+    <button type="button" id="add-rate">+</button>
+  </div>
+
+  <div class="box" id="book">
+    <strong data-es="Reserva" data-en="Booking">Reserva</strong>
+    <div id="step-1">
+      <label for="svc" data-es="Servicio" data-en="Service">Servicio</label>
+      <select id="svc">
+        <option value="party" data-es="Fiesta Neón" data-en="Neon party">Fiesta Neón</option>
+        <option value="room" data-es="Alquiler de sala" data-en="Room rental">Alquiler de sala</option>
+        <option value="course" data-es="Taller de porteo" data-en="Babywearing workshop">Taller de porteo</option>
+      </select>
+      <label for="res" data-es="Sala o profesional" data-en="Room or professional">Sala o profesional</label>
+      <select id="res">
+        <option data-es="Sala Sol" data-en="Sun room">Sala Sol</option>
+        <option data-es="Sala Luna" data-en="Moon room">Sala Luna</option>
+      </select>
+      <label data-es="Día (el calendario que ya existe)" data-en="Day (the calendar that already exists)">Día (el calendario que ya existe)</label>
+      <div class="days" id="days"></div>
+      <label data-es="Hora" data-en="Time">Hora</label>
+      <div class="slots" id="slots"></div>
+      <p><button type="button" id="next" data-es="Continuar" data-en="Continue">Continuar</button></p>
+    </div>
+    <div id="step-2" class="hidden">
+      <p><button type="button" id="back" data-es="Atrás" data-en="Back">Atrás</button></p>
+      <div id="extras"></div>
+      <div id="seats-box" class="hidden">
+        <label data-es="Número de plazas" data-en="Number of seats">Número de plazas</label>
+        <div class="row">
+          <button type="button" id="seat-minus">−</button>
+          <span id="seat-n">1</span>
+          <button type="button" id="seat-plus">+</button>
+        </div>
+      </div>
+      <p class="total"><span data-es="Total" data-en="Total">Total</span> <span id="total">0 €</span></p>
+    </div>
+  </div>
+</main>
+<script>
+(function () {
+  var lang = "es";
+  var DAYS = {
+    es: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+    en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  };
+  var SLOTS = ["11:00–14:00", "16:00–19:00", "12:00–21:00"];
+  var services = {
+    party: { base: 289, seats: false, rates: null, extras: [
+      { name: { es: "Niño extra", en: "Extra child" }, price: 15, qty: 0 },
+      { name: { es: "Monitor adicional", en: "Extra monitor" }, price: 40, qty: 0 }
+    ]},
+    room: { base: 100, seats: false, rates: [
+      { from: 1, to: 4, price: 100 },
+      { from: 5, to: 5, price: 130 },
+      { from: 6, to: 0, price: 160 }
+    ], extras: [
+      { name: { es: "Limpieza", en: "Cleaning" }, price: 25, once: false }
+    ]},
+    course: { base: 45, seats: true, rates: null, extras: [] }
+  };
+  var day = 4;
+  var seats = 1;
+
+  function text(el) {
+    var v = el.getAttribute("data-" + lang);
+    if (v) el.textContent = v;
+  }
+
+  function applyLang() {
+    document.documentElement.lang = lang;
+    document.getElementById("lang-es").classList.toggle("hidden", lang !== "es");
+    document.getElementById("lang-en").classList.toggle("hidden", lang !== "en");
+    document.getElementById("btn-es").setAttribute("aria-pressed", lang === "es");
+    document.getElementById("btn-en").setAttribute("aria-pressed", lang === "en");
+    document.querySelectorAll("[data-es]").forEach(text);
+    fillRateSelects();
+    buildDays();
+    renderExtras();
+    updateTotal();
+  }
+
+  function weekdayOptions(select, selected) {
+    var current = select.value === "" ? selected : Number(select.value);
+    if (Number.isNaN(current)) current = selected;
+    select.innerHTML = "";
+    DAYS[lang].forEach(function (name, i) {
+      var opt = document.createElement("option");
+      opt.value = String(i);
+      opt.textContent = name;
+      if (i === current) opt.selected = true;
+      select.appendChild(opt);
+    });
+  }
+
+  function fillRateSelects() {
+    document.querySelectorAll("#day-rows .rate-row").forEach(function (row) {
+      var from = row.querySelector(".from");
+      var to = row.querySelector(".to");
+      var fromVal = from.options.length ? Number(from.value) : Number(from.getAttribute("data-init") || from.querySelector("option").value);
+      var toVal = to.options.length ? Number(to.value) : Number(to.getAttribute("data-init") || to.querySelector("option").value);
+      from.setAttribute("data-init", String(fromVal));
+      to.setAttribute("data-init", String(toVal));
+      from.value = "";
+      to.value = "";
+      weekdayOptions(from, fromVal);
+      weekdayOptions(to, toVal);
+    });
+  }
+
+  function buildDays() {
+    var wrap = document.getElementById("days");
+    wrap.innerHTML = "";
+    DAYS[lang].forEach(function (name, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = name.slice(0, 3);
+      b.setAttribute("aria-pressed", i === day ? "true" : "false");
+      b.addEventListener("click", function () {
+        day = i;
+        buildDays();
+        updateTotal();
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function inRange(dow, from, to) {
+    if (from <= to) return dow >= from && dow <= to;
+    return dow >= from || dow <= to;
+  }
+
+  function dayPrice(svc) {
+    if (!svc.rates) return svc.base;
+    for (var i = 0; i < svc.rates.length; i++) {
+      if (inRange(day, svc.rates[i].from, svc.rates[i].to)) return svc.rates[i].price;
+    }
+    return svc.base;
+  }
+
+  function renderExtras() {
+    var svc = services[document.getElementById("svc").value];
+    var wrap = document.getElementById("extras");
+    wrap.innerHTML = "";
+    svc.extras.forEach(function (ex, idx) {
+      var line = document.createElement("div");
+      line.className = "row";
+      if (ex.once === false || ex.qty === undefined && ex.once !== undefined) {
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = !!ex.once;
+        cb.addEventListener("change", function () { ex.once = cb.checked; updateTotal(); });
+        line.appendChild(cb);
+        line.appendChild(document.createTextNode(" " + ex.name[lang] + " +" + ex.price + " €"));
+      } else {
+        line.appendChild(document.createTextNode(ex.name[lang] + " +" + ex.price + " €"));
+        var minus = document.createElement("button");
+        minus.type = "button";
+        minus.textContent = "−";
+        var n = document.createElement("span");
+        n.textContent = String(ex.qty);
+        var plus = document.createElement("button");
+        plus.type = "button";
+        plus.textContent = "+";
+        minus.addEventListener("click", function () {
+          if (ex.qty > 0) ex.qty -= 1;
+          n.textContent = String(ex.qty);
+          updateTotal();
+        });
+        plus.addEventListener("click", function () {
+          ex.qty += 1;
+          n.textContent = String(ex.qty);
+          updateTotal();
+        });
+        line.appendChild(minus);
+        line.appendChild(n);
+        line.appendChild(plus);
+      }
+      wrap.appendChild(line);
+    });
+    document.getElementById("seats-box").classList.toggle("hidden", !svc.seats);
+  }
+
+  function updateTotal() {
+    var svc = services[document.getElementById("svc").value];
+    var extras = 0;
+    svc.extras.forEach(function (ex) {
+      if (ex.qty === undefined) extras += ex.once ? ex.price : 0;
+      else extras += ex.qty * ex.price;
+    });
+    var total = dayPrice(svc) + extras;
+    if (svc.seats) total *= seats;
+    document.getElementById("total").textContent = total + " €";
+    document.getElementById("seat-n").textContent = String(seats);
+  }
+
+  document.getElementById("days-flag").addEventListener("change", function (e) {
+    document.getElementById("day-rows").classList.toggle("hidden", !e.target.checked);
+    document.getElementById("add-rate").classList.toggle("hidden", !e.target.checked);
+  });
+
+  document.getElementById("add-rate").addEventListener("click", function () {
+    var row = document.createElement("div");
+    row.className = "row rate-row";
+    row.innerHTML = '<span data-es="de" data-en="from"></span><select class="from" data-init="1"></select><span data-es="a" data-en="to"></span><select class="to" data-init="4"></select><input class="price" type="number" value="0" min="0"><button type="button" class="del">×</button>';
+    row.querySelector(".del").addEventListener("click", function () { row.remove(); });
+    document.getElementById("day-rows").appendChild(row);
+    text(row.querySelector("[data-es]"));
+    text(row.querySelectorAll("[data-es]")[1]);
+    fillRateSelects();
+  });
+
+  document.querySelectorAll("#day-rows .del").forEach(function (btn) {
+    btn.addEventListener("click", function () { btn.closest(".rate-row").remove(); });
+  });
+
+  document.getElementById("svc").addEventListener("change", function () {
+    seats = 1;
+    renderExtras();
+    updateTotal();
+  });
+  document.getElementById("next").addEventListener("click", function () {
+    document.getElementById("step-1").classList.add("hidden");
+    document.getElementById("step-2").classList.remove("hidden");
+  });
+  document.getElementById("back").addEventListener("click", function () {
+    document.getElementById("step-2").classList.add("hidden");
+    document.getElementById("step-1").classList.remove("hidden");
+  });
+  document.getElementById("seat-minus").addEventListener("click", function () {
+    if (seats > 1) seats -= 1;
+    updateTotal();
+  });
+  document.getElementById("seat-plus").addEventListener("click", function () {
+    seats += 1;
+    updateTotal();
+  });
+  document.getElementById("btn-es").addEventListener("click", function () { lang = "es"; applyLang(); });
+  document.getElementById("btn-en").addEventListener("click", function () { lang = "en"; applyLang(); });
+
+  var slots = document.getElementById("slots");
+  SLOTS.forEach(function (label) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = label;
+    b.addEventListener("click", function () {
+      slots.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      b.setAttribute("aria-pressed", "true");
+    });
+    slots.appendChild(b);
+  });
+
+  applyLang();
+})();
+</script>
+</body>
+</html>
