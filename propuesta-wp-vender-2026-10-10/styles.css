@@ -432,9 +432,19 @@ main {
   width: 100%;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
-  padding: 10px;
+  padding: 8px 32px 8px 12px;
   font-size: 14px;
   font-family: inherit;
+  height: auto;
+  min-height: 44px;
+  line-height: 24px;
+  box-sizing: border-box;
+}
+#frontend-booking select.form-control {
+  height: 44px;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 42px;
 }
 .booking-hint {
   font-size: 13px;
