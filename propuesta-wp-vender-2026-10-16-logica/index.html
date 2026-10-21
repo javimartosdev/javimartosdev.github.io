@@ -40,9 +40,9 @@
     <h1>Servicios — funcionalidad básica</h1>
     <p>Solo la lógica. Las pantallas que ya existen se quedan. No hay encargo de diseño.</p>
 
-    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261016-booking2">
-      <strong>Maqueta visual — CHECK</strong>
-      La que ya está revisada. No implementarla como cambio de diseño. Sirve de referencia.
+    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261021-eventos#eventos">
+      <strong>Maqueta visual</strong>
+      Servicios en CHECK. Eventos, sección 4, es lo nuevo.
     </a>
     <a class="choice" href="#reglas">
       <strong>Esta página — la que hay que implementar</strong>
@@ -50,7 +50,7 @@
     </a>
 
     <div class="note">
-      <strong>Fuera de esto:</strong> eventos, entradas, un calendario nuevo, y cualquier cambio visual. El calendario de reservas que ya tiene la web se usa tal cual. El día elegido aplica solo el precio.
+      <strong>Servicios:</strong> no cambian. El calendario de reservas que ya tiene la web se usa tal cual. Los eventos van en el apartado 5.
     </div>
 
     <h2 id="reglas">1. Qué se guarda en cada servicio</h2>
@@ -101,7 +101,32 @@
       <li>Taller, 2 plazas: 45 × 2 = <strong>90 €</strong>. Al bajar a 1: <strong>45 €</strong>. No baja de 1.</li>
     </ul>
 
-    <h2>4. Probar la lógica</h2>
+    <h2 id="eventos">5. Eventos</h2>
+    <p>Aparte del servicio. El profesional no ve opciones que no ha encendido.</p>
+    <ul>
+      <li><strong>Plantilla,</strong> arriba del todo, opcional: Taller/Charla, Fiesta/Ludoteca, Espectáculo/Teatro, Campamento. Solo rellena valores por defecto. Se puede cambiar todo después.</li>
+      <li><strong>Fechas,</strong> una sola opción:
+        <ul>
+          <li>Un día y una hora.</li>
+          <li>Varios pases el mismo día. El profesional añade horas (por ejemplo 12:30 y 17:00). El cupo es de cada pase, no del día.</li>
+          <li>Varios días seguidos (campamento): fecha de inicio y fecha de fin.</li>
+        </ul>
+      </li>
+      <li><strong>Salas,</strong> apagado por defecto. Apagado: un campo, plazas disponibles. Encendido («¿Tu local divide el aforo por salas?»): salas con su cupo, como Sala Sol y Sala Luna. El cliente elige sala.</li>
+      <li><strong>Entrada base,</strong> una de estas:
+        <ul>
+          <li>Precio por niño, e incluye 1 adulto gratis.</li>
+          <li>Precio por persona: todos pagan.</li>
+          <li>Precio por pack familiar o pareja.</li>
+          <li>Gratuito: inscripción o acceso libre. No pide precio.</li>
+        </ul>
+      </li>
+      <li><strong>Suplemento,</strong> apagado por defecto. Encendido: nombre y precio (adulto extra, hermano con descuento).</li>
+      <li><strong>Avisos de un clic,</strong> sin escribirlos en la descripción: Incluye materiales, Obligatorio calcetines, Acceso con carrito, Adulto en sala. Se pueden marcar varios. Salen en la ficha tal cual.</li>
+    </ul>
+    <p>Ejemplo de teatro: plantilla Espectáculo, día 17 de octubre, pases 12:30 y 17:00, 40 plazas en cada pase, 10 € por persona, sin salas. Ejemplo de ludoteca: plantilla Fiesta, salas Sol (12) y Luna (13), pack familiar 89 €.</p>
+
+    <h2>6. Probar la lógica de servicios</h2>
     <p>Esto no es una pantalla de la web. Sirve para comprobar las cuentas.</p>
   </article>
 
@@ -109,9 +134,9 @@
     <h1>Services — basic functionality</h1>
     <p>Business rules only. Keep the screens that already exist. This is not a design request.</p>
 
-    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261016-booking2">
-      <strong>Visual mock — CHECK</strong>
-      Already reviewed. Do not implement it as a redesign. Reference only.
+    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261021-eventos#eventos">
+      <strong>Visual mock</strong>
+      Services stay CHECK. Events, section 4, are the new part.
     </a>
     <a class="choice" href="#rules">
       <strong>This page — what to build</strong>
@@ -119,7 +144,7 @@
     </a>
 
     <div class="note">
-      <strong>Out of scope:</strong> events, tickets, a new calendar, and any visual change. Use the booking calendar the site already has. The chosen day only selects the price.
+      <strong>Services</strong> do not change. Use the booking calendar the site already has. Events are in section 5.
     </div>
 
     <h2 id="rules">1. What each service stores</h2>
@@ -170,7 +195,32 @@
       <li>Workshop, 2 seats: 45 × 2 = <strong>90 €</strong>. Back to 1: <strong>45 €</strong>. It cannot go below 1.</li>
     </ul>
 
-    <h2>4. Try the logic</h2>
+    <h2 id="events">5. Events</h2>
+    <p>Separate from the service. The professional does not see options they have not switched on.</p>
+    <ul>
+      <li><strong>Template,</strong> at the top, optional: Workshop/Talk, Party/Play centre, Show/Theatre, Camp. It only fills defaults. Everything can be changed afterwards.</li>
+      <li><strong>Dates,</strong> one choice:
+        <ul>
+          <li>One day and one time.</li>
+          <li>Several showtimes on the same day. The professional adds times (for example 12:30 and 17:00). Capacity is per showtime, not per day.</li>
+          <li>Several days in a row (camp): start date and end date.</li>
+        </ul>
+      </li>
+      <li><strong>Rooms,</strong> off by default. Off: one field, places available. On (“Does your venue split capacity by room?”): rooms with their own capacity, such as Sun room and Moon room. The customer picks a room.</li>
+      <li><strong>Base ticket,</strong> one of these:
+        <ul>
+          <li>Price per child, and it includes 1 adult free.</li>
+          <li>Price per person: everyone pays.</li>
+          <li>Family pack or couple price.</li>
+          <li>Free: sign-up or open access. No price is asked.</li>
+        </ul>
+      </li>
+      <li><strong>Supplement,</strong> off by default. On: name and price (extra adult, sibling discount).</li>
+      <li><strong>One-click notes,</strong> not typed into the description: Materials included, Socks required, Buggy access, Adult in the room. Several can be on. They show on the public page as selected.</li>
+    </ul>
+    <p>Theatre example: Show template, 17 October, showtimes 12:30 and 17:00, 40 places each, 10 € per person, no rooms. Play-centre example: Party template, Sun room (12) and Moon room (13), family pack 89 €.</p>
+
+    <h2>6. Try the services logic</h2>
     <p>This is not a site screen. It only checks the numbers.</p>
   </article>
 

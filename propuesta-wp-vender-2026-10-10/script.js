@@ -284,6 +284,13 @@
       opt.textContent = t(opt.getAttribute("data-i18n"));
     });
     updateChipLabels();
+    document.querySelectorAll("#eventos [data-es]").forEach((el) => {
+      const value = el.getAttribute(lang === "es" ? "data-es" : "data-en");
+      if (value) el.textContent = value;
+    });
+    document.querySelectorAll("#eventos [data-es-value]").forEach((el) => {
+      el.value = el.getAttribute(lang === "es" ? "data-es-value" : "data-en-value");
+    });
     rebuildCalendar();
     updateSummary();
   }
@@ -691,12 +698,85 @@
     });
   }
 
+  function showEvtMode(mode) {
+    document.getElementById("evt-once").classList.toggle("hidden", mode !== "once");
+    document.getElementById("evt-passes").classList.toggle("hidden", mode !== "passes");
+    document.getElementById("evt-range").classList.toggle("hidden", mode !== "range");
+  }
+
+  function initEvents() {
+    const root = document.getElementById("eventos");
+    if (!root) return;
+    const presets = {
+      talk: { mode: "once", rooms: false, ticket: "child", price: "15", tags: [0] },
+      party: { mode: "once", rooms: true, ticket: "pack", price: "89", tags: [1, 2] },
+      show: { mode: "passes", rooms: false, ticket: "person", price: "10", tags: [] },
+      camp: { mode: "range", rooms: false, ticket: "child", price: "180", tags: [0, 3] },
+    };
+    root.querySelectorAll("#evt-presets button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        root.querySelectorAll("#evt-presets button").forEach((b) => b.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", "true");
+        const preset = presets[btn.getAttribute("data-preset")];
+        const radio = root.querySelector('input[name="evt-mode"][value="' + preset.mode + '"]');
+        radio.checked = true;
+        showEvtMode(preset.mode);
+        document.getElementById("evt-rooms").checked = preset.rooms;
+        document.getElementById("evt-rooms").dispatchEvent(new Event("change"));
+        root.querySelector('input[name="evt-ticket"][value="' + preset.ticket + '"]').checked = true;
+        root.querySelector('input[name="evt-ticket"][value="' + preset.ticket + '"]').dispatchEvent(new Event("change"));
+        document.getElementById("evt-price").value = preset.price;
+        root.querySelectorAll("#evt-tags button").forEach((tag, i) => {
+          tag.setAttribute("aria-pressed", preset.tags.indexOf(i) >= 0 ? "true" : "false");
+        });
+      });
+    });
+    root.querySelectorAll('input[name="evt-mode"]').forEach((input) => {
+      input.addEventListener("change", () => showEvtMode(input.value));
+    });
+    document.getElementById("evt-add-hour").addEventListener("click", () => {
+      const value = document.getElementById("evt-new-hour").value;
+      if (!value) return;
+      const chip = document.createElement("span");
+      chip.className = "lp-chip";
+      chip.appendChild(document.createTextNode(value + " "));
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.setAttribute("data-remove-hour", "");
+      remove.textContent = "×";
+      remove.addEventListener("click", () => chip.remove());
+      chip.appendChild(remove);
+      document.getElementById("evt-hours").appendChild(chip);
+    });
+    root.querySelectorAll("[data-remove-hour]").forEach((btn) => {
+      btn.addEventListener("click", () => btn.closest(".lp-chip").remove());
+    });
+    document.getElementById("evt-rooms").addEventListener("change", (e) => {
+      document.getElementById("evt-rooms-box").classList.toggle("hidden", !e.target.checked);
+      document.getElementById("evt-seats-simple").classList.toggle("hidden", e.target.checked);
+    });
+    root.querySelectorAll('input[name="evt-ticket"]').forEach((input) => {
+      input.addEventListener("change", () => {
+        document.getElementById("evt-price-row").classList.toggle("hidden", input.value === "free" && input.checked);
+      });
+    });
+    document.getElementById("evt-extra").addEventListener("change", (e) => {
+      document.getElementById("evt-extra-box").classList.toggle("hidden", !e.target.checked);
+    });
+    root.querySelectorAll("#evt-tags button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.setAttribute("aria-pressed", btn.getAttribute("aria-pressed") === "true" ? "false" : "true");
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initLang();
     initNav();
     initResources();
     initServiceEditor();
     initBooking();
+    initEvents();
     applyI18n();
   });
 })();

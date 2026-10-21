@@ -796,3 +796,22 @@ main {
   .service-card { flex-direction: column; }
   .service-card-media { width: 100%; flex: none; }
 }
+
+.evt-presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.evt-presets button {
+  border: 1px solid var(--lp-border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.evt-presets button[aria-pressed="true"] {
+  background: var(--lp-primary);
+  color: #fff;
+  border-color: var(--lp-primary);
+}
+.evt-modes, .evt-tickets { display: flex; flex-direction: column; gap: 8px; }
+.evt-inline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.evt-inline input[type="number"], .evt-inline input[type="text"] { width: 140px; }
+.evt-toggle { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0; font-weight: 700; }
