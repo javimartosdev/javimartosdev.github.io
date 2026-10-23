@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261023-eventos">
+  <link rel="stylesheet" href="styles.css?v=20261023-euro">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -409,7 +409,10 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
             </div>
             <div>
               <label data-es="Precio de la entrada" data-en="Ticket price">Precio de la entrada</label>
-              <input type="number" class="form-control" min="0" value="10" id="evt-base"> <span>€</span>
+              <div class="evt-money">
+                <input type="number" class="form-control" min="0" value="10" id="evt-base">
+                <span class="evt-currency" aria-hidden="true">€</span>
+              </div>
             </div>
           </div>
           <p class="booking-hint" data-es="0 € es gratis. No hace falta otra casilla de gratuito. La URL externa, si se enciende, sigue mandando a la web del organizador y no usa este precio." data-en="0 € is free. There is no separate free switch. If the external URL is on, it still sends people to the organiser’s site and this price is not used.">0 € es gratis. No hace falta otra casilla de gratuito. La URL externa, si se enciende, sigue mandando a la web del organizador y no usa este precio.</p>

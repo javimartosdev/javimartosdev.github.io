@@ -814,6 +814,23 @@ main {
 .evt-modes, .evt-tickets { display: flex; flex-direction: column; gap: 8px; }
 .evt-inline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
 .evt-inline input[type="number"], .evt-inline input[type="text"] { width: 140px; }
+.evt-money {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+.evt-money .form-control {
+  width: 140px;
+  max-width: 140px;
+  margin-top: 0;
+  flex: 0 0 auto;
+}
+.evt-currency { font-weight: 700; line-height: 1; }
+.evt-inline.evt-price-row .form-control,
+.evt-inline.evt-extra-row .form-control { width: 140px; max-width: 140px; flex: 0 0 auto; }
+.evt-inline.evt-price-row input[type="text"],
+.evt-inline.evt-extra-row input[type="text"] { width: min(220px, 100%); max-width: 220px; }
 .evt-toggle { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0; font-weight: 700; }
 .evt-front-title { margin: 28px 0 8px; font-size: 22px; }
 .evt-public { display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 16px; border: 1px solid #e6e6e6; background: #fff; padding: 16px; }
