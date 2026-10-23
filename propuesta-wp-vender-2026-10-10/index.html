@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261021-eventos">
+  <link rel="stylesheet" href="styles.css?v=20261023-eventos">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -328,123 +328,174 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
   </section>
 
   <section id="eventos" class="section-block">
-    <h2 data-es="Eventos — crear y publicar" data-en="Events — create and publish">Eventos — crear y publicar</h2>
-    <p class="section-lead" data-es="El módulo de servicios no cambia. Esto es solo el formulario de evento. Lo que no se usa queda oculto hasta que se enciende." data-en="The services module stays as it is. This is only the event form. Unused options stay hidden until switched on.">El módulo de servicios no cambia. Esto es solo el formulario de evento. Lo que no se usa queda oculto hasta que se enciende.</p>
+    <h2 data-es="Eventos — el alta que ya existe, más precio y extras" data-en="Events — the form that already exists, plus price and extras">Eventos — el alta que ya existe, más precio y extras</h2>
+    <p class="section-lead" data-es="Los servicios no cambian. El alta de evento es la de ahora. Debajo del precio de la entrada solo se añaden dos cosas: precios diferentes y extras. Precio 0 es gratis." data-en="Services stay as they are. The event form is the one that already exists. Under the ticket price, only two things are added: different prices and extras. A price of 0 is free.">Los servicios no cambian. El alta de evento es la de ahora. Debajo del precio de la entrada solo se añaden dos cosas: precios diferentes y extras. Precio 0 es gratis.</p>
 
     <div class="lp-dashboard-wrap">
-      <p class="lp-panel-title" data-es="Nuevo evento — Ludoteca El Pitillito" data-en="New event — Play centre El Pitillito">Nuevo evento — Ludoteca El Pitillito</p>
+      <p class="lp-panel-title" data-es="Crear evento nuevo" data-en="Create new event">Crear evento nuevo</p>
 
       <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Plantilla" data-en="Template">Plantilla</div>
+        <div class="lp-metabox-head" data-es="Tribu y nombre" data-en="Tribe and name">Tribu y nombre</div>
         <div class="lp-metabox-body">
-          <div class="evt-presets" id="evt-presets">
-            <button type="button" data-preset="talk" data-es="Taller / Charla" data-en="Workshop / Talk">Taller / Charla</button>
-            <button type="button" data-preset="party" data-es="Fiesta / Ludoteca" data-en="Party / Play centre">Fiesta / Ludoteca</button>
-            <button type="button" data-preset="show" data-es="Espectáculo / Teatro" data-en="Show / Theatre">Espectáculo / Teatro</button>
-            <button type="button" data-preset="camp" data-es="Campamento" data-en="Camp">Campamento</button>
-          </div>
-          <p class="booking-hint" id="evt-preset-hint" data-es="Elige una plantilla. Se puede cambiar cualquier campo después." data-en="Pick a template. Any field can still be changed afterwards.">Elige una plantilla. Se puede cambiar cualquier campo después.</p>
+          <label data-es="Elige tu tribu" data-en="Choose your tribe">Elige tu tribu</label>
+          <select class="form-control">
+            <option data-es="Actividades para niños en Valencia" data-en="Activities for children in Valencia">Actividades para niños en Valencia</option>
+          </select>
+          <label data-es="Nombre del evento" data-en="Event name">Nombre del evento</label>
+          <input type="text" class="form-control" data-es-placeholder="Un nombre corto" data-en-placeholder="A short name" placeholder="Un nombre corto" value="Teatro: Samba de cuentos — Nuevo Centro">
         </div>
       </div>
 
       <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Fechas y pases" data-en="Dates and showtimes">Fechas y pases</div>
+        <div class="lp-metabox-head" data-es="Localización" data-en="Location">Localización</div>
         <div class="lp-metabox-body">
-          <div class="lp-radio-row evt-modes">
-            <label><input type="radio" name="evt-mode" value="once" checked> <span data-es="Un solo día y hora" data-en="One day and time">Un solo día y hora</span></label>
-            <label><input type="radio" name="evt-mode" value="passes"> <span data-es="Varios pases el mismo día" data-en="Several showtimes on the same day">Varios pases el mismo día</span></label>
-            <label><input type="radio" name="evt-mode" value="range"> <span data-es="Varios días seguidos" data-en="Several days in a row">Varios días seguidos</span></label>
+          <label data-es="Dirección (Google Maps)" data-en="Address (Google Maps)">Dirección (Google Maps)</label>
+          <input type="text" class="form-control" value="Nuevo Centro, Valencia" readonly>
+          <div class="evt-inline">
+            <div>
+              <label data-es="Ciudad" data-en="City">Ciudad</label>
+              <select class="form-control"><option>Valencia</option></select>
+            </div>
+            <div>
+              <label data-es="Categoría" data-en="Category">Categoría</label>
+              <select class="form-control">
+                <option data-es="Talleres infantiles" data-en="Children's workshops">Talleres infantiles</option>
+              </select>
+            </div>
           </div>
-          <div id="evt-once">
-            <div class="evt-inline">
-              <label data-es="Día" data-en="Day">Día</label>
-              <input type="date" id="evt-day" value="2026-10-24">
+          <p class="booking-hint" data-es="Hay que elegir la sugerencia de Google. Si el campo se queda pillado, el alta no se guarda." data-en="The Google suggestion has to be picked. If the field gets stuck, the event cannot be saved.">Hay que elegir la sugerencia de Google. Si el campo se queda pillado, el alta no se guarda.</p>
+        </div>
+      </div>
+
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-es="Cuándo" data-en="When">Cuándo</div>
+        <div class="lp-metabox-body">
+          <div class="evt-inline">
+            <div>
+              <label data-es="Empieza" data-en="Starts">Empieza</label>
+              <input type="text" class="form-control" value="24/10/2026" readonly>
+            </div>
+            <div>
               <label data-es="Hora" data-en="Time">Hora</label>
-              <input type="time" id="evt-time" value="18:00">
+              <input type="text" class="form-control" value="18:00" readonly>
             </div>
           </div>
-          <div id="evt-passes" class="hidden">
-            <div class="evt-inline">
-              <label data-es="Día" data-en="Day">Día</label>
-              <input type="date" id="evt-pass-day" value="2026-10-17">
-            </div>
-            <div class="lp-chip-row" id="evt-hours">
-              <span class="lp-chip">12:30 <button type="button" data-remove-hour aria-label="Quitar">&times;</button></span>
-              <span class="lp-chip">17:00 <button type="button" data-remove-hour aria-label="Quitar">&times;</button></span>
-            </div>
-            <div class="evt-inline">
-              <input type="time" id="evt-new-hour" value="19:00">
-              <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-hour" data-es="+ Añadir pase" data-en="+ Add showtime">+ Añadir pase</button>
-            </div>
-            <p class="booking-hint" data-es="El cupo se controla en cada pase, no en el día entero." data-en="Capacity is tracked per showtime, not for the whole day.">El cupo se controla en cada pase, no en el día entero.</p>
+          <label class="evt-toggle"><input type="checkbox" checked disabled> <span data-es="Fecha de finalización (ya está en el formulario, se puede apagar)" data-en="End date (already on the form, can be switched off)">Fecha de finalización (ya está en el formulario, se puede apagar)</span></label>
+          <div class="evt-inline">
+            <input type="text" class="form-control" value="24/10/2026" readonly>
+            <input type="text" class="form-control" value="19:00" readonly>
           </div>
-          <div id="evt-range" class="hidden">
-            <div class="evt-inline">
-              <label data-es="Desde" data-en="From">Desde</label>
-              <input type="date" value="2026-07-06">
-              <label data-es="Hasta" data-en="To">Hasta</label>
-              <input type="date" value="2026-07-10">
-            </div>
-          </div>
+          <label class="evt-toggle"><input type="checkbox" disabled> <span data-es="Recurrencia (ya está en el formulario, apagada)" data-en="Recurrence (already on the form, off)">Recurrencia (ya está en el formulario, apagada)</span></label>
         </div>
       </div>
 
       <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Aforo" data-en="Capacity">Aforo</div>
+        <div class="lp-metabox-head" data-es="Descripción e imagen" data-en="Description and image">Descripción e imagen</div>
         <div class="lp-metabox-body">
-          <label class="evt-toggle"><input type="checkbox" id="evt-rooms"> <span data-es="¿Tu local divide el aforo por salas?" data-en="Does your venue split capacity by room?">¿Tu local divide el aforo por salas?</span></label>
-          <div id="evt-seats-simple">
-            <label data-es="Plazas disponibles" data-en="Places available">Plazas disponibles</label>
-            <input type="number" id="evt-seats" min="1" value="25">
-          </div>
-          <div id="evt-rooms-box" class="hidden">
-            <div class="lp-chip-row">
-              <span class="lp-chip" data-es="Sala Sol · 12 plazas" data-en="Sun room · 12 places">Sala Sol · 12 plazas</span>
-              <span class="lp-chip" data-es="Sala Luna · 13 plazas" data-en="Moon room · 13 places">Sala Luna · 13 plazas</span>
+          <label data-es="Descripción" data-en="Description">Descripción</label>
+          <textarea class="form-control" rows="3" readonly>Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, dos pases: 18:00 y 19:00.</textarea>
+          <label data-es="Imagen del evento" data-en="Event image">Imagen del evento</label>
+          <p class="booking-hint" data-es="El cartel, como ahora. Sin imagen no se publica." data-en="The poster, as it works now. It is not published without an image.">El cartel, como ahora. Sin imagen no se publica.</p>
+        </div>
+      </div>
+
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-es="Entradas — lo que ya hay" data-en="Tickets — what already exists">Entradas — lo que ya hay</div>
+        <div class="lp-metabox-body">
+          <div class="evt-inline">
+            <div>
+              <label data-es="Entradas disponibles" data-en="Available tickets">Entradas disponibles</label>
+              <input type="number" class="form-control" min="0" value="40" id="evt-stock">
             </div>
-            <p class="booking-hint" data-es="Cada sala tiene su cupo. El cliente elige sala al apuntarse." data-en="Each room has its own capacity. The customer picks a room when booking.">Cada sala tiene su cupo. El cliente elige sala al apuntarse.</p>
+            <div>
+              <label data-es="Precio de la entrada" data-en="Ticket price">Precio de la entrada</label>
+              <input type="number" class="form-control" min="0" value="10" id="evt-base"> <span>€</span>
+            </div>
+          </div>
+          <p class="booking-hint" data-es="0 € es gratis. No hace falta otra casilla de gratuito. La URL externa, si se enciende, sigue mandando a la web del organizador y no usa este precio." data-en="0 € is free. There is no separate free switch. If the external URL is on, it still sends people to the organiser’s site and this price is not used.">0 € es gratis. No hace falta otra casilla de gratuito. La URL externa, si se enciende, sigue mandando a la web del organizador y no usa este precio.</p>
+          <label class="evt-toggle"><input type="checkbox" disabled> <span data-es="URL externa (ya está, apagada en este ejemplo)" data-en="External URL (already there, off in this example)">URL externa (ya está, apagada en este ejemplo)</span></label>
+        </div>
+      </div>
+
+      <div class="lp-metabox spec-anchor">
+        <span class="spec-badge">#4</span>
+        <div class="lp-metabox-head" data-es="Nuevo — precios diferentes" data-en="New — different prices">Nuevo — precios diferentes</div>
+        <div class="lp-metabox-body">
+          <label class="evt-toggle"><input type="checkbox" id="evt-diff"> <span data-es="¿Tu evento tiene precios diferentes? Defínelos" data-en="Does your event have different prices? Define them">¿Tu evento tiene precios diferentes? Defínelos</span></label>
+          <div id="evt-diff-box" class="hidden">
+            <div id="evt-price-rows">
+              <div class="evt-inline evt-price-row">
+                <input type="text" data-es-placeholder="Tipo de precio" data-en-placeholder="Price type" placeholder="Tipo de precio">
+                <input type="number" min="0" data-es-placeholder="Precio" data-en-placeholder="Price" placeholder="Precio">
+                <span>€</span>
+              </div>
+            </div>
+            <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-price" data-es="+ Añadir tipo de precio" data-en="+ Add a price type">+ Añadir tipo de precio</button>
+            <p class="booking-hint" data-es="La pista del recuadro puede ser «Precio pack familiar» o «Precio a partir del segundo hermano». El organizador escribe el nombre. Cada tipo es su propio importe: si la entrada son 10 € y el pack 25 €, el pack cuesta 25 €, no 35 €." data-en="The box hint can say “Family pack price” or “Price from the second sibling”. The organiser writes the name. Each type is its own amount: if the ticket is 10 € and the pack is 25 €, the pack costs 25 €, not 35 €.">La pista del recuadro puede ser «Precio pack familiar» o «Precio a partir del segundo hermano». El organizador escribe el nombre. Cada tipo es su propio importe: si la entrada son 10 € y el pack 25 €, el pack cuesta 25 €, no 35 €.</p>
           </div>
         </div>
       </div>
 
-      <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Qué incluye la entrada" data-en="What the ticket includes">Qué incluye la entrada</div>
+      <div class="lp-metabox spec-anchor">
+        <span class="spec-badge">#5</span>
+        <div class="lp-metabox-head" data-es="Nuevo — extras" data-en="New — extras">Nuevo — extras</div>
         <div class="lp-metabox-body">
-          <div class="evt-tickets">
-            <label><input type="radio" name="evt-ticket" value="child" checked> <span data-es="Precio por niño (incluye 1 adulto gratis)" data-en="Price per child (includes 1 adult free)">Precio por niño (incluye 1 adulto gratis)</span></label>
-            <label><input type="radio" name="evt-ticket" value="person"> <span data-es="Precio por persona (todos pagan)" data-en="Price per person (everyone pays)">Precio por persona (todos pagan)</span></label>
-            <label><input type="radio" name="evt-ticket" value="pack"> <span data-es="Precio por pack familiar / pareja" data-en="Family pack / couple price">Precio por pack familiar / pareja</span></label>
-            <label><input type="radio" name="evt-ticket" value="free"> <span data-es="Gratuito (inscripción o acceso libre)" data-en="Free (sign-up or open access)">Gratuito (inscripción o acceso libre)</span></label>
-          </div>
-          <div class="evt-inline" id="evt-price-row">
-            <label data-es="Precio base" data-en="Base price">Precio base</label>
-            <input type="number" id="evt-price" min="0" value="12"> <span>€</span>
-          </div>
-          <label class="evt-toggle"><input type="checkbox" id="evt-extra"> <span data-es="+ Añadir suplemento (adulto extra o hermano con descuento)" data-en="+ Add a supplement (extra adult or sibling discount)">+ Añadir suplemento (adulto extra o hermano con descuento)</span></label>
-          <div id="evt-extra-box" class="hidden evt-inline">
-            <input type="text" id="evt-extra-name" value="Adulto extra" data-es-value="Adulto extra" data-en-value="Extra adult">
-            <input type="number" id="evt-extra-price" min="0" value="5"> <span>€</span>
+          <label class="evt-toggle"><input type="checkbox" id="evt-extra"> <span data-es="Añadir extra para tu evento" data-en="Add an extra for your event">Añadir extra para tu evento</span></label>
+          <div id="evt-extra-box" class="hidden">
+            <div id="evt-extra-rows">
+              <div class="evt-inline evt-extra-row">
+                <input type="text" data-es-placeholder="Nombre del extra" data-en-placeholder="Extra name" placeholder="Nombre del extra">
+                <input type="number" min="0" data-es-placeholder="Precio del extra" data-en-placeholder="Extra price" placeholder="Precio del extra">
+                <span>€</span>
+              </div>
+            </div>
+            <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-extra" data-es="+ Añadir otro extra" data-en="+ Add another extra">+ Añadir otro extra</button>
+            <p class="booking-hint" data-es="Puede ser un pase VIP o una botella de vino. El extra se suma al precio elegido. Es lo que lleva comisión." data-en="It can be a VIP pass or a bottle of wine. The extra is added to the chosen price. This is what carries the commission.">Puede ser un pase VIP o una botella de vino. El extra se suma al precio elegido. Es lo que lleva comisión.</p>
           </div>
         </div>
       </div>
 
-      <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Avisos rápidos" data-en="Quick notes">Avisos rápidos</div>
-        <div class="lp-metabox-body">
-          <div class="evt-presets" id="evt-tags">
-            <button type="button" data-es="Incluye materiales" data-en="Materials included">Incluye materiales</button>
-            <button type="button" data-es="Obligatorio calcetines" data-en="Socks required">Obligatorio calcetines</button>
-            <button type="button" data-es="Acceso con carrito" data-en="Buggy access">Acceso con carrito</button>
-            <button type="button" data-es="Adulto en sala" data-en="Adult in the room">Adulto en sala</button>
-          </div>
-          <p class="booking-hint" data-es="Un clic. No hace falta escribirlo en la descripción." data-en="One click. No need to type it in the description.">Un clic. No hace falta escribirlo en la descripción.</p>
-        </div>
-      </div>
+      <p class="booking-hint" data-es="Guardar sigue siendo el botón que ya tiene el formulario." data-en="Save stays the button the form already has.">Guardar sigue siendo el botón que ya tiene el formulario.</p>
     </div>
+
+    <h3 class="evt-front-title" data-es="Ficha pública — cómo lo ve quien compra" data-en="Public page — what the buyer sees">Ficha pública — cómo lo ve quien compra</h3>
+    <p class="section-lead" data-es="Copiada de Teatro: Samba de cuentos — Nuevo Centro (24 de octubre, Valencia). En la web de hoy esa ficha manda a Reservar Nuevo Centro. Aquí la caja de la derecha enseña la venta en la propia web, con un tipo de precio y un extra." data-en="Copied from Theatre: Samba de cuentos — Nuevo Centro (24 October, Valencia). On the live site that page sends people to Book at Nuevo Centro. The box on the right shows selling on this site, with one price type and one extra.">Copiada de Teatro: Samba de cuentos — Nuevo Centro (24 de octubre, Valencia). En la web de hoy esa ficha manda a Reservar Nuevo Centro. Aquí la caja de la derecha enseña la venta en la propia web, con un tipo de precio y un extra.</p>
+
+    <article class="evt-public">
+      <div class="evt-public-main">
+        <div class="evt-date"><span>24</span><span data-es="OCT" data-en="OCT">OCT</span></div>
+        <div>
+          <h3>Teatro: Samba de cuentos — Nuevo Centro</h3>
+          <p data-es="Creado por: Actividades para niños en Valencia" data-en="Hosted by: Activities for children in Valencia">Creado por: Actividades para niños en Valencia</p>
+          <p class="evt-tabs"><span data-es="Detalles" data-en="Details">Detalles</span> · <span data-es="Participantes" data-en="Attendees">Participantes</span> · <span data-es="Lugar" data-en="Place">Lugar</span></p>
+          <p data-es="Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00." data-en="Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.">Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00.</p>
+          <p data-es="Lugar: Nuevo Centro, Valencia" data-en="Place: Nuevo Centro, Valencia">Lugar: Nuevo Centro, Valencia</p>
+        </div>
+      </div>
+      <aside class="evt-buy">
+        <p data-es="40 entradas disponibles" data-en="40 tickets available">40 entradas disponibles</p>
+        <p data-es="Precio de la entrada: 10 €" data-en="Ticket price: 10 €">Precio de la entrada: 10 €</p>
+        <fieldset>
+          <legend data-es="Elige el precio" data-en="Choose the price">Elige el precio</legend>
+          <label><input type="radio" name="front-price" value="10" checked> <span data-es="Entrada — 10 €" data-en="Ticket — 10 €">Entrada — 10 €</span></label>
+          <label><input type="radio" name="front-price" value="25"> <span data-es="Pack familiar — 25 €" data-en="Family pack — 25 €">Pack familiar — 25 €</span></label>
+          <label><input type="radio" name="front-price" value="6"> <span data-es="A partir del segundo hermano — 6 €" data-en="From the second sibling — 6 €">A partir del segundo hermano — 6 €</span></label>
+        </fieldset>
+        <div class="evt-inline">
+          <label for="front-vip" data-es="Pase VIP (8 €)" data-en="VIP pass (8 €)">Pase VIP (8 €)</label>
+          <button type="button" id="front-vip-minus" aria-label="-">−</button>
+          <span id="front-vip">0</span>
+          <button type="button" id="front-vip-plus" aria-label="+">+</button>
+        </div>
+        <p class="evt-total"><span data-es="Total" data-en="Total">Total</span> <strong id="front-total">10 €</strong></p>
+        <button type="button" class="lp-btn lp-btn-primary" data-es="Conseguir entradas" data-en="Get tickets">Conseguir entradas</button>
+        <p class="booking-hint" data-es="El pack no se suma a los 10 €. El pase VIP sí: entrada 10 € y un pase = 18 €." data-en="The pack is not added to the 10 €. The VIP pass is: a 10 € ticket plus one pass = 18 €.">El pack no se suma a los 10 €. El pase VIP sí: entrada 10 € y un pase = 18 €.</p>
+      </aside>
+    </article>
   </section>
 
 </main>
 
-<script src="script.js?v=20261021-eventos"></script>
+<script src="script.js?v=20261023-eventos"></script>
 </body>
 </html>

@@ -815,3 +815,18 @@ main {
 .evt-inline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
 .evt-inline input[type="number"], .evt-inline input[type="text"] { width: 140px; }
 .evt-toggle { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0; font-weight: 700; }
+.evt-front-title { margin: 28px 0 8px; font-size: 22px; }
+.evt-public { display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 16px; border: 1px solid #e6e6e6; background: #fff; padding: 16px; }
+.evt-public-main { display: flex; gap: 12px; }
+.evt-date { width: 64px; min-width: 64px; background: #7fad39; color: #fff; text-align: center; padding: 8px 0; font-weight: 700; }
+.evt-date span { display: block; }
+.evt-date span:first-child { font-size: 22px; }
+.evt-tabs { color: #666; }
+.evt-buy { border: 1px solid #e6e6e6; padding: 12px; }
+.evt-buy fieldset { border: 0; padding: 0; margin: 8px 0; }
+.evt-buy label { display: block; margin: 4px 0; font-weight: 400; }
+.evt-total { font-size: 18px; }
+#eventos .form-control { max-width: 100%; margin-top: 4px; }
+@media (max-width: 800px) {
+  .evt-public { grid-template-columns: 1fr; }
+}
