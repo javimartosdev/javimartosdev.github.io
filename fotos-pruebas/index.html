@@ -6,12 +6,12 @@
   <title>Fotos en olive — De Mami a Mami</title>
   <style>
     :root {
-      --bg: #f5f5f7;
-      --ink: #1d1d1f;
-      --muted: #6e6e73;
-      --line: #d2d2d7;
-      --paper: #fff;
-      --blue: #0071e3;
+      --bg: #faf6f1;
+      --ink: #2a2420;
+      --muted: #6f655c;
+      --line: #e6ddd2;
+      --paper: #fffdf9;
+      --accent: #9a5340;
     }
     * { box-sizing: border-box; }
     body {
@@ -21,7 +21,7 @@
       font: 17px/1.47 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--blue); text-decoration: none; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 0 22px; }
     .eyebrow {
@@ -119,8 +119,30 @@
     }
     ol.steps li::before {
       content: counter(paso);
-      color: var(--blue);
+      color: var(--accent);
       font-weight: 600;
+    }
+    .progress { margin-top: 22px; }
+    .bar {
+      height: 8px;
+      background: #efe4d6;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar span {
+      display: block;
+      width: 87%;
+      height: 100%;
+      background: #c46a4a;
+      border-radius: 999px;
+    }
+    .progress p {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
     }
     footer {
       padding: 80px 0 48px;
@@ -149,6 +171,10 @@
       <div class="stat"><b>3,40 GB</b><span>Ya no ocupan disco</span></div>
       <div class="stat"><b>0,62 GB</b><span>Siguen en JPEG o PNG</span></div>
     </div>
+    <div class="progress" role="img" aria-label="87 por ciento del peso original ya está aligerado en olive. Queda un 13 por ciento.">
+      <div class="bar"><span></span></div>
+      <p><span>87% del peso ya aligerado</span><span>queda un 13%</span></p>
+    </div>
 
     <section>
       <h2>Cómo queda el peso</h2>
@@ -156,26 +182,26 @@
       <div class="split">
         <svg viewBox="0 0 200 200" width="240" height="240" role="img" aria-label="72 por ciento del peso ya no ocupa disco. 15 por ciento es la versión ligera. 13 por ciento sigue en JPEG o PNG.">
           <g transform="rotate(-90 100 100)">
-            <circle cx="100" cy="100" r="70" fill="none" stroke="#1d1d1f" stroke-width="28" stroke-dasharray="315.46 439.82"/>
-            <circle cx="100" cy="100" r="70" fill="none" stroke="#86868b" stroke-width="28" stroke-dasharray="66.81 439.82" stroke-dashoffset="-315.46"/>
-            <circle cx="100" cy="100" r="70" fill="none" stroke="#0071e3" stroke-width="28" stroke-dasharray="57.55 439.82" stroke-dashoffset="-382.27"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#8d4b38" stroke-width="28" stroke-dasharray="315.46 439.82"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#c4a882" stroke-width="28" stroke-dasharray="66.81 439.82" stroke-dashoffset="-315.46"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#e0b89a" stroke-width="28" stroke-dasharray="57.55 439.82" stroke-dashoffset="-382.27"/>
           </g>
-          <text x="100" y="96" text-anchor="middle" font-size="28" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, sans-serif" fill="#1d1d1f">72%</text>
-          <text x="100" y="118" text-anchor="middle" font-size="12" font-family="-apple-system, BlinkMacSystemFont, sans-serif" fill="#6e6e73">ya no ocupa</text>
+          <text x="100" y="96" text-anchor="middle" font-size="28" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, sans-serif" fill="#2a2420">72%</text>
+          <text x="100" y="118" text-anchor="middle" font-size="12" font-family="-apple-system, BlinkMacSystemFont, sans-serif" fill="#6f655c">ya no ocupa</text>
         </svg>
         <ul class="legend">
           <li>
-            <span class="dot" style="background:#1d1d1f"></span>
+            <span class="dot" style="background:#8d4b38"></span>
             <span>Ya no ocupa disco<small>Original quitado, descontando la versión ligera</small></span>
             <b>3,40 GB</b>
           </li>
           <li>
-            <span class="dot" style="background:#86868b"></span>
+            <span class="dot" style="background:#c4a882"></span>
             <span>Versión ligera<small>Se queda en el disco. Es la que se sirve</small></span>
             <b>0,72 GB</b>
           </li>
           <li>
-            <span class="dot" style="background:#0071e3"></span>
+            <span class="dot" style="background:#e0b89a"></span>
             <span>Sigue pesada<small>Casi todo es 2024, 2025 y 2026. Sigue en curso</small></span>
             <b>0,62 GB</b>
           </li>
@@ -230,7 +256,7 @@
       <h2>Producción, cuando des el OK</h2>
       <p class="sub">Hasta entonces no se borra nada en la web pública. El orden es este.</p>
       <ol class="steps">
-        <li>Copiar los originales al otro servidor.</li>
+        <li>Copiar los originales a Hostinger, el servidor de pruebas.</li>
         <li>Quitar en producción solo el JPEG o PNG que ya tenga versión ligera.</li>
         <li>Dejar esa versión. La dirección de la foto no cambia.</li>
       </ol>
