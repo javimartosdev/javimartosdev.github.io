@@ -1,380 +1,501 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Propuesta WP Vender — extras en servicios y eventos</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --teal: #7EB9C3;
-    --teal-dark: #5a9aa6;
-    --ink: #313131;
-    --muted: #6b7280;
-    --line: #d7e3e6;
-    --paper: #f3f8f9;
-    --card: #fff;
-    --note: #f3fafb;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: "Nunito", "Segoe UI", Helvetica, Arial, sans-serif;
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.45;
-  }
-  .topbar {
-    background: var(--teal);
-    color: #fff;
-    font-size: 13px;
-    padding: 8px 28px;
-  }
-  .topbar span { opacity: .95; }
-  header.site {
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-    padding: 16px 28px 18px;
-    display: flex;
-    align-items: center;
-    gap: 22px;
-  }
-  header.site img {
-    height: 64px;
-    width: auto;
-    display: block;
-  }
-  header.site h1 { font-size: 22px; font-weight: 750; margin: 0; color: var(--ink); }
-  header.site p { margin: 4px 0 0; color: var(--muted); max-width: 640px; font-size: 14px; }
-  h2 { font-size: 16px; margin: 0 0 12px; font-weight: 750; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 24px 48px; }
-  .banner {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--teal);
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 22px;
-    font-size: 14px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-  }
-  @media (max-width: 900px) {
-    .grid { grid-template-columns: 1fr; }
-  }
-  .screen {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 16px 16px 14px;
-    box-shadow: 0 8px 24px rgba(90, 154, 166, .08);
-  }
-  .kicker {
-    font-size: 11px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--teal-dark);
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-  .frame {
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: #f7fbfc;
-    padding: 12px;
-  }
-  .bar {
-    height: 32px;
-    border-radius: 8px;
-    background: var(--teal);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  label.f {
-    display: block;
-    font-size: 12px;
-    color: var(--muted);
-    margin: 8px 0 3px;
-  }
-  .box, .row {
-    border: 1px solid #e3eef0;
-    background: #fff;
-    border-radius: 8px;
-    min-height: 34px;
-    padding: 7px 10px;
-    font-size: 13px;
-  }
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    margin-top: 6px;
-  }
-  .row strong { font-weight: 650; }
-  .step {
-    display: inline-block;
-    min-width: 42px;
-    text-align: center;
-    border: 1px solid var(--teal);
-    color: var(--teal-dark);
-    border-radius: 8px;
-    padding: 2px 8px;
-    font-size: 12px;
-    font-weight: 800;
-    background: #fff;
-  }
-  .locked {
-    background: #e7f4f6;
-    border-color: var(--teal);
-  }
-  .tag {
-    font-size: 11px;
-    color: var(--teal-dark);
-    font-weight: 800;
-  }
-  .total {
-    margin-top: 10px;
-    border: 1px solid var(--teal);
-    background: #fff;
-    border-radius: 8px;
-    padding: 8px 10px;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 800;
-  }
-  .btn {
-    margin-top: 10px;
-    background: var(--teal);
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    padding: 9px;
-    font-size: 13px;
-    font-weight: 800;
-  }
-  .note {
-    margin-top: 10px;
-    font-size: 12px;
-    color: var(--muted);
-    border-left: 3px solid var(--teal);
-    padding-left: 8px;
-  }
-  footer.phase {
-    margin-top: 22px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-size: 14px;
-  }
-  footer.phase strong { display: block; margin-bottom: 4px; }
-  .ficha-block { margin-top: 28px; }
-  .ficha-block h2 { font-size: 22px; margin-bottom: 8px; }
-  .ficha {
-    display: grid;
-    grid-template-columns: 168px 1fr;
-    gap: 18px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 16px;
-    margin-top: 14px;
-    box-shadow: 0 8px 24px rgba(90, 154, 166, .08);
-  }
-  .photo {
-    background: linear-gradient(160deg, var(--teal) 0%, var(--teal-dark) 100%);
-    color: #fff;
-    border-radius: 12px;
-    min-height: 168px;
-    display: flex;
-    align-items: flex-end;
-    padding: 12px;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: .02em;
-  }
-  .ficha h3 {
-    margin: 0 0 6px;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--teal-dark);
-  }
-  .lead { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
-  .ficha h4 {
-    margin: 12px 0 4px;
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--ink);
-  }
-  .ficha ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 14px; }
-  .ficha li { margin: 2px 0; }
-  .fine { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
-  .reserve {
-    margin-top: 14px;
-    margin-left: auto;
-    display: inline-block;
-    border: 2px solid var(--teal);
-    color: var(--teal-dark);
-    background: #fff;
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 800;
-  }
-  .ficha-body { display: flex; flex-direction: column; }
-  .ficha-body .reserve { align-self: flex-end; }
-  @media (max-width: 700px) {
-    .ficha { grid-template-columns: 1fr; }
-    .photo { min-height: 120px; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Functional Spec — ListingPro Services (demo)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.demamiamami.com/wp-content/themes/listingpro/assets/lib/bootstrap/css/bootstrap.min.css?ver=7.1.3">
+  <link rel="stylesheet" href="https://www.demamiamami.com/wp-content/themes/listingpro/assets/lib/font-awesome/css/font-awesome.min.css?ver=7.1.3">
+  <link rel="stylesheet" href="assets/css/cubewp-styles.css">
+  <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
+  <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
+  <link rel="stylesheet" href="styles.css?v=20261027-envio">
 </head>
-<body>
-<div class="topbar"><span>Boceto interno · no es la web</span></div>
-<header class="site">
-  <img src="logo-de-mami-a-mami.png" alt="De Mami a Mami">
-  <div>
-    <h1>Extras en servicios y eventos</h1>
-    <p>Boceto para revisar con Almudena antes de enviarlo a WP Vender. Ejemplo de servicio: cumpleaños de La Revuela. Ejemplo de evento: entrada de niño y de adulto.</p>
+<body class="spec-proposal-chrome">
+
+<header class="site-header">
+  <img src="logo-de-mami-a-mami.png" alt="Marketplace familiar (demo)">
+  <div class="header-meta">
+    <strong data-i18n="headerTitle">Especificación funcional — Servicios (ListingPro)</strong>
+    <span data-i18n="headerSub">Mockup aislado para el equipo de desarrollo · No conectado al sitio en producción</span>
+  </div>
+  <span class="isolation-badge" data-i18n="isolation">Solo propuesta</span>
+  <span class="isolation-badge" style="background:#e8f4fd;border-color:#465be0;color:#465be0;" title="Build">v2026-10-15-prod-exact</span>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" data-lang="es" class="active">🇪🇸 ES</button>
+    <button type="button" data-lang="en">🇬🇧 EN</button>
   </div>
 </header>
-<div class="wrap">
-  <div class="banner">Un solo módulo de extras sirve para los dos casos. El organizador crea las líneas. Quien reserva elige la cantidad. Una línea puede volverse obligatoria si otra está por encima de cero.</div>
-  <div class="grid">
 
-    <article class="screen">
-      <div class="kicker">1 · Organizador · Servicio</div>
-      <h2>Editar el servicio</h2>
-      <div class="frame">
-        <div class="bar">Panel del profesional · Abre tu agenda · Servicio</div>
-        <label class="f">Nombre del servicio</label>
-        <div class="box">Cumpleaños en el parque</div>
-        <label class="f">Precio base</label>
-        <div class="box">370 €</div>
-        <label class="f">Extras que puede añadir quien reserva</label>
-        <div class="row"><span><strong>Niño extra</strong> · 15 € / unidad</span><span>mín. 0 · máx. 20</span></div>
-        <div class="row"><span><strong>Monitor adicional</strong> · 40 € / unidad</span><span>mín. 0 · máx. 2</span></div>
-        <div class="row"><span><strong>Tarta</strong> · 25 €</span><span>opcional</span></div>
-        <label class="f">Regla</label>
-        <div class="box locked">Si Niño extra es mayor que 0, Monitor adicional queda marcado y no se puede quitar.</div>
-        <div class="btn">Añadir otro extra</div>
-      </div>
-      <p class="note">El organizador define nombre, precio, cantidad mínima y máxima, y si es opcional o obligatorio. La misma lista vale para tarta, hora extra o kit de materiales.</p>
-    </article>
+<nav class="section-nav" aria-label="Sections">
+  <a href="#backend-listing" class="active" data-i18n="nav1">1. Backend · Anuncio</a>
+  <a href="#backend-service" data-i18n="nav2">2. Backend · Servicio</a>
+  <a href="#frontend-booking" data-i18n="nav3">3. Frontend · Reserva</a>
+  <a href="#eventos" data-es="4. Eventos" data-en="4. Events">4. Eventos</a>
+</nav>
 
-    <article class="screen">
-      <div class="kicker">2 · Cliente · Reserva</div>
-      <h2>Reservar el servicio</h2>
-      <div class="frame">
-        <div class="bar">Ficha · La Revuela · Reservar</div>
-        <label class="f">Fecha</label>
-        <div class="box">sábado 18 de octubre · 11:00</div>
-        <label class="f">Plazas del precio base</label>
-        <div class="row"><span>Hasta 15 niños incluidos</span><span class="step">1</span></div>
-        <label class="f">Extras</label>
-        <div class="row"><span>Niño extra · 15 €</span><span class="step">2</span></div>
-        <div class="row locked"><span>Monitor adicional · 40 € <span class="tag">obligatorio</span></span><span class="step">1</span></div>
-        <div class="row"><span>Tarta · 25 €</span><span class="step">0</span></div>
-        <div class="total"><span>Total</span><span>440 €</span></div>
-        <div class="btn">Continuar al pago</div>
-      </div>
-      <p class="note">370 + dos niños extra (30) + un monitor (40) = 440. El total se ve antes de pagar. El monitor no se puede dejar en cero mientras haya niños extra.</p>
-    </article>
+<main>
 
-    <article class="screen">
-      <div class="kicker">3 · Organizador · Evento</div>
-      <h2>Editar el evento</h2>
-      <div class="frame">
-        <div class="bar">Panel · Evento · Entradas</div>
-        <label class="f">Tipos de entrada</label>
-        <div class="row"><span><strong>Niño</strong></span><span>10 €</span></div>
-        <div class="row"><span><strong>Adulto</strong></span><span>15 €</span></div>
-        <label class="f">Extras, además de la entrada</label>
-        <div class="row"><span><strong>Acceso VIP</strong></span><span>10 € · cantidad elegible</span></div>
-        <div class="row"><span><strong>Comida</strong></span><span>10 € · cantidad elegible</span></div>
-        <div class="btn">Añadir tipo de entrada o extra</div>
-      </div>
-      <p class="note">El extra no es otra entrada. Se suma a la entrada y quien compra elige cuántos quiere. Las mismas reglas del servicio valen aquí.</p>
-    </article>
+  <div class="milestone-banner" data-i18n-html="milestoneBanner"></div>
 
-    <article class="screen">
-      <div class="kicker">4 · Cliente · Entradas</div>
-      <h2>Comprar entradas</h2>
-      <div class="frame">
-        <div class="bar">Ficha del evento · Entradas</div>
-        <label class="f">Entradas</label>
-        <div class="row"><span>Niño · 10 €</span><span class="step">2</span></div>
-        <div class="row"><span>Adulto · 15 €</span><span class="step">1</span></div>
-        <label class="f">Extras</label>
-        <div class="row"><span>Acceso VIP · 10 €</span><span class="step">1</span></div>
-        <div class="row"><span>Comida · 10 €</span><span class="step">3</span></div>
-        <div class="total"><span>Total</span><span>75 €</span></div>
-        <div class="btn">Continuar al pago</div>
-      </div>
-      <p class="note">Dos niños (20) + un adulto (15) + un VIP (10) + tres comidas (30) = 75. El total se actualiza antes del pago.</p>
-    </article>
-
+  <div class="deliverable-checklist">
+    <h3 data-i18n="checklistTitle">Entregable único — Servicios (ListingPro)</h3>
+    <ul>
+      <li data-i18n="check1">Multi-recurso en el anuncio (salas o profesionales)</li>
+      <li data-i18n="check2">Editor de servicio: texto enriquecido, tarifas por día, extras libres</li>
+      <li data-i18n="check3">Reserva en frontend: imagen 1:1, recurso, calendario con tarifa, extras y total</li>
+    </ul>
+    <p class="pie" style="margin:12px 0 0;font-size:12px;color:#666;" data-i18n="checkFoot"></p>
   </div>
 
-  <section class="ficha-block">
-    <h2>Ficha con foto y texto</h2>
-    <div class="banner">La vista con el estilo de la web, la foto de verdad a la izquierda y el texto partido está en <a href="vista-previa-ficha.html">vista previa de la ficha</a>. No es la web en marcha.</div>
+  <!-- SECTION 1 -->
+  <section id="backend-listing" class="section-block">
+    <h2 data-i18n="s1Title">Backend — Nivel anuncio (Listing)</h2>
+    <p class="section-lead" data-i18n="s1Lead">Debajo del bloque nativo de Categorías.</p>
 
-    <article class="ficha">
-      <div class="photo">Foto del servicio</div>
-      <div class="ficha-body">
-        <h3>Glow Revuela (370 €)</h3>
-        <p class="lead">Decoración glow y luz UV, pintura y accesorios neón, purpurina, joyas, karaoke, juegos y dinamización musical.</p>
-        <h4>Incluye</h4>
-        <ul>
-          <li>3 h de celebración y 2 monitores</li>
-          <li>Pintacaras, tatuajes, globoflexia y dinamización musical</li>
-          <li>Vigilancia del parque de bolas y espacio privado La Revuela</li>
-        </ul>
-        <h4>Precio</h4>
-        <ul>
-          <li>Hasta 23 niños en el precio base</li>
-          <li>Niño extra +15 €</li>
-          <li>A partir de 24 niños, monitor adicional</li>
-        </ul>
-        <p class="fine">Cancelación con más de 7 días: devolución íntegra. Con menos de 7 días: no reembolsable.</p>
-        <span class="reserve">Reservar Ahora</span>
-      </div>
-    </article>
+    <div class="lp-dashboard-wrap">
+      <p class="lp-panel-title" data-i18n="editListing">Editar anuncio — La Revuela</p>
 
-    <article class="ficha">
-      <div class="photo">Foto del evento</div>
-      <div class="ficha-body">
-        <h3>La Princesa y Tiara</h3>
-        <p class="lead">Teatro infantil en Teatro Carolina, Valencia.</p>
-        <h4>Cuándo</h4>
-        <ul>
-          <li>Sábado 17 y domingo 18 de octubre</li>
-          <li>Pases a las 12:30 y a las 17:00</li>
-        </ul>
-        <h4>Entrada</h4>
-        <ul>
-          <li>10 € por entrada</li>
-        </ul>
-        <span class="reserve">Reservar Ahora</span>
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-i18n="nativeCategories">Categorías (nativo ListingPro)</div>
+        <div class="lp-metabox-body">
+          <div class="lp-field">
+            <input type="text" readonly value="Ludoteca · Cumpleaños infantiles" data-i18n-placeholder="catPlaceholder">
+          </div>
+        </div>
       </div>
+
+      <div class="lp-metabox spec-anchor">
+        <span class="spec-badge" title="Technical spec #1">#1</span>
+        <div class="lp-metabox-head" data-i18n="resourcesTitle">Recursos o profesionales del anuncio</div>
+        <div class="lp-metabox-body">
+          <div class="lp-field">
+            <label data-i18n="labelType">Etiqueta en el frontend para el cliente</label>
+            <div class="lp-radio-row">
+              <label><input type="radio" name="res-type" checked> <span data-i18n="typeRooms">Salas / Espacios</span></label>
+              <label><input type="radio" name="res-type"> <span data-i18n="typeStaff">Profesionales / Especialistas</span></label>
+              <label><input type="radio" name="res-type"> <span data-i18n="typeGeneric">Genérico / Turnos</span></label>
+            </div>
+          </div>
+          <div class="lp-chip-row" id="resource-chips">
+            <span class="lp-chip" data-resource-chip="sol"><span class="chip-label" data-i18n="chipSol">Sala Sol</span> <button type="button" aria-label="Remove">&times;</button></span>
+            <span class="lp-chip" data-resource-chip="luna"><span class="chip-label" data-i18n="chipLuna">Sala Luna</span> <button type="button" aria-label="Remove">&times;</button></span>
+          </div>
+          <button type="button" class="lp-btn lp-btn-dashed" id="add-resource" data-i18n="addResource">+ Añadir recurso / profesional</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-card" id="spec-card-1">
+      <h4 data-i18n="spec1Title">Especificación técnica #1 — Recursos a nivel Listing</h4>
+      <p data-i18n-html="spec1p1"></p>
+      <p data-i18n-html="spec1p2"></p>
+      <p data-i18n="spec1p3"></p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — clone ListingPro edit-listing Servicios (CubeWP) + extensions inside row -->
+  <section id="backend-service" class="section-block">
+    <h2 data-i18n="s2Title">Backend — Editor de servicio</h2>
+    <p class="section-lead" data-i18n="s2Lead">Misma pantalla que «Editar anuncio» en producción; lo nuevo va dentro de cada fila del repetidor.</p>
+
+    <div class="dmm-lp-submit-frame spec-anchor">
+      <span class="spec-badge" title="Service editor">#2</span>
+      <div class="lp_section_inner clearfix" style="background-color: #eff3f6;">
+        <div class="clearfix container">
+          <div class="page-container-four clearfix submit_new_style submit_new_style-outer">
+            <div class="col-md-12 col-sm-12">
+              <div class="row">
+                <div class="col-md-8 page-style2-content-wrap">
+                  <div class="white-section border-bottom lp-style-wrap-border section-id-Services">
+                    <h4 class="white-section-heading" data-i18n="servicesSection">Servicios</h4>
+                    <div class="row">
+                      <div class="form-group col-md-12 col-xs-12">
+                        <div class="cwp-field-container cwp-field-repeating_field form-group is-required" data-id="services_fields" data-name="services_fields" data-type="repeating_field">
+                          <label for="services_fields" data-i18n="servicesLabel">Servicios <span class="cwp-required">*</span></label>
+                          <div class="cwp-repeating-field-container" id="services-repeater">
+                            <div class="cwp-repeating-field-wrapper">
+
+                              <div class="cwp-repeating-single-field-row" id="service-row-demo">
+                                <div class="cwp-repeating-single-field">
+                                  <div class="cwp-repeating-single-field-actions">
+                                    <div class="cwp-repeating-single-field-move"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path class="a" d="M8.273,11.909V10.091H3.727L5.545,8.273l-.909-.909L1,11l3.636,3.636.909-.909L3.727,11.909Zm9.091-4.545-.909.909,1.818,1.818H13.727v1.818h4.545l-1.818,1.818.909.909L21,11ZM11.909,18.273V13.727H10.091v4.545L8.273,16.455l-.909.909L11,21l2.357-2.357,1.28-1.28-.909-.909ZM10.091,3.727V8.273h1.818V3.727l1.818,1.818.909-.909L11,1,7.364,4.636l.909.909Z" transform="translate(-1 -1)"/></svg></div>
+                                    <div class="cwp-repeating-single-field-collapse"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg></div>
+                                    <div class="cwp-repeating-single-field-remove"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/></svg></div>
+                                  </div>
+                                  <div class="cwp-repeating-single-field-content">
+                                    <div class="cwp-field-container cwp-field-text form-group" data-name="service_title" data-type="text">
+                                      <label for="svc_title" data-i18n="fldTitle">Título</label>
+                                      <input type="text" id="svc_title" name="cwp_user_form[cwp_meta][services_fields][service_title][]" class="form-control" value="Glow Revuela">
+                                    </div>
+                                    <div class="cwp-field-container cwp-field-textarea form-group dmm-ext-2a" data-name="service_description" data-type="textarea">
+                                      <label for="svc_desc" data-i18n="fldDesc">Descripción</label>
+                                      <textarea id="svc_desc" name="cwp_user_form[cwp_meta][services_fields][service_description][]" class="form-control" rows="8">Decoración glow y luz UV, pintura y accesorios neón, purpurina, joyas, karaoke, juegos y dinamización musical.
+
+Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y dinamización musical. Vigilancia del parque de bolas. Espacio privado La Revuela. Hasta 23 niños en el precio base; niño extra +15 €. A partir de 24 niños, monitor adicional. Cancelación con más de 7 días: devolución íntegra; con menos de 7 días: no reembolsable.</textarea>
+                                    </div>
+                                    <div class="cwp-field-container cwp-field-number form-group" data-name="service_price" data-type="number">
+                                      <label for="svc_price" data-i18n="fldPrice">Precio</label>
+                                      <input type="number" id="svc_price" name="cwp_user_form[cwp_meta][services_fields][service_price][]" class="form-control" value="370">
+                                    </div>
+                                    <div class="cwp-field-container cwp-field-number form-group" data-name="service_duration" data-type="number">
+                                      <label for="svc_duration" data-i18n="fldDuration">Duración</label>
+                                      <input type="number" id="svc_duration" name="cwp_user_form[cwp_meta][services_fields][service_duration][]" class="form-control" value="180" placeholder="30 min, 60 min, 90min...">
+                                    </div>
+
+                                    <div class="cwp-field-container form-group dmm-ext-seats">
+                                      <div class="checkbox form-group">
+                                        <input type="checkbox" id="seats-check">
+                                        <label for="seats-check" data-i18n="seatsCheck">Activar número de plazas</label>
+                                      </div>
+                                      <p class="description" id="seats-hint" data-i18n="seatsOffHint">Apagado: el precio no se multiplica por plazas.</p>
+                                    </div>
+
+                                    <div class="cwp-field-container form-group dmm-ext-2b">
+                                      <label data-i18n="weekdayRates">Tarifa según día de la semana</label>
+                                      <p class="description" data-i18n="weekdayRatesHint"></p>
+                                      <div class="checkbox form-group">
+                                        <input type="checkbox" id="dyn-pricing-check" checked>
+                                        <label for="dyn-pricing-check" data-i18n="dynCheck">Activar precios distintos por día de la semana</label>
+                                      </div>
+                                      <div class="day-hours" id="dyn-pricing-panel">
+                                        <div id="day-rates">
+                                          <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
+                                            <li><span class="dmm-from" data-i18n="rangeFrom">de</span><select class="weekday from-day"><option selected>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><span class="dmm-to" data-i18n="rangeTo">a</span><select class="weekday to-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option selected>Jueves</option><option>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><input type="number" class="form-control rate-price" value="350" min="0" aria-label="Precio"></li>
+                                            <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
+                                          </ul>
+                                          <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
+                                            <li><span class="dmm-from" data-i18n="rangeFrom">de</span><select class="weekday from-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option selected>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><span class="dmm-to" data-i18n="rangeTo">a</span><select class="weekday to-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option selected>Viernes</option><option>Sábado</option><option>domingo</option></select></li>
+                                            <li><input type="number" class="form-control rate-price" value="370" min="0" aria-label="Precio"></li>
+                                            <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
+                                          </ul>
+                                          <ul class="hours-select clearfix inline-layout up-4 dmm-day-rate-row">
+                                            <li><span class="dmm-from" data-i18n="rangeFrom">de</span><select class="weekday from-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option selected>Sábado</option><option>domingo</option></select></li>
+                                            <li><span class="dmm-to" data-i18n="rangeTo">a</span><select class="weekday to-day"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option selected>domingo</option></select></li>
+                                            <li><input type="number" class="form-control rate-price" value="390" min="0" aria-label="Precio"></li>
+                                            <li><button type="button" class="ybtn ybtn--small remove-rate" aria-label="Eliminar"><span><i class="fa fa-times"></i></span></button></li>
+                                          </ul>
+                                        </div>
+                                        <button type="button" class="dmm-add-plus" id="add-day-rate" data-i18n-aria="addDayRate" aria-label="Añadir tramo de días"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                      </div>
+                                    </div>
+
+                                    <div class="cwp-field-container form-group dmm-ext-2c">
+                                      <label data-i18n="extrasTitle">Servicios adicionales</label>
+                                      <div id="extra-rows">
+                                        <div class="cwp-field-container cwp-field-text form-group extra-row">
+                                          <input type="text" class="form-control" value="Niño extra">
+                                          <input type="number" class="form-control" value="15" min="0" style="margin-top:10px;">
+                                          <select class="form-control" style="margin-top:10px;"><option data-i18n="calcQty">Por cantidad</option><option data-i18n="calcOnce">Cargo único</option></select>
+                                          <button type="button" class="ybtn ybtn--small remove-extra" style="margin-top:10px;">×</button>
+                                        </div>
+                                        <div class="cwp-field-container cwp-field-text form-group extra-row">
+                                          <input type="text" class="form-control" value="Monitor adicional">
+                                          <input type="number" class="form-control" value="40" min="0" style="margin-top:10px;">
+                                          <select class="form-control" style="margin-top:10px;"><option data-i18n="calcQty">Por cantidad</option></select>
+                                          <button type="button" class="ybtn ybtn--small remove-extra" style="margin-top:10px;">×</button>
+                                        </div>
+                                      </div>
+                                      <button type="button" class="cwp-add-new-repeating-field" id="add-extra-row" data-i18n="addExtra">+ Añadir servicio adicional</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+                              <div class="cwp-repeating-single-field-row"><div class="cwp-repeating-single-field"><div class="cwp-repeating-single-field-actions cubewp-collapse"><div class="cwp-repeating-single-field-move"><i class="fa fa-arrows" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-collapse"><i class="fa fa-chevron-up" aria-hidden="true"></i></div><div class="cwp-repeating-single-field-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></div></div><div class="cwp-repeating-single-field-content cwp-hide"></div></div></div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-card">
+      <h4 data-i18n="spec2Title">Especificación técnica #2 — Editor de servicios (ListingPro + CubeWP)</h4>
+      <p data-i18n-html="spec2a"></p>
+      <p data-i18n-html="spec2b"></p>
+      <p data-i18n-html="spec2c"></p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section id="frontend-booking" class="section-block">
+    <h2 data-i18n="s3Title">Frontend — Ficha y flujo de reserva</h2>
+    <p class="section-lead" data-i18n="s3Lead">Todo el cálculo dentro del widget.</p>
+
+    <div class="frontend-preview">
+      <article class="service-card">
+        <div class="service-card-media">
+          <img src="fiesta-neon-pitillito.jpg" alt="Ludoteca El Pitillito — Fiesta Neón (demo)">
+          <div class="aspect-cota" data-i18n="cotaSquare">Imagen 1:1 estricta</div>
+        </div>
+        <div class="service-card-body">
+          <h3>Fiesta Neón 3 h (289 €)</h3>
+          <div class="rich-html wysiwyg-body" style="padding:0;min-height:0;border:none;">
+            <p>Decoración glow, pintura neón, karaoke y juegos con monitores.</p>
+            <p><strong data-i18n="richInc">Incluye</strong> 3 h, 2 monitores, hasta 20 niños en base.</p>
+            <p><strong data-i18n="richPrice">Precio</strong> Base 289 € (no se multiplica por plazas). Extras en reserva.</p>
+          </div>
+          <div class="service-card-actions">
+            <button type="button" class="btn-reserve" id="open-booking" data-i18n="reserveNow">Reservar ahora</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="booking-widget" id="booking-widget">
+        <div class="booking-widget-head" data-i18n="widgetTitle">Reserva — simulación</div>
+        <div class="booking-panel">
+          <div id="booking-step-1">
+            <div class="booking-field">
+              <label for="book-service" data-i18n="lblService">Servicio</label>
+              <select id="book-service" class="form-control">
+                <option value="party" data-i18n="svcParty">Fiesta Neón 3 h</option>
+                <option value="room" data-i18n="svcRoom">Alquiler sala</option>
+                <option value="course" data-i18n="svcCourse">Taller de porteo</option>
+              </select>
+            </div>
+            <div class="booking-field">
+              <label data-i18n="lblDate">Fecha y horario</label>
+              <p id="day-hint" class="booking-hint"></p>
+              <div class="cal-grid" id="cal-grid"></div>
+              <div class="slot-row" style="margin-top:14px;">
+                <button type="button" data-slot="a" data-i18n="slot1">11:00 – 14:00</button>
+                <button type="button" data-slot="b" data-i18n="slot2">16:00 – 19:00</button>
+                <button type="button" data-slot="c" data-i18n="slot3">12:00 – 21:00</button>
+              </div>
+            </div>
+            <div class="booking-step-actions">
+              <button type="button" class="lp-pay-publsh" id="to-step-2" data-i18n="btnContinue">Continuar</button>
+            </div>
+          </div>
+          <div id="booking-step-2" class="hidden">
+            <button type="button" class="btn-back" id="back-step" data-i18n="btnBack">Atrás</button>
+            <div class="booking-field">
+              <label data-i18n="lblExtras">Servicios adicionales</label>
+              <div id="extras-container"></div>
+            </div>
+            <div class="booking-field hidden" id="seats-field">
+              <label data-i18n="lblSeats">Número de plazas</label>
+              <div class="stepper" id="seats-stepper">
+                <button type="button" data-delta="-1" aria-label="Menos">−</button>
+                <span id="seats-count">1</span>
+                <button type="button" data-delta="1" aria-label="Más">+</button>
+              </div>
+            </div>
+            <div class="lp-checkout-wrapper booking-summary">
+              <div class="lp-user-listings clearfix">
+                <div class="row lp-listing-clm">
+                  <div class="col-md-12 col-xs-12">
+                    <span class="lp-booking-type" data-i18n="totalPay">Total a pagar</span>
+                    <p id="sum-total">289 €</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="lp-pay-publsh" data-i18n="btnBook">Continuar al pago (mock)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-card">
+      <h4 data-i18n="spec3Title">Especificación técnica #3 — Widget</h4>
+      <p data-i18n="spec3"></p>
+    </div>
+  </section>
+
+  <section id="eventos" class="section-block">
+    <h2 data-es="Eventos — el alta que ya existe, más precio y extras" data-en="Events — the form that already exists, plus price and extras">Eventos — el alta que ya existe, más precio y extras</h2>
+    <p class="section-lead" data-es="Los servicios no cambian. El alta de evento es la de ahora. Debajo del precio de la entrada solo se añaden dos cosas: precios diferentes y extras. Precio 0 es gratis. La sala no entra aquí: es de servicios." data-en="Services stay as they are. The event form is the one that already exists. Under the ticket price, only two things are added: different prices and extras. A price of 0 is free. The room is not here: it belongs to services.">Los servicios no cambian. El alta de evento es la de ahora. Debajo del precio de la entrada solo se añaden dos cosas: precios diferentes y extras. Precio 0 es gratis. La sala no entra aquí: es de servicios.</p>
+    <p class="implement-label" data-es="En rojo: lo que hay que programar ahora." data-en="In red: what needs to be built now.">En rojo: lo que hay que programar ahora.</p>
+
+    <div class="lp-dashboard-wrap">
+      <p class="lp-panel-title" data-es="Crear evento nuevo" data-en="Create new event">Crear evento nuevo</p>
+
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-es="Tribu y nombre" data-en="Tribe and name">Tribu y nombre</div>
+        <div class="lp-metabox-body">
+          <label data-es="Elige tu tribu" data-en="Choose your tribe">Elige tu tribu</label>
+          <select class="form-control">
+            <option data-es="Actividades para niños en Valencia" data-en="Activities for children in Valencia">Actividades para niños en Valencia</option>
+          </select>
+          <label data-es="Nombre del evento" data-en="Event name">Nombre del evento</label>
+          <input type="text" class="form-control" data-es-placeholder="Un nombre corto" data-en-placeholder="A short name" placeholder="Un nombre corto" value="Teatro: Samba de cuentos — Nuevo Centro">
+        </div>
+      </div>
+
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-es="Localización" data-en="Location">Localización</div>
+        <div class="lp-metabox-body">
+          <label data-es="Dirección (Google Maps)" data-en="Address (Google Maps)">Dirección (Google Maps)</label>
+          <input type="text" class="form-control" value="Nuevo Centro, Valencia" readonly>
+          <div class="evt-inline">
+            <div>
+              <label data-es="Ciudad" data-en="City">Ciudad</label>
+              <select class="form-control"><option>Valencia</option></select>
+            </div>
+            <div>
+              <label data-es="Categoría" data-en="Category">Categoría</label>
+              <select class="form-control">
+                <option data-es="Talleres infantiles" data-en="Children's workshops">Talleres infantiles</option>
+              </select>
+            </div>
+          </div>
+          <p class="booking-hint" data-es="Hay que elegir la sugerencia de Google. Si el campo se queda pillado, el alta no se guarda." data-en="The Google suggestion has to be picked. If the field gets stuck, the event cannot be saved.">Hay que elegir la sugerencia de Google. Si el campo se queda pillado, el alta no se guarda.</p>
+        </div>
+      </div>
+
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-es="Cuándo" data-en="When">Cuándo</div>
+        <div class="lp-metabox-body">
+          <div class="evt-inline">
+            <div>
+              <label data-es="Empieza" data-en="Starts">Empieza</label>
+              <input type="text" class="form-control" value="24/10/2026" readonly>
+            </div>
+            <div>
+              <label data-es="Hora" data-en="Time">Hora</label>
+              <input type="text" class="form-control" value="18:00" readonly>
+            </div>
+          </div>
+          <label class="evt-toggle"><input type="checkbox" checked disabled> <span data-es="Fecha de finalización (ya está en el formulario, se puede apagar)" data-en="End date (already on the form, can be switched off)">Fecha de finalización (ya está en el formulario, se puede apagar)</span></label>
+          <div class="evt-inline">
+            <input type="text" class="form-control" value="24/10/2026" readonly>
+            <input type="text" class="form-control" value="19:00" readonly>
+          </div>
+          <label class="evt-toggle"><input type="checkbox" disabled> <span data-es="Recurrencia (ya está en el formulario, apagada)" data-en="Recurrence (already on the form, off)">Recurrencia (ya está en el formulario, apagada)</span></label>
+        </div>
+      </div>
+
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-es="Descripción e imagen" data-en="Description and image">Descripción e imagen</div>
+        <div class="lp-metabox-body">
+          <label data-es="Descripción" data-en="Description">Descripción</label>
+          <textarea class="form-control" rows="3" readonly>Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, dos pases: 18:00 y 19:00.</textarea>
+          <label data-es="Imagen del evento" data-en="Event image">Imagen del evento</label>
+          <p class="booking-hint" data-es="El cartel, como ahora. Sin imagen no se publica." data-en="The poster, as it works now. It is not published without an image.">El cartel, como ahora. Sin imagen no se publica.</p>
+        </div>
+      </div>
+
+      <div class="lp-metabox">
+        <div class="lp-metabox-head" data-es="Entradas — lo que ya hay" data-en="Tickets — what already exists">Entradas — lo que ya hay</div>
+        <div class="lp-metabox-body">
+          <div class="evt-inline">
+            <div>
+              <label data-es="Entradas disponibles" data-en="Available tickets">Entradas disponibles</label>
+              <input type="number" class="form-control" min="0" value="40" id="evt-stock">
+            </div>
+            <div>
+              <label data-es="Precio de la entrada" data-en="Ticket price">Precio de la entrada</label>
+              <div class="evt-money">
+                <input type="number" class="form-control" min="0" value="10" id="evt-base">
+                <span class="evt-currency" aria-hidden="true">€</span>
+              </div>
+            </div>
+          </div>
+          <p class="booking-hint" data-es="0 € es gratis. No hace falta otra casilla de gratuito. La URL externa, si se enciende, sigue mandando a la web del organizador y no usa este precio." data-en="0 € is free. There is no separate free switch. If the external URL is on, it still sends people to the organiser’s site and this price is not used.">0 € es gratis. No hace falta otra casilla de gratuito. La URL externa, si se enciende, sigue mandando a la web del organizador y no usa este precio.</p>
+          <label class="evt-toggle"><input type="checkbox" disabled> <span data-es="URL externa (ya está, apagada en este ejemplo)" data-en="External URL (already there, off in this example)">URL externa (ya está, apagada en este ejemplo)</span></label>
+        </div>
+      </div>
+
+      <div class="lp-metabox spec-anchor implement-now">
+        <span class="spec-badge">#4</span>
+        <div class="lp-metabox-head" data-es="Nuevo — precios diferentes" data-en="New — different prices">Nuevo — precios diferentes</div>
+        <div class="lp-metabox-body">
+          <label class="evt-toggle"><input type="checkbox" id="evt-diff"> <span data-es="¿Tu evento tiene precios diferentes? Defínelos" data-en="Does your event have different prices? Define them">¿Tu evento tiene precios diferentes? Defínelos</span></label>
+          <div id="evt-diff-box" class="hidden">
+            <div id="evt-price-rows">
+              <div class="evt-inline evt-price-row">
+                <input type="text" data-es-placeholder="Tipo de precio" data-en-placeholder="Price type" placeholder="Tipo de precio">
+                <input type="number" min="0" data-es-placeholder="Precio" data-en-placeholder="Price" placeholder="Precio">
+                <span>€</span>
+              </div>
+            </div>
+            <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-price" data-es="+ Añadir tipo de precio" data-en="+ Add a price type">+ Añadir tipo de precio</button>
+            <p class="booking-hint" data-es="La pista del recuadro puede ser «Precio pack familiar» o «Precio a partir del segundo hermano». El organizador escribe el nombre. Cada tipo es su propio importe: si la entrada son 10 € y el pack 25 €, el pack cuesta 25 €, no 35 €." data-en="The box hint can say “Family pack price” or “Price from the second sibling”. The organiser writes the name. Each type is its own amount: if the ticket is 10 € and the pack is 25 €, the pack costs 25 €, not 35 €.">La pista del recuadro puede ser «Precio pack familiar» o «Precio a partir del segundo hermano». El organizador escribe el nombre. Cada tipo es su propio importe: si la entrada son 10 € y el pack 25 €, el pack cuesta 25 €, no 35 €.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-metabox spec-anchor implement-now">
+        <span class="spec-badge">#5</span>
+        <div class="lp-metabox-head" data-es="Nuevo — extras" data-en="New — extras">Nuevo — extras</div>
+        <div class="lp-metabox-body">
+          <label class="evt-toggle"><input type="checkbox" id="evt-extra"> <span data-es="Añadir extra para tu evento" data-en="Add an extra for your event">Añadir extra para tu evento</span></label>
+          <div id="evt-extra-box" class="hidden">
+            <div id="evt-extra-rows">
+              <div class="evt-inline evt-extra-row">
+                <input type="text" data-es-placeholder="Nombre del extra" data-en-placeholder="Extra name" placeholder="Nombre del extra">
+                <input type="number" min="0" data-es-placeholder="Precio del extra" data-en-placeholder="Extra price" placeholder="Precio del extra">
+                <span>€</span>
+              </div>
+            </div>
+            <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-extra" data-es="+ Añadir otro extra" data-en="+ Add another extra">+ Añadir otro extra</button>
+            <p class="booking-hint" data-es="Puede ser un pase VIP o una botella de vino. El extra se suma al precio elegido. Es lo que lleva comisión." data-en="It can be a VIP pass or a bottle of wine. The extra is added to the chosen price. This is what carries the commission.">Puede ser un pase VIP o una botella de vino. El extra se suma al precio elegido. Es lo que lleva comisión.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="booking-hint" data-es="Guardar sigue siendo el botón que ya tiene el formulario." data-en="Save stays the button the form already has.">Guardar sigue siendo el botón que ya tiene el formulario.</p>
+    </div>
+
+    <h3 class="evt-front-title" data-es="Ficha pública — cómo lo ve quien compra" data-en="Public page — what the buyer sees">Ficha pública — cómo lo ve quien compra</h3>
+    <p class="section-lead" data-es="Copiada de Teatro: Samba de cuentos — Nuevo Centro (24 de octubre, Valencia). En la web de hoy esa ficha manda a Reservar Nuevo Centro. Aquí la caja de la derecha enseña la venta en la propia web, con un tipo de precio y un extra." data-en="Copied from Theatre: Samba de cuentos — Nuevo Centro (24 October, Valencia). On the live site that page sends people to Book at Nuevo Centro. The box on the right shows selling on this site, with one price type and one extra.">Copiada de Teatro: Samba de cuentos — Nuevo Centro (24 de octubre, Valencia). En la web de hoy esa ficha manda a Reservar Nuevo Centro. Aquí la caja de la derecha enseña la venta en la propia web, con un tipo de precio y un extra.</p>
+
+    <article class="evt-public">
+      <div class="evt-public-main">
+        <div class="evt-date"><span>24</span><span data-es="OCT" data-en="OCT">OCT</span></div>
+        <div>
+          <h3>Teatro: Samba de cuentos — Nuevo Centro</h3>
+          <p data-es="Creado por: Actividades para niños en Valencia" data-en="Hosted by: Activities for children in Valencia">Creado por: Actividades para niños en Valencia</p>
+          <p class="evt-tabs"><span data-es="Detalles" data-en="Details">Detalles</span> · <span data-es="Participantes" data-en="Attendees">Participantes</span> · <span data-es="Lugar" data-en="Place">Lugar</span></p>
+          <p data-es="Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00." data-en="Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.">Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00.</p>
+          <p data-es="Lugar: Nuevo Centro, Valencia" data-en="Place: Nuevo Centro, Valencia">Lugar: Nuevo Centro, Valencia</p>
+        </div>
+      </div>
+      <aside class="evt-buy implement-now">
+        <p data-es="40 entradas disponibles" data-en="40 tickets available">40 entradas disponibles</p>
+        <p data-es="Precio de la entrada: 10 €" data-en="Ticket price: 10 €">Precio de la entrada: 10 €</p>
+        <fieldset>
+          <legend data-es="Elige el precio" data-en="Choose the price">Elige el precio</legend>
+          <label><input type="radio" name="front-price" value="10" checked> <span data-es="Entrada — 10 €" data-en="Ticket — 10 €">Entrada — 10 €</span></label>
+          <label><input type="radio" name="front-price" value="25"> <span data-es="Pack familiar — 25 €" data-en="Family pack — 25 €">Pack familiar — 25 €</span></label>
+          <label><input type="radio" name="front-price" value="6"> <span data-es="A partir del segundo hermano — 6 €" data-en="From the second sibling — 6 €">A partir del segundo hermano — 6 €</span></label>
+        </fieldset>
+        <div class="evt-inline">
+          <label for="front-vip" data-es="Pase VIP (8 €)" data-en="VIP pass (8 €)">Pase VIP (8 €)</label>
+          <button type="button" id="front-vip-minus" aria-label="-">−</button>
+          <span id="front-vip">0</span>
+          <button type="button" id="front-vip-plus" aria-label="+">+</button>
+        </div>
+        <p class="evt-total"><span data-es="Total" data-en="Total">Total</span> <strong id="front-total">10 €</strong></p>
+        <button type="button" class="lp-btn lp-btn-primary" data-es="Conseguir entradas" data-en="Get tickets">Conseguir entradas</button>
+        <p class="booking-hint" data-es="El pack no se suma a los 10 €. El pase VIP sí: entrada 10 € y un pase = 18 €." data-en="The pack is not added to the 10 €. The VIP pass is: a 10 € ticket plus one pass = 18 €.">El pack no se suma a los 10 €. El pase VIP sí: entrada 10 € y un pase = 18 €.</p>
+      </aside>
     </article>
   </section>
 
-  <footer class="phase">
-    <strong>Segunda fase, si hace falta</strong>
-    El precio base que ya incluye hasta 15 niños, y el extra que solo cuenta a partir del 16, puede pedirse después. Este boceto cubre primero las líneas con cantidad y la regla de obligatorio.
-  </footer>
-</div>
+</main>
+
+<script src="script.js?v=20261023-eventos"></script>
 </body>
 </html>
