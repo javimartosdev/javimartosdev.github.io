@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY = "dmm-spec-lang";
+  const STORAGE_KEY = "dmm-spec-lang-20261028";
 
   const I18N = {
     es: {
@@ -10,10 +10,10 @@
       headerSub: "Mockup aislado para el equipo de desarrollo · No conectado al sitio en producción",
       isolation: "Solo propuesta",
       milestoneBanner:
-        "<strong>Hito — Solo servicios (ListingPro)</strong> Esta página es la propuesta para revisión y aprobación. No incluye EventPro, venta de entradas ni flujos de eventos. La parte de eventos no se definirá hasta tu visto bueno al 100&nbsp;% de este entregable.",
+        "<strong>Este envío</strong> Lo rojo de Eventos: precios diferentes, extras y la caja de compra. Los servicios, sala incluida, ya estaban cerrados y no entran aquí.",
       scopeOut:
         "Fuera de alcance en esta entrega: compra de entradas, actos publicados como eventos, tribus como evento, módulos EventPro y cualquier pantalla de «evento» en panel o ficha pública.",
-      checklistTitle: "Entregable único — Servicios (ListingPro)",
+      checklistTitle: "Servicios — ya cerrados (la sala se queda aquí)",
       check1: "Multi-recurso en el alta del anuncio (salas / profesionales / turnos)",
       check2: "Editor de servicio (CubeWP actual): extensiones dentro de cada fila — WYSIWYG, tarifas por día, servicios adicionales",
       check3: "Flujo de reserva: foto cuadrada 1:1, selector de recurso, calendario que aplica tarifa del día, extras y total en vivo",
@@ -110,10 +110,10 @@
       headerSub: "Isolated mockup for the development team · Not connected to production",
       isolation: "Proposal only",
       milestoneBanner:
-        "<strong>Milestone — Services only (ListingPro)</strong> This page is for review and approval. It excludes EventPro, ticket sales, and event booking flows. The events scope will not be defined until this deliverable is 100&nbsp;% approved.",
+        "<strong>This shipment</strong> The red boxes in Events: different prices, extras, and the purchase box. Services, including the room, are already closed and are not part of this shipment.",
       scopeOut:
         "Out of scope: ticket purchase, published events, tribe-as-event listings, EventPro modules, and any “event” UI in dashboard or public pages.",
-      checklistTitle: "Single deliverable — Services (ListingPro)",
+      checklistTitle: "Services — already closed (the room stays here)",
       check1: "Multi-resource on listing submit (rooms / staff / shifts)",
       check2: "Service editor (current CubeWP): extensions inside each row — WYSIWYG, weekday rates, add-ons",
       check3: "Booking flow: 1:1 square image, resource picker, calendar day-rate, extras, live total",
@@ -207,7 +207,7 @@
     },
   };
 
-  let lang = localStorage.getItem(STORAGE_KEY) || "es";
+  let lang = localStorage.getItem(STORAGE_KEY) || "en";
 
   const SERVICES = {
     party: {

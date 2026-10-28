@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261027-envio">
+  <link rel="stylesheet" href="styles.css?v=20261028">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -26,8 +26,8 @@
   <span class="isolation-badge" data-i18n="isolation">Solo propuesta</span>
   <span class="isolation-badge" style="background:#e8f4fd;border-color:#465be0;color:#465be0;" title="Build">v2026-10-15-prod-exact</span>
   <div class="lang-toggle" role="group" aria-label="Language">
-    <button type="button" data-lang="es" class="active">🇪🇸 ES</button>
-    <button type="button" data-lang="en">🇬🇧 EN</button>
+    <button type="button" data-lang="en" class="active">🇬🇧 EN</button>
+    <button type="button" data-lang="es">🇪🇸 ES</button>
   </div>
 </header>
 
@@ -40,10 +40,10 @@
 
 <main>
 
-  <div class="milestone-banner" data-i18n-html="milestoneBanner"></div>
+  <div class="milestone-banner" data-i18n="milestoneBanner" data-i18n-html>This shipment. The red boxes in Events: different prices, extras, and the purchase box. Services, including the room, are already closed and are not part of this shipment.</div>
 
   <div class="deliverable-checklist">
-    <h3 data-i18n="checklistTitle">Entregable único — Servicios (ListingPro)</h3>
+    <h3 data-i18n="checklistTitle">Services — already closed (the room stays here)</h3>
     <ul>
       <li data-i18n="check1">Multi-recurso en el anuncio (salas o profesionales)</li>
       <li data-i18n="check2">Editor de servicio: texto enriquecido, tarifas por día, extras libres</li>
@@ -326,7 +326,7 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
   <section id="eventos" class="section-block">
     <h2 data-es="Eventos — el alta que ya existe, más precio y extras" data-en="Events — the form that already exists, plus price and extras">Eventos — el alta que ya existe, más precio y extras</h2>
     <p class="section-lead" data-es="Los servicios no cambian. El alta de evento es la de ahora. Debajo del precio de la entrada solo se añaden dos cosas: precios diferentes y extras. Precio 0 es gratis. La sala no entra aquí: es de servicios." data-en="Services stay as they are. The event form is the one that already exists. Under the ticket price, only two things are added: different prices and extras. A price of 0 is free. The room is not here: it belongs to services.">Los servicios no cambian. El alta de evento es la de ahora. Debajo del precio de la entrada solo se añaden dos cosas: precios diferentes y extras. Precio 0 es gratis. La sala no entra aquí: es de servicios.</p>
-    <p class="implement-label" data-es="En rojo: lo que hay que programar ahora." data-en="In red: what needs to be built now.">En rojo: lo que hay que programar ahora.</p>
+    <p class="implement-label" data-es="En rojo: lo que hay que programar ahora. En la web real esas casillas nacen apagadas; aquí están abiertas para que se vea el ejemplo." data-en="In red: what to build now. On the live form these switches start off; they are open here so the example is visible.">In red: what to build now. On the live form these switches start off; they are open here so the example is visible.</p>
 
     <div class="lp-dashboard-wrap">
       <p class="lp-panel-title" data-es="Crear evento nuevo" data-en="Create new event">Crear evento nuevo</p>
@@ -360,7 +360,6 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
               </select>
             </div>
           </div>
-          <p class="booking-hint" data-es="Hay que elegir la sugerencia de Google. Si el campo se queda pillado, el alta no se guarda." data-en="The Google suggestion has to be picked. If the field gets stuck, the event cannot be saved.">Hay que elegir la sugerencia de Google. Si el campo se queda pillado, el alta no se guarda.</p>
         </div>
       </div>
 
@@ -390,7 +389,7 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
         <div class="lp-metabox-head" data-es="Descripción e imagen" data-en="Description and image">Descripción e imagen</div>
         <div class="lp-metabox-body">
           <label data-es="Descripción" data-en="Description">Descripción</label>
-          <textarea class="form-control" rows="3" readonly>Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, dos pases: 18:00 y 19:00.</textarea>
+          <textarea class="form-control" rows="3" readonly data-es-value="Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00." data-en-value="Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.">Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.</textarea>
           <label data-es="Imagen del evento" data-en="Event image">Imagen del evento</label>
           <p class="booking-hint" data-es="El cartel, como ahora. Sin imagen no se publica." data-en="The poster, as it works now. It is not published without an image.">El cartel, como ahora. Sin imagen no se publica.</p>
         </div>
@@ -421,12 +420,17 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
         <span class="spec-badge">#4</span>
         <div class="lp-metabox-head" data-es="Nuevo — precios diferentes" data-en="New — different prices">Nuevo — precios diferentes</div>
         <div class="lp-metabox-body">
-          <label class="evt-toggle"><input type="checkbox" id="evt-diff"> <span data-es="¿Tu evento tiene precios diferentes? Defínelos" data-en="Does your event have different prices? Define them">¿Tu evento tiene precios diferentes? Defínelos</span></label>
-          <div id="evt-diff-box" class="hidden">
+          <label class="evt-toggle"><input type="checkbox" id="evt-diff" checked> <span data-es="¿Tu evento tiene precios diferentes? Defínelos" data-en="Does your event have different prices? Define them">Does your event have different prices? Define them</span></label>
+          <div id="evt-diff-box">
             <div id="evt-price-rows">
               <div class="evt-inline evt-price-row">
-                <input type="text" data-es-placeholder="Tipo de precio" data-en-placeholder="Price type" placeholder="Tipo de precio">
-                <input type="number" min="0" data-es-placeholder="Precio" data-en-placeholder="Price" placeholder="Precio">
+                <input type="text" data-es-value="Pack familiar" data-en-value="Family pack" value="Family pack">
+                <input type="number" min="0" value="25">
+                <span>€</span>
+              </div>
+              <div class="evt-inline evt-price-row">
+                <input type="text" data-es-value="A partir del segundo hermano" data-en-value="From the second sibling" value="From the second sibling">
+                <input type="number" min="0" value="6">
                 <span>€</span>
               </div>
             </div>
@@ -440,12 +444,12 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
         <span class="spec-badge">#5</span>
         <div class="lp-metabox-head" data-es="Nuevo — extras" data-en="New — extras">Nuevo — extras</div>
         <div class="lp-metabox-body">
-          <label class="evt-toggle"><input type="checkbox" id="evt-extra"> <span data-es="Añadir extra para tu evento" data-en="Add an extra for your event">Añadir extra para tu evento</span></label>
-          <div id="evt-extra-box" class="hidden">
+          <label class="evt-toggle"><input type="checkbox" id="evt-extra" checked> <span data-es="Añadir extra para tu evento" data-en="Add an extra for your event">Add an extra for your event</span></label>
+          <div id="evt-extra-box">
             <div id="evt-extra-rows">
               <div class="evt-inline evt-extra-row">
-                <input type="text" data-es-placeholder="Nombre del extra" data-en-placeholder="Extra name" placeholder="Nombre del extra">
-                <input type="number" min="0" data-es-placeholder="Precio del extra" data-en-placeholder="Extra price" placeholder="Precio del extra">
+                <input type="text" data-es-value="Pase VIP" data-en-value="VIP pass" value="VIP pass">
+                <input type="number" min="0" value="8">
                 <span>€</span>
               </div>
             </div>
@@ -496,6 +500,6 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
 
 </main>
 
-<script src="script.js?v=20261023-eventos"></script>
+<script src="script.js?v=20261028"></script>
 </body>
 </html>

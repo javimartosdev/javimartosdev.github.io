@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Servicios — funcionalidad básica</title>
+  <title>This shipment — Events</title>
   <style>
     body { font: 16px/1.45 system-ui, sans-serif; color: #111; background: #fff; margin: 0; }
     main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
@@ -32,17 +32,17 @@
 <body>
 <main>
   <div class="lang">
-    <button type="button" id="btn-es" aria-pressed="true">ES</button>
-    <button type="button" id="btn-en" aria-pressed="false">EN</button>
+    <button type="button" id="btn-en" aria-pressed="true">EN</button>
+    <button type="button" id="btn-es" aria-pressed="false">ES</button>
   </div>
 
-  <article id="lang-es">
-    <h1>Servicios — funcionalidad básica</h1>
-    <p>Solo la lógica. Las pantallas que ya existen se quedan. No hay encargo de diseño.</p>
+  <article id="lang-es" class="hidden">
+    <h1>Este envío — Eventos</h1>
+    <p>Solo la lógica. Las pantallas que ya existen se quedan. No hay encargo de diseño. Lo único nuevo es el apartado 5.</p>
 
-    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261021-eventos#eventos">
+    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261028#eventos">
       <strong>Maqueta visual</strong>
-      Servicios en CHECK. Eventos, sección 4, es lo nuevo.
+      Servicios ya cerrados. En eventos, lo rojo es lo que hay que programar ahora.
     </a>
     <a class="choice" href="#reglas">
       <strong>Esta página — la que hay que implementar</strong>
@@ -50,7 +50,7 @@
     </a>
 
     <div class="note">
-      <strong>Servicios:</strong> no cambian. El calendario de reservas que ya tiene la web se usa tal cual. Los eventos van en el apartado 5.
+      <strong>Servicios:</strong> no cambian. La sala se queda ahí. Este envío es solo el apartado 5.
     </div>
 
     <h2 id="reglas">1. Qué se guarda en cada servicio</h2>
@@ -101,7 +101,7 @@
       <li>Taller, 2 plazas: 45 × 2 = <strong>90 €</strong>. Al bajar a 1: <strong>45 €</strong>. No baja de 1.</li>
     </ul>
 
-    <h2 id="eventos">5. Eventos</h2>
+    <h2 id="eventos-es">5. Eventos — lo único nuevo</h2>
     <p>Aparte del servicio. El alta que ya existe se queda: tribu, nombre, localización de Google, ciudad, categoría, inicio, fecha de fin (se puede apagar), recurrencia (la que ya hay), descripción, imagen, entradas disponibles, precio de la entrada y URL externa.</p>
     <p>Precio 0 es gratis. No hay un interruptor aparte de gratuito. Si la URL externa está encendida, la ficha sigue mandando a la web del organizador y no usa este precio.</p>
     <p>Debajo del precio de la entrada, dos bloques nuevos. Los dos vienen apagados.</p>
@@ -113,16 +113,16 @@
     <p>No entra en este encargo: plantillas, varios pases como cosa nueva, varios días seguidos como modo nuevo, aforo por salas y avisos de un clic. Niño extra y monitor adicional siguen en los servicios, no en el evento.</p>
 
     <h2>6. Probar la lógica de servicios</h2>
-    <p>Esto no es una pantalla de la web. Sirve para comprobar las cuentas.</p>
+    <p>Esto no es una pantalla de la web. Sirve para comprobar las cuentas de los servicios, sala incluida. No forma parte del envío de eventos.</p>
   </article>
 
-  <article id="lang-en" class="hidden">
-    <h1>Services — basic functionality</h1>
-    <p>Business rules only. Keep the screens that already exist. This is not a design request.</p>
+  <article id="lang-en">
+    <h1>This shipment — Events</h1>
+    <p>Business rules only. Keep the screens that already exist. This is not a design request. Section 5 is the only new work.</p>
 
-    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261021-eventos#eventos">
+    <a class="choice" href="https://javimartosdev.github.io/propuesta-wp-vender-2026-10-10/?v=20261028#eventos">
       <strong>Visual mock</strong>
-      Services stay CHECK. Events, section 4, are the new part.
+      Services are already closed. In Events, the red boxes are what to build now.
     </a>
     <a class="choice" href="#rules">
       <strong>This page — what to build</strong>
@@ -130,7 +130,7 @@
     </a>
 
     <div class="note">
-      <strong>Services</strong> do not change. Use the booking calendar the site already has. Events are in section 5.
+      <strong>Services</strong> do not change. The room stays there. This shipment is section 5 only.
     </div>
 
     <h2 id="rules">1. What each service stores</h2>
@@ -181,7 +181,7 @@
       <li>Workshop, 2 seats: 45 × 2 = <strong>90 €</strong>. Back to 1: <strong>45 €</strong>. It cannot go below 1.</li>
     </ul>
 
-    <h2 id="events">5. Events</h2>
+    <h2 id="eventos">5. Events — the only new work</h2>
     <p>Separate from the service. The form that already exists stays: tribe, name, Google location, city, category, start, end date (can be switched off), recurrence (the one already there), description, image, available tickets, ticket price and external URL.</p>
     <p>A price of 0 is free. There is no separate free switch. If the external URL is on, the public page still sends people to the organiser’s site and does not use this price.</p>
     <p>Under the ticket price, two new blocks. Both start off.</p>
@@ -193,7 +193,7 @@
     <p>Out of this request: templates, extra showtimes as a new feature, several days in a row as a new mode, capacity split by room, and one-click notes. Extra child and extra monitor stay on services, not on the event.</p>
 
     <h2>6. Try the services logic</h2>
-    <p>This is not a site screen. It only checks the numbers.</p>
+    <p>This is not a site screen. It only checks the service numbers, including room rental. It is not part of the events shipment.</p>
   </article>
 
   <div class="box" id="editor">
@@ -267,7 +267,7 @@
 </main>
 <script>
 (function () {
-  var lang = "es";
+  var lang = "en";
   var DAYS = {
     es: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
     en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
