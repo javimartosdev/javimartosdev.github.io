@@ -17,6 +17,7 @@
     .choice { display: block; border: 1px solid #111; padding: 10px 12px; margin: 8px 0; color: inherit; text-decoration: none; }
     .choice strong { display: block; }
     .note { border: 1px solid #111; padding: 10px 12px; margin: 16px 0; }
+    .ask { border: 3px solid #c0392b; padding: 12px 14px; margin: 16px 0; }
     .box { border: 1px solid #111; padding: 12px; margin: 12px 0; }
     label { display: block; font-weight: 700; margin: 10px 0 4px; }
     input, select, button { font: inherit; }
@@ -44,16 +45,23 @@
       <strong>Maqueta visual</strong>
       Servicios ya cerrados. En eventos, lo rojo es lo que hay que programar ahora.
     </a>
-    <a class="choice" href="#reglas">
-      <strong>Esta página — la que hay que implementar</strong>
-      Reglas de negocio, con los mismos datos de ejemplo.
+    <a class="choice" href="#eventos-es">
+      <strong>Esta página — lo que hay que programar ahora</strong>
+      Precios diferentes, extras y la caja de compra. La sala no entra.
     </a>
 
-    <div class="note">
-      <strong>Servicios:</strong> no cambian. La sala se queda ahí. Este envío es solo el apartado 5.
+    <div class="ask" id="eventos-es">
+      <strong>Programar ahora.</strong> Solo esto, en el alta de evento que ya existe. En la maqueta va en rojo.
+      <ul>
+        <li><strong>Precios diferentes.</strong> Apagado al empezar. Al encenderlo, filas de tipo de precio y precio. Cada tipo es su propio importe: entrada 10 € y pack familiar 25 €, el pack cuesta 25 €, no 35 €. «Pack familiar» y «a partir del segundo hermano» son pistas, no productos fijos.</li>
+        <li><strong>Extras del evento.</strong> Apagado al empezar. Al encenderlo, nombre y precio. El extra se suma al tipo elegido: entrada 10 € y un pase VIP de 8 € son 18 €. El extra es lo que lleva comisión.</li>
+        <li><strong>Caja de compra</strong> en la ficha. Quien compra elige un tipo y, si hay extras, cuántos. Total = tipo elegido + extras. Solo se muestra el total.</li>
+      </ul>
+      <p>El resto del alta se queda como está: tribu, nombre, localización de Google, ciudad, categoría, inicio, fecha de fin (se puede apagar), recurrencia (la que ya hay), descripción, imagen, entradas disponibles, precio de la entrada y URL externa. Precio 0 es gratis. No hay un interruptor aparte de gratuito. Si la URL externa está encendida, la ficha sigue mandando a la web del organizador y no usa este precio.</p>
+      <p>No se programa en este envío: la sala, plantillas, varios pases, varios días seguidos como modo nuevo, aforo por salas y avisos de un clic. Niño extra y monitor adicional siguen en los servicios, no en el evento.</p>
     </div>
 
-    <h2 id="reglas">1. Qué se guarda en cada servicio</h2>
+    <h2 id="reglas">1. Qué se guarda en cada servicio — no es este envío</h2>
     <p>Dentro de cada fila del repetidor de servicios que ya existe, debajo de Título, Descripción, Precio y Duración.</p>
     <ul>
       <li>La descripción pasa a texto enriquecido. En la ficha se muestra ese HTML.</li>
@@ -62,9 +70,9 @@
       <li><strong>Servicios adicionales:</strong> nombre, precio, y tipo (por cantidad, o cargo único). Solo los de ese servicio.</li>
     </ul>
     <p>En este bloque no va el botón «Abrir horario». Guardar sigue siendo el botón que ya tiene el formulario del anuncio.</p>
-    <p>La sala o el profesional es el recurso que se ocupa. No suma un segundo precio. El precio lo lleva el servicio.</p>
+    <p>No es este envío. En servicios, la sala o el profesional es el recurso que se ocupa. No suma un segundo precio. El precio lo lleva el servicio.</p>
 
-    <h2>2. Cómo se calcula la reserva</h2>
+    <h2>2. Cómo se calcula la reserva — no es este envío</h2>
     <p>Dos pasos, en el flujo de reserva que ya existe.</p>
     <ol>
       <li><strong>Pantalla 1.</strong> Servicio, recurso (sala o profesional del anuncio), día y hora. El jueves coge el precio del jueves si hay tarifas por día.</li>
@@ -72,7 +80,7 @@
     </ol>
     <p><strong>Total</strong> = (precio del día, o el Precio del servicio si no hay tarifas) + extras. Si las plazas están activadas, eso se multiplica por las plazas. Si no, no se multiplica.</p>
 
-    <h2>3. Ejemplo (datos inventados)</h2>
+    <h2>3. Ejemplo de servicios (no es este envío)</h2>
     <table>
       <thead>
         <tr><th>Servicio</th><th>Plazas</th><th>Precio</th></tr>
@@ -101,18 +109,19 @@
       <li>Taller, 2 plazas: 45 × 2 = <strong>90 €</strong>. Al bajar a 1: <strong>45 €</strong>. No baja de 1.</li>
     </ul>
 
-    <h2 id="eventos-es">5. Eventos — lo único nuevo</h2>
-    <p>Aparte del servicio. El alta que ya existe se queda: tribu, nombre, localización de Google, ciudad, categoría, inicio, fecha de fin (se puede apagar), recurrencia (la que ya hay), descripción, imagen, entradas disponibles, precio de la entrada y URL externa.</p>
+    <h2>5. Eventos — el detalle de lo que hay que programar ahora</h2>
+    <p>Es el recuadro rojo de arriba, escrito para implementarlo. La sala no entra.</p>
+    <p>El alta que ya existe se queda: tribu, nombre, localización de Google, ciudad, categoría, inicio, fecha de fin (se puede apagar), recurrencia (la que ya hay), descripción, imagen, entradas disponibles, precio de la entrada y URL externa.</p>
     <p>Precio 0 es gratis. No hay un interruptor aparte de gratuito. Si la URL externa está encendida, la ficha sigue mandando a la web del organizador y no usa este precio.</p>
     <p>Debajo del precio de la entrada, dos bloques nuevos. Los dos vienen apagados.</p>
     <ul>
       <li><strong>¿Tu evento tiene precios diferentes? Defínelos.</strong> Al encenderlo, filas de tipo de precio y precio. Se puede añadir otra fila. El texto de ejemplo (pack familiar, a partir del segundo hermano) es una pista, no un producto fijo. Cada tipo es el importe de quien lo elige. No se suma al precio de la entrada. Entrada 10 € y pack familiar 25 €: el pack cuesta 25 €, no 35 €.</li>
       <li><strong>Añadir extra para tu evento.</strong> Al encenderlo, nombre del extra y precio del extra. Se puede añadir otro. El extra sí se suma al tipo elegido. Entrada 10 € y un pase VIP de 8 €: 18 €. El extra es lo que lleva comisión.</li>
     </ul>
-    <p>En la ficha, quien compra elige un tipo y, si hay extras, cuántos quiere. Total = tipo elegido + extras.</p>
-    <p>No entra en este encargo: plantillas, varios pases como cosa nueva, varios días seguidos como modo nuevo, aforo por salas y avisos de un clic. Niño extra y monitor adicional siguen en los servicios, no en el evento.</p>
+    <p>En la ficha, la caja de compra: quien compra elige un tipo y, si hay extras, cuántos quiere. Total = tipo elegido + extras. Solo el total.</p>
+    <p>No entra en este encargo: la sala, plantillas, varios pases como cosa nueva, varios días seguidos como modo nuevo, aforo por salas y avisos de un clic. Niño extra y monitor adicional siguen en los servicios, no en el evento.</p>
 
-    <h2>6. Probar la lógica de servicios</h2>
+    <h2>6. Probar la lógica de servicios — no es este envío</h2>
     <p>Esto no es una pantalla de la web. Sirve para comprobar las cuentas de los servicios, sala incluida. No forma parte del envío de eventos.</p>
   </article>
 
@@ -124,16 +133,23 @@
       <strong>Visual mock</strong>
       Services are already closed. In Events, the red boxes are what to build now.
     </a>
-    <a class="choice" href="#rules">
-      <strong>This page — what to build</strong>
-      The rules, with the same sample data.
+    <a class="choice" href="#eventos">
+      <strong>This page — what to build now</strong>
+      Different prices, extras, and the purchase box. Not the room.
     </a>
 
-    <div class="note">
-      <strong>Services</strong> do not change. The room stays there. This shipment is section 5 only.
+    <div class="ask" id="eventos">
+      <strong>Build now.</strong> Only this, on the event form that already exists. On the visual mock it is in red.
+      <ul>
+        <li><strong>Different prices.</strong> Off at the start. When on, rows of price type and price. Each type is its own amount: a 10 € ticket and a 25 € family pack means the pack costs 25 €, not 35 €. “Family pack” and “from the second sibling” are hints, not fixed products.</li>
+        <li><strong>Event extras.</strong> Off at the start. When on, name and price. The extra is added to the chosen type: a 10 € ticket plus one 8 € VIP pass is 18 €. The extra is what carries the commission.</li>
+        <li><strong>Purchase box</strong> on the public page. The buyer picks one type and, if there are extras, how many. Total = chosen type + extras. Show only the total.</li>
+      </ul>
+      <p>The rest of the form stays as it is: tribe, name, Google location, city, category, start, end date (can be switched off), recurrence (the one already there), description, image, available tickets, ticket price and external URL. A price of 0 is free. There is no separate free switch. If the external URL is on, the public page still sends people to the organiser’s site and does not use this price.</p>
+      <p>Do not build in this shipment: the room, templates, extra showtimes, several days in a row as a new mode, capacity split by room, and one-click notes. Extra child and extra monitor stay on services, not on the event.</p>
     </div>
 
-    <h2 id="rules">1. What each service stores</h2>
+    <h2 id="rules">1. What each service stores — not this shipment</h2>
     <p>Inside each existing service-repeater row, below Title, Description, Price and Duration.</p>
     <ul>
       <li>Description becomes rich text and is shown on the public page.</li>
@@ -142,9 +158,9 @@
       <li><strong>Additional services:</strong> name, price, and type (per quantity, or one-time). Only those of that service.</li>
     </ul>
     <p>Do not put an “Open hours” button in this block. Saving stays the listing form’s existing save button.</p>
-    <p>The room or the professional is the resource being booked. It does not add a second price. The service carries the price.</p>
+    <p>Not this shipment. On services, the room or the professional is the resource being booked. It does not add a second price. The service carries the price.</p>
 
-    <h2>2. How the booking total is calculated</h2>
+    <h2>2. How the booking total is calculated — not this shipment</h2>
     <p>Two steps, inside the booking flow that already exists.</p>
     <ol>
       <li><strong>Screen 1.</strong> Service, resource (room or professional on the listing), day and time. A Thursday uses Thursday’s price when weekday rates are on.</li>
@@ -152,7 +168,7 @@
     </ol>
     <p><strong>Total</strong> = (day price, or the service Price when weekday rates are off) + extras. If seats are enabled, multiply by seats. If not, do not multiply.</p>
 
-    <h2>3. Sample (fictional data)</h2>
+    <h2>3. Service sample — not this shipment</h2>
     <table>
       <thead>
         <tr><th>Service</th><th>Seats</th><th>Price</th></tr>
@@ -181,23 +197,24 @@
       <li>Workshop, 2 seats: 45 × 2 = <strong>90 €</strong>. Back to 1: <strong>45 €</strong>. It cannot go below 1.</li>
     </ul>
 
-    <h2 id="eventos">5. Events — the only new work</h2>
-    <p>Separate from the service. The form that already exists stays: tribe, name, Google location, city, category, start, end date (can be switched off), recurrence (the one already there), description, image, available tickets, ticket price and external URL.</p>
+    <h2 id="eventos-detail">5. Events — the detail of what to build now</h2>
+    <p>This is the red box above, written so it can be built. The room is not included.</p>
+    <p>The form that already exists stays: tribe, name, Google location, city, category, start, end date (can be switched off), recurrence (the one already there), description, image, available tickets, ticket price and external URL.</p>
     <p>A price of 0 is free. There is no separate free switch. If the external URL is on, the public page still sends people to the organiser’s site and does not use this price.</p>
     <p>Under the ticket price, two new blocks. Both start off.</p>
     <ul>
       <li><strong>Does your event have different prices? Define them.</strong> When on, rows of price type and price. Another row can be added. The sample text (family pack, from the second sibling) is a hint, not a fixed product. Each type is the amount paid by the person who picks it. It is not added to the ticket price. Ticket 10 € and family pack 25 €: the pack costs 25 €, not 35 €.</li>
       <li><strong>Add an extra for your event.</strong> When on, extra name and extra price. Another extra can be added. The extra is added to the chosen type. A 10 € ticket plus an 8 € VIP pass is 18 €. The extra is what carries the commission.</li>
     </ul>
-    <p>On the public page the buyer picks one type and, if there are extras, how many. Total = chosen type + extras.</p>
-    <p>Out of this request: templates, extra showtimes as a new feature, several days in a row as a new mode, capacity split by room, and one-click notes. Extra child and extra monitor stay on services, not on the event.</p>
+    <p>On the public page, the purchase box: the buyer picks one type and, if there are extras, how many. Total = chosen type + extras. The total only.</p>
+    <p>Out of this request: the room, templates, extra showtimes as a new feature, several days in a row as a new mode, capacity split by room, and one-click notes. Extra child and extra monitor stay on services, not on the event.</p>
 
-    <h2>6. Try the services logic</h2>
+    <h2>6. Try the services logic — not this shipment</h2>
     <p>This is not a site screen. It only checks the service numbers, including room rental. It is not part of the events shipment.</p>
   </article>
 
   <div class="box" id="editor">
-    <strong data-es="Editor del servicio (esquema del alquiler de sala)" data-en="Service editor (room-rental outline)">Editor del servicio (esquema del alquiler de sala)</strong>
+    <strong data-es="No es este envío. Prueba de un servicio (el ejemplo sigue siendo el alquiler de sala)" data-en="Not this shipment. Service try-out (the sample is still the room rental)">Not this shipment. Service try-out (the sample is still the room rental)</strong>
     <p class="note" data-es="Las filas de aquí son el esquema. La prueba de abajo usa la tabla y no lee este formulario." data-en="The rows here are the outline. The try-out below uses the table and does not read this form.">Las filas de aquí son el esquema. La prueba de abajo usa la tabla y no lee este formulario.</p>
     <label><input type="checkbox" id="seats-flag"> <span data-es="Activar número de plazas" data-en="Enable number of seats">Activar número de plazas</span></label>
     <label><input type="checkbox" id="days-flag" checked> <span data-es="Activar precios distintos por día de la semana" data-en="Enable different prices by weekday">Activar precios distintos por día de la semana</span></label>
