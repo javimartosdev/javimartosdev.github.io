@@ -10,10 +10,10 @@
       headerSub: "Mockup aislado para el equipo de desarrollo · No conectado al sitio en producción",
       isolation: "Solo propuesta",
       milestoneBanner:
-        "<strong>Este envío</strong> La línea roja marca solo los checkbox nuevos, las cajas nuevas y el bloque de compra que hay que dibujar. Los servicios, sala incluida, ya estaban cerrados y no entran aquí.",
+        "<strong>Este envío</strong> La línea roja es lo que la web aún no tiene: salas, checkbox y cajas nuevas del servicio, la reserva en dos pasos, y en eventos los checkbox, las cajas y el bloque de compra.",
       scopeOut:
         "Fuera de alcance en esta entrega: compra de entradas, actos publicados como eventos, tribus como evento, módulos EventPro y cualquier pantalla de «evento» en panel o ficha pública.",
-      checklistTitle: "Servicios — ya cerrados (la sala se queda aquí)",
+      checklistTitle: "En rojo: lo que la web aún no tiene",
       check1: "Multi-recurso en el alta del anuncio (salas / profesionales / turnos)",
       check2: "Editor de servicio (CubeWP actual): extensiones dentro de cada fila — WYSIWYG, tarifas por día, servicios adicionales",
       check3: "Flujo de reserva: foto cuadrada 1:1, selector de recurso, calendario que aplica tarifa del día, extras y total en vivo",
@@ -110,10 +110,10 @@
       headerSub: "Isolated mockup for the development team · Not connected to production",
       isolation: "Proposal only",
       milestoneBanner:
-        "<strong>This shipment</strong> The red line marks only the new checkboxes, the new boxes, and the purchase block that has to be drawn. Services, including the room, are already closed and are not part of this shipment.",
+        "<strong>This shipment</strong> The red line is what the site does not have yet: rooms, the new service checkboxes and boxes, the two-step booking, and in events the checkboxes, the boxes, and the purchase block.",
       scopeOut:
         "Out of scope: ticket purchase, published events, tribe-as-event listings, EventPro modules, and any “event” UI in dashboard or public pages.",
-      checklistTitle: "Services — already closed (the room stays here)",
+      checklistTitle: "In red: what the site does not have yet",
       check1: "Multi-resource on listing submit (rooms / staff / shifts)",
       check2: "Service editor (current CubeWP): extensions inside each row — WYSIWYG, weekday rates, add-ons",
       check3: "Booking flow: 1:1 square image, resource picker, calendar day-rate, extras, live total",

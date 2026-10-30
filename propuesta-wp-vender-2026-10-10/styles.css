@@ -708,6 +708,19 @@ label.evt-toggle.mark-new {
   padding-top: 0;
   border: 0;
 }
+.dmm-ext-seats.mark-new,
+.dmm-ext-2b.mark-new,
+.dmm-ext-2c.mark-new,
+.lp-metabox.mark-new,
+.booking-widget.mark-new {
+  border: 2px solid #c0392b;
+  border-radius: 4px;
+}
+.dmm-ext-seats.mark-new,
+.dmm-ext-2b.mark-new,
+.dmm-ext-2c.mark-new {
+  padding: 8px 10px;
+}
 .dmm-day-rate-row {
   display: flex;
   align-items: center;
