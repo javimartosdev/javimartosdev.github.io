@@ -292,9 +292,19 @@ main {
 }
 
 /* ——— Technical spec callouts ——— */
-.implement-now {
-  outline: 3px solid #c0392b;
-  outline-offset: 8px;
+.mark-new {
+  border: 2px solid #c0392b;
+  border-radius: 4px;
+}
+label.evt-toggle.mark-new {
+  padding: 8px 10px;
+}
+.mark-new-fields {
+  padding: 8px;
+  margin-top: 8px;
+}
+.evt-buy.mark-new {
+  border: 2px solid #c0392b;
 }
 .implement-label {
   margin: 0 0 10px;

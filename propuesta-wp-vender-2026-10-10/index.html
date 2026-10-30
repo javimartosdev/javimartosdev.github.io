@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261028">
+  <link rel="stylesheet" href="styles.css?v=20261030">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -326,7 +326,7 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
   <section id="eventos" class="section-block">
     <h2 data-es="Eventos — el alta que ya existe, más precio y extras" data-en="Events — the form that already exists, plus price and extras">Eventos — el alta que ya existe, más precio y extras</h2>
     <p class="section-lead" data-es="Los servicios no cambian. El alta de evento es la de ahora. Debajo del precio de la entrada solo se añaden dos cosas: precios diferentes y extras. Precio 0 es gratis. La sala no entra aquí: es de servicios." data-en="Services stay as they are. The event form is the one that already exists. Under the ticket price, only two things are added: different prices and extras. A price of 0 is free. The room is not here: it belongs to services.">Los servicios no cambian. El alta de evento es la de ahora. Debajo del precio de la entrada solo se añaden dos cosas: precios diferentes y extras. Precio 0 es gratis. La sala no entra aquí: es de servicios.</p>
-    <p class="implement-label" data-es="En rojo: lo que hay que programar ahora. En la web real esas casillas nacen apagadas; aquí están abiertas para que se vea el ejemplo." data-en="In red: what to build now. On the live form these switches start off; they are open here so the example is visible.">In red: what to build now. On the live form these switches start off; they are open here so the example is visible.</p>
+    <p class="implement-label" data-es="La línea roja marca solo tres cosas: los checkbox nuevos, las cajas nuevas y el bloque de compra que hay que dibujar. En la web real esos checkbox nacen apagados; aquí están encendidos para que se vea el ejemplo." data-en="The red line marks only three things: the new checkboxes, the new boxes, and the purchase block that has to be drawn. On the live form those checkboxes start off; they are on here so the example is visible.">La línea roja marca solo tres cosas: los checkbox nuevos, las cajas nuevas y el bloque de compra que hay que dibujar. En la web real esos checkbox nacen apagados; aquí están encendidos para que se vea el ejemplo.</p>
 
     <div class="lp-dashboard-wrap">
       <p class="lp-panel-title" data-es="Crear evento nuevo" data-en="Create new event">Crear evento nuevo</p>
@@ -416,12 +416,13 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
         </div>
       </div>
 
-      <div class="lp-metabox spec-anchor implement-now">
+      <div class="lp-metabox spec-anchor">
         <span class="spec-badge">#4</span>
         <div class="lp-metabox-head" data-es="Nuevo — precios diferentes" data-en="New — different prices">Nuevo — precios diferentes</div>
         <div class="lp-metabox-body">
-          <label class="evt-toggle"><input type="checkbox" id="evt-diff" checked> <span data-es="¿Tu evento tiene precios diferentes? Defínelos" data-en="Does your event have different prices? Define them">Does your event have different prices? Define them</span></label>
+          <label class="evt-toggle mark-new"><input type="checkbox" id="evt-diff" checked> <span data-es="¿Tu evento tiene precios diferentes? Defínelos" data-en="Does your event have different prices? Define them">Does your event have different prices? Define them</span></label>
           <div id="evt-diff-box">
+            <div class="mark-new-fields mark-new">
             <div id="evt-price-rows">
               <div class="evt-inline evt-price-row">
                 <input type="text" data-es-value="Pack familiar" data-en-value="Family pack" value="Family pack">
@@ -435,17 +436,19 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
               </div>
             </div>
             <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-price" data-es="+ Añadir tipo de precio" data-en="+ Add a price type">+ Añadir tipo de precio</button>
+            </div>
             <p class="booking-hint" data-es="La pista del recuadro puede ser «Precio pack familiar» o «Precio a partir del segundo hermano». El organizador escribe el nombre. Cada tipo es su propio importe: si la entrada son 10 € y el pack 25 €, el pack cuesta 25 €, no 35 €." data-en="The box hint can say “Family pack price” or “Price from the second sibling”. The organiser writes the name. Each type is its own amount: if the ticket is 10 € and the pack is 25 €, the pack costs 25 €, not 35 €.">La pista del recuadro puede ser «Precio pack familiar» o «Precio a partir del segundo hermano». El organizador escribe el nombre. Cada tipo es su propio importe: si la entrada son 10 € y el pack 25 €, el pack cuesta 25 €, no 35 €.</p>
           </div>
         </div>
       </div>
 
-      <div class="lp-metabox spec-anchor implement-now">
+      <div class="lp-metabox spec-anchor">
         <span class="spec-badge">#5</span>
         <div class="lp-metabox-head" data-es="Nuevo — extras" data-en="New — extras">Nuevo — extras</div>
         <div class="lp-metabox-body">
-          <label class="evt-toggle"><input type="checkbox" id="evt-extra" checked> <span data-es="Añadir extra para tu evento" data-en="Add an extra for your event">Add an extra for your event</span></label>
+          <label class="evt-toggle mark-new"><input type="checkbox" id="evt-extra" checked> <span data-es="Añadir extra para tu evento" data-en="Add an extra for your event">Add an extra for your event</span></label>
           <div id="evt-extra-box">
+            <div class="mark-new-fields mark-new">
             <div id="evt-extra-rows">
               <div class="evt-inline evt-extra-row">
                 <input type="text" data-es-value="Pase VIP" data-en-value="VIP pass" value="VIP pass">
@@ -454,6 +457,7 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
               </div>
             </div>
             <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-extra" data-es="+ Añadir otro extra" data-en="+ Add another extra">+ Añadir otro extra</button>
+            </div>
             <p class="booking-hint" data-es="Puede ser un pase VIP o una botella de vino. El extra se suma al precio elegido. Es lo que lleva comisión." data-en="It can be a VIP pass or a bottle of wine. The extra is added to the chosen price. This is what carries the commission.">Puede ser un pase VIP o una botella de vino. El extra se suma al precio elegido. Es lo que lleva comisión.</p>
           </div>
         </div>
@@ -476,7 +480,7 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
           <p data-es="Lugar: Nuevo Centro, Valencia" data-en="Place: Nuevo Centro, Valencia">Lugar: Nuevo Centro, Valencia</p>
         </div>
       </div>
-      <aside class="evt-buy implement-now">
+      <aside class="evt-buy mark-new">
         <p data-es="40 entradas disponibles" data-en="40 tickets available">40 entradas disponibles</p>
         <p data-es="Precio de la entrada: 10 €" data-en="Ticket price: 10 €">Precio de la entrada: 10 €</p>
         <fieldset>
@@ -500,6 +504,6 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
 
 </main>
 
-<script src="script.js?v=20261028"></script>
+<script src="script.js?v=20261030"></script>
 </body>
 </html>
