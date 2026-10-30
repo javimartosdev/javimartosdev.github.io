@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261030e">
+  <link rel="stylesheet" href="styles.css?v=20261030f">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -62,15 +62,14 @@
       <div class="lp-metabox">
         <div class="lp-metabox-head" data-i18n="resourcesTitle">Recursos o profesionales del anuncio</div>
         <div class="lp-metabox-body">
-          <div class="lp-field">
-            <label data-i18n="labelType">Etiqueta en el frontend para el cliente</label>
+          <div class="new-dev-border">
+            <p class="spec-note" data-i18n="labelType">Etiqueta en el frontend para el cliente</p>
             <div class="lp-radio-row">
               <label><input type="radio" name="res-type" checked> <span data-i18n="typeRooms">Salas / Espacios</span></label>
               <label><input type="radio" name="res-type"> <span data-i18n="typeStaff">Profesionales / Especialistas</span></label>
               <label><input type="radio" name="res-type"> <span data-i18n="typeGeneric">Genérico / Turnos</span></label>
             </div>
-          </div>
-          <div class="new-dev-border">
+            <p class="lp-implement-label" data-i18n="createResources">Crea tus recursos personalizados</p>
             <div class="lp-chip-row" id="resource-chips">
               <span class="lp-chip" data-resource-chip="sol"><span class="chip-label" data-i18n="chipSol">Sala Sol</span> <button type="button" aria-label="Remove">&times;</button></span>
               <span class="lp-chip" data-resource-chip="luna"><span class="chip-label" data-i18n="chipLuna">Sala Luna</span> <button type="button" aria-label="Remove">&times;</button></span>
@@ -88,12 +87,10 @@
       <h4>⚙️ DEVELOPER LOGIC RULES (DO NOT RENDER THIS TEXT IN THE UI / REGLAS DE LÓGICA - NO MOSTRAR ESTE TEXTO EN LA WEB):</h4>
       <p class="dev-rules-es">Un solo conjunto de recursos por anuncio, no por servicio.
 El cliente elige una sala o un profesional en la reserva.
-Esa elección ocupa el hueco. Suma 0 €.
-No añadas un botón «Abrir horario». Guardar sigue siendo el botón del formulario del anuncio.</p>
+Esa elección ocupa el hueco. Suma 0 €.</p>
       <p class="dev-rules-en">One set of resources per listing, not per service.
 The customer picks one room or staff member in the booking widget.
-That choice blocks the slot. It adds 0 €.
-Do not add an “Open hours” button. Save stays the listing form’s existing button.</p>
+That choice blocks the slot. It adds 0 €.</p>
     </div>
   </section>
 
@@ -235,13 +232,11 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
 «Activar número de plazas» nace apagado. Aquí está encendido para que se vea el control de la reserva.
 «Activar precios distintos por día de la semana» nace apagado. Apagado: se ocultan las filas y la reserva usa el Precio del servicio. Encendido: se ven las filas.
 Servicios adicionales: nombre, precio y tipo (por cantidad o cargo único). Solo los de ese servicio.
-No añadas un botón «Abrir horario». Guardar sigue siendo el botón del formulario del anuncio.
 En esta página los checkbox nuevos están encendidos para que se vean las cajas. En la web nacen apagados.</p>
       <p class="dev-rules-en">Description becomes a visual editor. The toolbar is the new piece. The public page shows that HTML.
 “Enable number of seats” starts OFF. It is ON here so the booking control is visible.
 “Enable different prices by weekday” starts OFF. OFF: hide the rows and use the service Price. ON: show the rows.
 Additional services: name, price and type (per quantity or one-time). Only those of that service.
-Do not add an “Open hours” button. Save stays the listing form’s existing button.
 On this page the new checkboxes are ON so the boxes are visible. On the site they start OFF.</p>
     </div>
   </section>
@@ -523,6 +518,6 @@ Free Events: IF Ticket Price == 0 AND "Different prices" is OFF -> Event is Free
 
 </main>
 
-<script src="script.js?v=20261030e"></script>
+<script src="script.js?v=20261030f"></script>
 </body>
 </html>

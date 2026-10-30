@@ -180,6 +180,20 @@ main {
   background: #fff;
 }
 .lp-field textarea { min-height: 80px; resize: vertical; }
+.spec-note {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  color: #6b5b95;
+}
+.lp-implement-label {
+  display: block;
+  margin: 12px 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
 .lp-radio-row { display: flex; flex-wrap: wrap; gap: 16px; margin: 8px 0; }
 .lp-radio-row label { font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 6px; }
 .lp-btn {
