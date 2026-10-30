@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261030f">
+  <link rel="stylesheet" href="styles.css?v=20261030g">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -148,7 +148,7 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
                                     </div>
 
                                     <div class="cwp-field-container form-group dmm-ext-seats">
-                                      <div class="checkbox form-group new-dev-border">
+                                      <div class="checkbox form-group">
                                         <input type="checkbox" id="seats-check" checked>
                                         <label for="seats-check" data-i18n="seatsCheck">Activar número de plazas</label>
                                       </div>
@@ -229,15 +229,15 @@ Incluye 3 h de celebración, 2 monitores, pintacaras, tatuajes, globoflexia y di
     <div class="dev-rules">
       <h4>⚙️ DEVELOPER LOGIC RULES (DO NOT RENDER THIS TEXT IN THE UI / REGLAS DE LÓGICA - NO MOSTRAR ESTE TEXTO EN LA WEB):</h4>
       <p class="dev-rules-es">La descripción pasa a editor visual. La barra de herramientas es lo nuevo. En la ficha se muestra ese HTML.
-«Activar número de plazas» nace apagado. Aquí está encendido para que se vea el control de la reserva.
-«Activar precios distintos por día de la semana» nace apagado. Apagado: se ocultan las filas y la reserva usa el Precio del servicio. Encendido: se ven las filas.
+El número de plazas ya está en servicios. No lo desarrolles otra vez y no saques una casilla al marcar el checkbox.
+«Activar precios distintos por día de la semana» nace apagado. Apagado: se ocultan las filas y la reserva usa el Precio del servicio. Encendido: se ven las filas. Define días o un tramo y el precio especial.
 Servicios adicionales: nombre, precio y tipo (por cantidad o cargo único). Solo los de ese servicio.
-En esta página los checkbox nuevos están encendidos para que se vean las cajas. En la web nacen apagados.</p>
+En esta página el checkbox de precios por día está encendido para que se vean las filas. En la web nace apagado.</p>
       <p class="dev-rules-en">Description becomes a visual editor. The toolbar is the new piece. The public page shows that HTML.
-“Enable number of seats” starts OFF. It is ON here so the booking control is visible.
-“Enable different prices by weekday” starts OFF. OFF: hide the rows and use the service Price. ON: show the rows.
+Number of seats already exists on services. Do not build it again and do not reveal a new field when the checkbox is clicked.
+“Enable different prices by weekday” starts OFF. OFF: hide the rows and use the service Price. ON: show the rows. Define days or range and special price.
 Additional services: name, price and type (per quantity or one-time). Only those of that service.
-On this page the new checkboxes are ON so the boxes are visible. On the site they start OFF.</p>
+On this page the weekday-price checkbox is ON so the rows are visible. On the site it starts OFF.</p>
     </div>
   </section>
 
@@ -284,7 +284,7 @@ On this page the new checkboxes are ON so the boxes are visible. On the site the
               <div id="extras-container"></div>
             </div>
             <div class="booking-field" id="seats-field">
-              <div class="new-dev-border">
+              <div>
                 <label data-i18n="lblSeats">Número de plazas</label>
                 <div class="stepper" id="seats-stepper">
                   <button type="button" data-delta="-1" aria-label="Menos">−</button>
@@ -311,18 +311,14 @@ On this page the new checkboxes are ON so the boxes are visible. On the site the
 
     <div class="dev-rules">
       <h4>⚙️ DEVELOPER LOGIC RULES (DO NOT RENDER THIS TEXT IN THE UI / REGLAS DE LÓGICA - NO MOSTRAR ESTE TEXTO EN LA WEB):</h4>
-      <p class="dev-rules-es">IF «Activar número de plazas» está OFF (por defecto): ocultar el contador de plazas en el paso 2. Total = (Day_Rate OR Base_Service_Price) + Sum(Extras).
+      <p class="dev-rules-es">El número de plazas ya está. No lo desarrolles otra vez. Nunca multipliques los extras nuevos (cargo único o por cantidad) por el número de plazas.
 
-IF «Activar número de plazas» está ON: mostrar el contador en el paso 2 (mínimo 1; el botón menos vuelve a 1). Total = ((Day_Rate OR Base_Service_Price) * Seats) + Sum(Extras). Nunca multiplicar los extras (cargo único o por cantidad) por el número de plazas.
-
-IF «Precios distintos por día de la semana» está ON: el día elegido en el calendario del paso 1 escoge solo la fila que corresponde. El cliente nunca elige la tarifa a mano.
+IF «Precios distintos por día de la semana» está ON: el día elegido en el calendario del paso 1 escoge solo la fila que corresponde. El cliente nunca elige la tarifa a mano. Define días o un tramo y el precio especial.
 
 Salas / profesionales: elegir sala o profesional ocupa ese hueco y suma 0 €.</p>
-      <p class="dev-rules-en">IF "Enable number of seats" is OFF (default): Hide seats counter in Step 2. Total = (Day_Rate OR Base_Service_Price) + Sum(Extras).
+      <p class="dev-rules-en">Number of seats already exists. Do not build it again. NEVER multiply the new extras (one-time or per quantity) by the number of seats.
 
-IF "Enable number of seats" is ON: Show seats counter in Step 2 (minimum value = 1, minus button must return to 1). Total = ((Day_Rate OR Base_Service_Price) * Seats) + Sum(Extras). NEVER multiply One-time or Per-quantity Extras by the number of Seats.
-
-IF "Different prices by weekday" is ON: The selected date in Step 1 calendar automatically picks the matching weekday price row. The customer NEVER selects the weekday rate manually.
+IF "Different prices by weekday" is ON: The selected date in Step 1 calendar automatically picks the matching weekday price row. The customer NEVER selects the weekday rate manually. Define days or range and special price.
 
 Rooms / Staff: Selecting a room or staff member blocks their availability slot, but adds 0 € to the price.</p>
     </div>
@@ -518,6 +514,6 @@ Free Events: IF Ticket Price == 0 AND "Different prices" is OFF -> Event is Free
 
 </main>
 
-<script src="script.js?v=20261030f"></script>
+<script src="script.js?v=20261030g"></script>
 </body>
 </html>
