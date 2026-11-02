@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261030h">
+  <link rel="stylesheet" href="styles.css?v=20261102a">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -87,10 +87,12 @@
       <h4>⚙️ DEVELOPER LOGIC RULES (DO NOT RENDER THIS TEXT IN THE UI / REGLAS DE LÓGICA - NO MOSTRAR ESTE TEXTO EN LA WEB):</h4>
       <p class="dev-rules-es">Un solo conjunto de recursos por anuncio, no por servicio.
 El cliente elige una sala o un profesional en la reserva.
-Esa elección ocupa el hueco. Suma 0 €.</p>
+Esa elección ocupa el hueco. Suma 0 €.
+La disponibilidad de la sala se muestra según las reservas ya hechas. Si no hay reserva, misma lógica que Booking slots y el horario del profesional. Si hay reserva, se bloquea solo la sala o el recurso elegido, en el día y la hora concretos que ha pedido el usuario.</p>
       <p class="dev-rules-en">One set of resources per listing, not per service.
 The customer picks one room or staff member in the booking widget.
-That choice blocks the slot. It adds 0 €.</p>
+That choice blocks the slot. It adds 0 €.
+Show the room's availability according to the bookings already made. If there is no booking, use the same logic as Booking slots and the professional's schedule. If there is a booking, block only the selected room or resource on the specific day and time the customer requested.</p>
     </div>
   </section>
 
@@ -309,12 +311,12 @@ On this page the weekday-price checkbox is ON so the rows are visible. On the si
 
 IF «Precios distintos por día de la semana» está ON: el día elegido en el calendario del paso 1 escoge solo la fila que corresponde. El cliente nunca elige la tarifa a mano. Define días o un tramo y el precio especial.
 
-Salas / profesionales: elegir sala o profesional ocupa ese hueco y suma 0 €.</p>
+Salas / profesionales: elegir sala o profesional ocupa ese hueco y suma 0 €. La disponibilidad de la sala se muestra según las reservas ya hechas. Si no hay reserva, misma lógica que Booking slots y el horario del profesional. Si hay reserva, se bloquea solo la sala o el recurso elegido, en el día y la hora concretos que ha pedido el usuario.</p>
       <p class="dev-rules-en">Number of seats already exists. Do not build it again. NEVER multiply the new extras (one-time or per quantity) by the number of seats.
 
 IF "Different prices by weekday" is ON: The selected date in Step 1 calendar automatically picks the matching weekday price row. The customer NEVER selects the weekday rate manually. Define days or range and special price.
 
-Rooms / Staff: Selecting a room or staff member blocks their availability slot, but adds 0 € to the price.</p>
+Rooms / Staff: Selecting a room or staff member blocks their availability slot, but adds 0 € to the price. Show the room's availability according to the bookings already made. If there is no booking, use the same logic as Booking slots and the professional's schedule. If there is a booking, block only the selected room or resource on the specific day and time the customer requested.</p>
     </div>
   </section>
 
@@ -508,6 +510,6 @@ Free Events: IF Ticket Price == 0 AND "Different prices" is OFF -> Event is Free
 
 </main>
 
-<script src="script.js?v=20261030h"></script>
+<script src="script.js?v=20261102a"></script>
 </body>
 </html>
