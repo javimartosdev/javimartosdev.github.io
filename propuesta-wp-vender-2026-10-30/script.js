@@ -723,21 +723,26 @@
   function addEvtRow(containerId, nameKey, priceKey) {
     const box = document.getElementById(containerId);
     const row = document.createElement("div");
-    row.className = "evt-inline";
+    row.className = "row ep-ticket-row";
     const name = document.createElement("input");
     name.type = "text";
-    name.setAttribute("data-es-placeholder", nameKey === "type" ? "Tipo de precio" : "Nombre del extra");
-    name.setAttribute("data-en-placeholder", nameKey === "type" ? "Price type" : "Extra name");
+    name.className = "form-control lp-dashboard-text-field";
+    name.setAttribute("data-es-placeholder", nameKey === "type" ? "Ej. Pack familiar / Niño" : "Ej. Pase VIP");
+    name.setAttribute("data-en-placeholder", nameKey === "type" ? "e.g. Family pack / Child" : "e.g. VIP pass");
     const price = document.createElement("input");
     price.type = "number";
     price.min = "0";
-    price.setAttribute("data-es-placeholder", nameKey === "type" ? "Precio" : "Precio del extra");
-    price.setAttribute("data-en-placeholder", nameKey === "type" ? "Price" : "Extra price");
-    const euro = document.createElement("span");
-    euro.textContent = "€";
-    row.appendChild(name);
-    row.appendChild(price);
-    row.appendChild(euro);
+    price.className = "form-control lp-dashboard-text-field";
+    price.setAttribute("data-es-placeholder", nameKey === "type" ? "Precio €" : "Precio del extra €");
+    price.setAttribute("data-en-placeholder", nameKey === "type" ? "Price €" : "Extra price €");
+    const nameCol = document.createElement("div");
+    nameCol.className = "col-xs-7";
+    nameCol.appendChild(name);
+    const priceCol = document.createElement("div");
+    priceCol.className = "col-xs-5";
+    priceCol.appendChild(price);
+    row.appendChild(nameCol);
+    row.appendChild(priceCol);
     box.appendChild(row);
     const langNow = document.documentElement.lang === "en" ? "en" : "es";
     row.querySelectorAll("[data-es-placeholder]").forEach((el) => {

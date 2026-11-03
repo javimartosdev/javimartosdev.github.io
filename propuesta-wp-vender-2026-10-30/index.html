@@ -8,12 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700" rel="stylesheet">
   <link rel="stylesheet" href="https://www.demamiamami.com/wp-content/themes/listingpro/assets/lib/bootstrap/css/bootstrap.min.css?ver=7.1.3">
   <link rel="stylesheet" href="https://www.demamiamami.com/wp-content/themes/listingpro/assets/lib/font-awesome/css/font-awesome.min.css?ver=7.1.3">
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261103a">
+  <link rel="stylesheet" href="styles.css?v=20261103b">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -324,175 +325,303 @@ Rooms / Staff: Selecting a room or staff member blocks their availability slot, 
     <h2 data-es="Eventos — precios, extras y caja de compra" data-en="Events — prices, extras and purchase box">Eventos — precios, extras y caja de compra</h2>
     <p class="section-lead" data-es="El alta que ya existe se queda. Lo nuevo es lo que lleva línea roja." data-en="The form that already exists stays. What is new is what has a red border.">El alta que ya existe se queda. Lo nuevo es lo que lleva línea roja.</p>
 
-    <div class="lp-dashboard-wrap">
-      <p class="lp-panel-title" data-es="Crear evento nuevo" data-en="Create new event">Crear evento nuevo</p>
+    <h3 class="evt-front-title" data-es="Panel — Crear evento nuevo" data-en="Dashboard — Create new event">Panel — Crear evento nuevo</h3>
 
-      <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Tribu y nombre" data-en="Tribe and name">Tribu y nombre</div>
-        <div class="lp-metabox-body">
-          <label data-es="Elige tu tribu" data-en="Choose your tribe">Elige tu tribu</label>
-          <select class="form-control">
-            <option data-es="Actividades para niños en Valencia" data-en="Activities for children in Valencia">Actividades para niños en Valencia</option>
-          </select>
-          <label data-es="Nombre del evento" data-en="Event name">Nombre del evento</label>
-          <input type="text" class="form-control" data-es-placeholder="Un nombre corto" data-en-placeholder="A short name" placeholder="Un nombre corto" value="Teatro: Samba de cuentos — Nuevo Centro">
+    <div class="dmm-dash">
+      <aside class="dmm-dash-side" aria-hidden="true">
+        <div class="dmm-dash-side-head"><i class="fa fa-th-list"></i></div>
+        <ul>
+          <li><i class="fa fa-info-circle"></i><span data-es="Panel de Control" data-en="Dashboard">Panel de Control</span></li>
+          <li><i class="fa fa-microphone"></i><span data-es="Publicidad" data-en="Ads">Publicidad</span></li>
+          <li><i class="fa fa-users"></i><span data-es="Grupos" data-en="Groups">Grupos</span></li>
+          <li class="is-on"><i class="fa fa-calendar-o"></i><span data-es="Eventos" data-en="Events">Eventos</span></li>
+          <li><i class="fa fa-ticket"></i><span data-es="Mis Entradas" data-en="My Tickets">Mis Entradas</span></li>
+          <li><i class="fa fa-money"></i><span data-es="Mis Ingresos" data-en="My Earnings">Mis Ingresos</span></li>
+          <li><i class="fa fa-pencil-square-o"></i><span data-es="Reservas" data-en="Bookings">Reservas</span></li>
+          <li><i class="fa fa-tags"></i><span data-es="Cupones" data-en="Coupons">Cupones</span></li>
+          <li><i class="fa fa-envelope-o"></i><span data-es="Mensajes" data-en="Messages">Mensajes</span></li>
+          <li><i class="fa fa-paper-plane-o"></i><span data-es="Facturas" data-en="Invoices">Facturas</span></li>
+          <li><i class="fa fa-heart"></i><span data-es="Guardado" data-en="Saved">Guardado</span></li>
+          <li><i class="fa fa-star"></i><span data-es="Valoraciones" data-en="Reviews">Valoraciones</span></li>
+        </ul>
+      </aside>
+
+      <div class="dmm-dash-main">
+        <div class="dmm-dash-top" aria-hidden="true">
+          <span class="dmm-dash-user">JAVIER PRUEBAS</span>
+          <span class="dmm-dash-avatar"></span>
+          <i class="fa fa-bars"></i>
         </div>
-      </div>
 
-      <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Localización" data-en="Location">Localización</div>
-        <div class="lp-metabox-body">
-          <label data-es="Dirección (Google Maps)" data-en="Address (Google Maps)">Dirección (Google Maps)</label>
-          <input type="text" class="form-control" value="Nuevo Centro, Valencia" readonly>
-          <div class="evt-inline">
-            <div>
-              <label data-es="Ciudad" data-en="City">Ciudad</label>
-              <select class="form-control"><option>Valencia</option></select>
+        <div class="dmm-dash-content">
+          <div class="lp-container-center">
+            <div class="ep-form-head">
+              <a class="ep-view-all-btn"><i class="fa fa-angle-left" aria-hidden="true"></i> <span data-es="Todos los Eventos" data-en="All Events">Todos los Eventos</span></a>
+              <h5>
+                <span data-es="Crear Evento Nuevo" data-en="Create New Event">Crear Evento Nuevo</span>
+                <a class="lp-view-larg-btn"><i class="fa fa-eye" aria-hidden="true"></i> <span data-es="Ejemplo de Vista Preliminar" data-en="Full View Example">Ejemplo de Vista Preliminar</span></a>
+              </h5>
             </div>
-            <div>
-              <label data-es="Categoría" data-en="Category">Categoría</label>
-              <select class="form-control">
-                <option data-es="Talleres infantiles" data-en="Children's workshops">Talleres infantiles</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Cuándo" data-en="When">Cuándo</div>
-        <div class="lp-metabox-body">
-          <div class="evt-inline">
-            <div>
-              <label data-es="Empieza" data-en="Starts">Empieza</label>
-              <input type="text" class="form-control" value="24/10/2026" readonly>
-            </div>
-            <div>
-              <label data-es="Hora" data-en="Time">Hora</label>
-              <input type="text" class="form-control" value="18:00" readonly>
-            </div>
-          </div>
-          <label class="evt-toggle"><input type="checkbox" checked disabled> <span data-es="Fecha de finalización" data-en="End date">Fecha de finalización</span></label>
-          <div class="evt-inline">
-            <input type="text" class="form-control" value="24/10/2026" readonly>
-            <input type="text" class="form-control" value="19:00" readonly>
-          </div>
-          <label class="evt-toggle"><input type="checkbox" disabled> <span data-es="Recurrencia" data-en="Recurrence">Recurrencia</span></label>
-        </div>
-      </div>
-
-      <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Descripción e imagen" data-en="Description and image">Descripción e imagen</div>
-        <div class="lp-metabox-body">
-          <label data-es="Descripción" data-en="Description">Descripción</label>
-          <textarea class="form-control" rows="3" readonly data-es-value="Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00." data-en-value="Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.">Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.</textarea>
-          <label data-es="Imagen del evento" data-en="Event image">Imagen del evento</label>
-        </div>
-      </div>
-
-      <div class="lp-metabox">
-        <div class="lp-metabox-head" data-es="Entradas — lo que ya hay" data-en="Tickets — what already exists">Entradas — lo que ya hay</div>
-        <div class="lp-metabox-body">
-          <div class="evt-inline">
-            <div>
-              <label data-es="Entradas disponibles" data-en="Available tickets">Entradas disponibles</label>
-              <input type="number" class="form-control" min="0" value="40" id="evt-stock">
-            </div>
-            <div>
-              <label data-es="Precio de la entrada" data-en="Ticket price">Precio de la entrada</label>
-              <div class="evt-money">
-                <input type="number" class="form-control" min="0" value="10" id="evt-base">
-                <span class="evt-currency" aria-hidden="true">€</span>
+            <form class="lp-coupons-form-inner" onsubmit="return false">
+              <div class="lp-coupon-box-row">
+                <label class="lp-dashboard-top-label"><span data-es="Elige tu tribu" data-en="Choose your tribe">Elige tu tribu</span> <b class="req">*</b></label>
+                <select class="form-control lp-dashboard-select-box">
+                  <option data-es="Actividades para niños en Valencia" data-en="Activities for children in Valencia">Actividades para niños en Valencia</option>
+                </select>
               </div>
-            </div>
+
+              <div class="lp-coupon-box-row">
+                <label class="lp-dashboard-top-label"><span data-es="Nombre del Evento" data-en="Event Title">Nombre del Evento</span> <b class="req">*</b></label>
+                <input type="text" class="form-control lp-dashboard-text-field" value="Teatro: Samba de cuentos — Nuevo Centro" data-es-placeholder="Por favor, usa un nombre corto" data-en-placeholder="Give it a short quick name" placeholder="Por favor, usa un nombre corto">
+                <div class="lp-dashboard-switcher">
+                  <h5>
+                    <span data-es="Evento Presencial" data-en="In-Person Event">Evento Presencial</span>
+                    <label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+                    <span data-es="Evento Online" data-en="Online Event">Evento Online</span>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="lp-coupon-box-row">
+                <div class="events-map-wrap">
+                  <div class="lp-coordinates">
+                    <a class="active" data-es="Búsqueda en Google" data-en="Search By Google">Búsqueda en Google</a><a data-es="Coordenadas Manuales" data-en="Manual Coordinates">Coordenadas Manuales</a><a><i class="fa fa-map-pin" aria-hidden="true"></i> Drop Pin</a>
+                  </div>
+                  <label class="lp-dashboard-top-label"><span data-es="Localización" data-en="Event Location">Localización</span> <b class="req">*</b></label>
+                  <input type="text" class="form-control lp-dashboard-text-field" value="Nuevo Centro, Valencia" data-es-placeholder="Dirección Google Maps" data-en-placeholder="Address for Google Maps" placeholder="Dirección Google Maps">
+                </div>
+              </div>
+
+              <div class="lp-coupon-box-row">
+                <div class="ep-form-group">
+                  <label class="lp-dashboard-top-label"><span data-es="Ciudad o Municipio" data-en="City">Ciudad o Municipio</span> <b class="req">*</b></label>
+                  <input type="text" class="form-control lp-dashboard-text-field" value="Valencia" placeholder="Select your event region">
+                </div>
+                <div class="ep-form-group">
+                  <label class="lp-dashboard-top-label"><span data-es="Categoría del Evento" data-en="Event Category">Categoría del Evento</span> <b class="req">*</b></label>
+                  <select class="form-control lp-dashboard-select-box">
+                    <option data-es="Talleres Infantiles" data-en="Children's workshops">Talleres Infantiles</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="lp-coupon-box-row">
+                <div class="ep-form-group">
+                  <label class="lp-dashboard-top-label"><span data-es="Comienzo del Evento" data-en="Event Starts">Comienzo del Evento</span> <b class="req">*</b></label>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="pos-relative"><span class="lp-field-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span><input type="text" class="form-control lp-dashboard-text-field lp-pos-relative-input" value="24/10/2026" data-es-placeholder="Fecha" data-en-placeholder="Date" placeholder="Fecha"></div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="pos-relative"><span class="lp-field-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></span><input type="text" class="form-control lp-dashboard-text-field lp-pos-relative-input" value="18:00" data-es-placeholder="Hora" data-en-placeholder="Time" placeholder="Hora"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lp-dashboard-switcher">
+                  <h5>
+                    <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                    <span data-es="Establece la fecha de finalización" data-en="Set end date">Establece la fecha de finalización</span>
+                  </h5>
+                </div>
+                <div class="ep-form-group">
+                  <label class="lp-dashboard-top-label"><span data-es="Fin del Evento" data-en="Event Ends">Fin del Evento</span> <b class="req">*</b></label>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="pos-relative"><span class="lp-field-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span><input type="text" class="form-control lp-dashboard-text-field lp-pos-relative-input" value="24/10/2026" data-es-placeholder="Fecha" data-en-placeholder="Date" placeholder="Fecha"></div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="pos-relative"><span class="lp-field-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></span><input type="text" class="form-control lp-dashboard-text-field lp-pos-relative-input" value="19:00" data-es-placeholder="Hora" data-en-placeholder="Time" placeholder="Hora"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lp-dashboard-switcher">
+                  <h5>
+                    <label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+                    <span>Recurrence</span>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="lp-coupon-box-row">
+                <label class="lp-dashboard-top-label"><span data-es="Descripción del Evento" data-en="Event Description">Descripción del Evento</span></label>
+                <textarea class="form-control lp-dashboard-des-field" rows="10" data-es-placeholder="Cuéntanos los detalles de tu evento o actividad" data-en-placeholder="e.g Enter description about your event" data-es-value="Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00." data-en-value="Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.">Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00.</textarea>
+              </div>
+
+              <div class="lp-coupon-box-row">
+                <label class="lp-dashboard-top-label"><span>Event Tickets</span> <b class="req">*</b></label>
+                <div class="row ep-ticket-row">
+                  <div class="col-xs-6">
+                    <input type="number" class="form-control lp-dashboard-text-field" min="1" value="40" id="evt-stock" data-es-placeholder="Entradas Disponibles" data-en-placeholder="Available Tickets" placeholder="Entradas Disponibles">
+                  </div>
+                  <div class="col-xs-6">
+                    <input type="number" class="form-control lp-dashboard-text-field" min="1" value="10" id="evt-base" data-es-placeholder="Precio de la entrada" data-en-placeholder="Ticket Price" placeholder="Precio de la entrada">
+                  </div>
+                </div>
+
+                <div class="new-dev-border ep-new-block">
+                  <div class="lp-dashboard-switcher is-wide">
+                    <h5>
+                      <label class="switch"><input type="checkbox" id="evt-diff" checked><span class="slider round"></span></label>
+                      <span data-es="¿Tu evento tiene precios diferentes? Defínelos" data-en="Does your event have different prices? Define them">¿Tu evento tiene precios diferentes? Defínelos</span>
+                    </h5>
+                  </div>
+                  <div id="evt-diff-box">
+                    <div id="evt-price-rows">
+                      <div class="row ep-ticket-row">
+                        <div class="col-xs-7"><input type="text" class="form-control lp-dashboard-text-field" value="Pack familiar" data-es-placeholder="Ej. Pack familiar / Niño" data-en-placeholder="e.g. Family pack / Child" placeholder="Ej. Pack familiar / Niño"></div>
+                        <div class="col-xs-5"><input type="number" class="form-control lp-dashboard-text-field" min="0" value="25" data-es-placeholder="Precio €" data-en-placeholder="Price €" placeholder="Precio €"></div>
+                      </div>
+                      <div class="row ep-ticket-row">
+                        <div class="col-xs-7"><input type="text" class="form-control lp-dashboard-text-field" value="Segundo hermano" data-es-placeholder="Ej. Pack familiar / Niño" data-en-placeholder="e.g. Family pack / Child" placeholder="Ej. Pack familiar / Niño"></div>
+                        <div class="col-xs-5"><input type="number" class="form-control lp-dashboard-text-field" min="0" value="7" data-es-placeholder="Precio €" data-en-placeholder="Price €" placeholder="Precio €"></div>
+                      </div>
+                    </div>
+                    <div class="lp-dashboard-event-tick-btn"><i class="fa fa-plus-square" id="evt-add-price" role="button" aria-label="+"></i></div>
+                  </div>
+                </div>
+
+                <div class="new-dev-border ep-new-block">
+                  <div class="lp-dashboard-switcher is-wide">
+                    <h5>
+                      <label class="switch"><input type="checkbox" id="evt-extra" checked><span class="slider round"></span></label>
+                      <span data-es="Añadir extra para tu evento" data-en="Add an extra for your event">Añadir extra para tu evento</span>
+                    </h5>
+                  </div>
+                  <div id="evt-extra-box">
+                    <div id="evt-extra-rows">
+                      <div class="row ep-ticket-row">
+                        <div class="col-xs-7"><input type="text" class="form-control lp-dashboard-text-field" value="Pase VIP" data-es-placeholder="Ej. Pase VIP" data-en-placeholder="e.g. VIP pass" placeholder="Ej. Pase VIP"></div>
+                        <div class="col-xs-5"><input type="number" class="form-control lp-dashboard-text-field" min="0" value="8" data-es-placeholder="Precio del extra €" data-en-placeholder="Extra price €" placeholder="Precio del extra €"></div>
+                      </div>
+                    </div>
+                    <div class="lp-dashboard-event-tick-btn"><i class="fa fa-plus-square" id="evt-add-extra" role="button" aria-label="+"></i></div>
+                  </div>
+                </div>
+
+                <div class="lp-dashboard-switcher">
+                  <h5>
+                    <label class="switch"><input type="checkbox" id="evt-external"><span class="slider round"></span></label>
+                    <span>External URL</span>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="lp-coupon-box-row">
+                <label class="lp-dashboard-top-label"><span data-es="Imagen Destacada del Evento" data-en="Event Featured Image">Imagen Destacada del Evento</span></label>
+                <div class="jFiler-input-dragDrop event-featured-image-wrap-dash">
+                  <i class="fa fa-upload" aria-hidden="true"></i>
+                  <span>Click here to upload image</span>
+                </div>
+              </div>
+            </form>
           </div>
-          <label class="evt-toggle"><input type="checkbox" id="evt-external" disabled> <span data-es="URL externa" data-en="External URL">URL externa</span></label>
+
+          <div class="lp-save-btn-container">
+            <button type="button" class="lp-coupns-btns" data-es="Cancelar" data-en="Cancel">Cancelar</button>
+            <button type="button" class="lp-coupns-btns ep-save-events" data-es="guardar" data-en="save">guardar</button>
+          </div>
         </div>
       </div>
-
-      <div class="lp-metabox">
-        <div class="lp-metabox-body">
-          <label class="evt-toggle new-dev-border"><input type="checkbox" id="evt-diff" checked> <span data-es="¿Tu evento tiene precios diferentes? Defínelos" data-en="Does your event have different prices? Define them">Does your event have different prices? Define them</span></label>
-          <div id="evt-diff-box" class="new-dev-border">
-            <div id="evt-price-rows">
-              <div class="evt-inline evt-price-row">
-                <input type="text" data-es-placeholder="Ej. Pack familiar / Niño" data-en-placeholder="e.g. Family pack / Child" placeholder="e.g. Family pack / Child">
-                <input type="number" min="0" data-es-placeholder="Precio €" data-en-placeholder="Price €" placeholder="Price €">
-              </div>
-            </div>
-            <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-price">+</button>
-          </div>
-          <label class="evt-toggle new-dev-border"><input type="checkbox" id="evt-extra" checked> <span data-es="Añadir extra para tu evento" data-en="Add an extra for your event">Add an extra for your event</span></label>
-          <div id="evt-extra-box" class="new-dev-border">
-            <div id="evt-extra-rows">
-              <div class="evt-inline evt-extra-row">
-                <input type="text" data-es-placeholder="Ej. Pase VIP" data-en-placeholder="e.g. VIP pass" placeholder="e.g. VIP pass">
-                <input type="number" min="0" data-es-placeholder="Precio del extra €" data-en-placeholder="Extra price €" placeholder="Extra price €">
-              </div>
-            </div>
-            <button type="button" class="lp-btn lp-btn-dashed" id="evt-add-extra">+</button>
-          </div>
-        </div>
-      </div>
-
     </div>
 
     <h3 class="evt-front-title" data-es="Ficha pública — cómo lo ve quien compra" data-en="Public page — what the buyer sees">Ficha pública — cómo lo ve quien compra</h3>
 
-    <article class="evt-public">
-      <div class="evt-banner">
-        <div class="evt-head">
-          <div class="evt-date"><span>24</span><span>OCT</span></div>
-          <div>
-            <h3>Teatro: Samba de cuentos — Nuevo Centro</h3>
-            <p class="evt-host"><span data-es="Creado por" data-en="Hosted by">Creado por</span> <a href="#eventos">Actividades para niños en Valencia</a></p>
+    <article class="ep-mock">
+      <div class="ep-detail-banner-contianer"><div class="ep-banner-overlay"></div></div>
+      <div class="ep-detail-content-body">
+        <div class="ep-mock-grid">
+          <div class="ep-mock-main">
+            <div class="ep-event-detail-title-container">
+              <div class="ep-event-detail-date-container"><span>24</span><span data-es="Oct" data-en="Oct">Oct</span></div>
+              <div class="ep-event-detail-title">
+                <h2>Teatro: Samba de cuentos — Nuevo Centro</h2>
+                <p class="ep-event-detail-tagline"><span data-es="Creado por:" data-en="Hosted by:">Creado por:</span> <a href="#eventos">Actividades para niños en Valencia</a></p>
+              </div>
+            </div>
+            <div class="ep-event-detail-navigation">
+              <ul class="ep-navbar">
+                <li><a data-es="Detalles" data-en="Details">Detalles</a></li>
+                <li><a data-es="Participantes" data-en="Attendees">Participantes</a></li>
+                <li><a data-es="Lugar" data-en="Location">Lugar</a></li>
+                <li><a data-es="Comentarios" data-en="Comments">Comentarios</a></li>
+              </ul>
+            </div>
+            <div class="ep-mock-desc">
+              <p data-es="Teatro infantil en Nuevo Centro (Valencia). Una historia con música en directo para toda la familia." data-en="Children's theatre at Nuevo Centro (Valencia). A story with live music for the whole family.">Teatro infantil en Nuevo Centro (Valencia). Una historia con música en directo para toda la familia.</p>
+              <p><strong data-es="HORARIO" data-en="SCHEDULE">HORARIO</strong></p>
+              <p><strong data-es="Sábado 24 de octubre, de 18:00 a 19:00 h." data-en="Saturday 24 October, 18:00 to 19:00.">Sábado 24 de octubre, de 18:00 a 19:00 h.</strong></p>
+            </div>
+            <h3 class="ep-mock-h"><span data-es="Participantes" data-en="Attendees">Participantes</span> (2)</h3>
+            <h3 class="ep-mock-h"><span data-es="Lugar" data-en="Location">Lugar</span></h3>
+            <div class="ep-mock-map" aria-hidden="true"><i class="fa fa-map-marker"></i></div>
           </div>
+
+          <aside class="ep-mock-side">
+            <div class="ep-event-detail-sidebar-upper">
+              <p class="ep-event-detail-sidebar-top" data-es="Tiempo para empezar" data-en="Time Left to Start">Tiempo para empezar</p>
+              <div class="ep-event-detail-timer-wrapper">
+                <div class="ep-event-detail-timer">
+                  <img src="https://www.demamiamami.com/wp-content/plugins/eventpro/assets/images/wait.gif" alt="" width="20" height="20">
+                  <span data-es="Quedan más de 20 días" data-en="More Than 20 Days Remaining">Quedan más de 20 días</span>
+                </div>
+              </div>
+              <div class="ep-event-sidebar-body-title" data-es="Hora y Lugar" data-en="Time and Place">Hora y Lugar</div>
+              <div class="ep-event-sidebar-text">
+                <span><i class="fa fa-clock-o" aria-hidden="true" style="color:#00B724"></i></span>
+                <span><i data-es="Hora de Comienzo" data-en="Start Time">Hora de Comienzo</i><br><span data-es="sábado, octubre 24, 2026" data-en="Saturday, October 24, 2026">sábado, octubre 24, 2026</span><br>18:00</span>
+              </div>
+              <div class="ep-event-sidebar-text">
+                <span><i class="fa fa-clock-o" aria-hidden="true" style="color:#C70000"></i></span>
+                <span><i data-es="Hora de Finalización" data-en="End Time">Hora de Finalización</i><br><span data-es="sábado, octubre 24, 2026" data-en="Saturday, October 24, 2026">sábado, octubre 24, 2026</span><br>19:00</span>
+              </div>
+              <div class="ep-event-sidebar-text">
+                <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                <span><span data-es="Nuevo Centro, Valencia, España" data-en="Nuevo Centro, Valencia, Spain">Nuevo Centro, Valencia, España</span> <a data-es="Cómo Llegar" data-en="Get Direction">Cómo Llegar</a></span>
+              </div>
+              <div class="ep-event-sidebar-text">
+                <span><i class="fa fa-users" aria-hidden="true"></i></span>
+                <span data-es="40 Entradas Disponibles" data-en="40 Available Tickets">40 Entradas Disponibles</span>
+              </div>
+              <div class="ep-event-sidebar-text">
+                <span><i class="fa fa-money" aria-hidden="true"></i></span>
+                <span data-es="Precio de la entrada 10€" data-en="Ticket Price 10€">Precio de la entrada 10€</span>
+              </div>
+
+              <div class="new-dev-border ep-buy-box">
+                <div class="evt-qty" data-price="10" data-stock="1">
+                  <span class="evt-qty-label" data-es="Entrada general (10 €)" data-en="General admission (10 €)">Entrada general (10 €)</span>
+                  <button type="button" class="evt-qty-minus" aria-label="-">−</button>
+                  <span class="evt-qty-n">1</span>
+                  <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+                </div>
+                <div class="evt-qty" data-price="25" data-stock="1">
+                  <span class="evt-qty-label" data-es="Pack familiar (25 €)" data-en="Family pack (25 €)">Pack familiar (25 €)</span>
+                  <button type="button" class="evt-qty-minus" aria-label="-">−</button>
+                  <span class="evt-qty-n">0</span>
+                  <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+                </div>
+                <div class="evt-qty" data-price="7" data-stock="1">
+                  <span class="evt-qty-label" data-es="Segundo hermano (7 €)" data-en="Second sibling (7 €)">Segundo hermano (7 €)</span>
+                  <button type="button" class="evt-qty-minus" aria-label="-">−</button>
+                  <span class="evt-qty-n">0</span>
+                  <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+                </div>
+                <div class="evt-qty" data-price="8" data-stock="0">
+                  <span class="evt-qty-label" data-es="Pase VIP (+8 €)" data-en="VIP pass (+8 €)">Pase VIP (+8 €)</span>
+                  <button type="button" class="evt-qty-minus" aria-label="-">−</button>
+                  <span class="evt-qty-n">0</span>
+                  <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+                </div>
+                <p class="evt-total"><span data-es="Total" data-en="Total">Total</span> <strong id="front-total">10 €</strong></p>
+              </div>
+
+              <div class="ep-detail-event-going-btn">
+                <button type="button" class="ep-event-detail-ticket"><i class="fa fa-tag" aria-hidden="true"></i> <span data-es="Reservar" data-en="Get Tickets">Reservar</span></button>
+              </div>
+            </div>
+          </aside>
         </div>
-      </div>
-      <div class="evt-sheet">
-        <div class="evt-public-main">
-          <ul class="evt-tabs">
-            <li class="is-on"><span data-es="Detalles" data-en="Details">Detalles</span></li>
-            <li><span data-es="Participantes" data-en="Attendees">Participantes</span></li>
-            <li><span data-es="Lugar" data-en="Place">Lugar</span></li>
-          </ul>
-          <div class="evt-body">
-            <h4 data-es="Detalles" data-en="Details">Detalles</h4>
-            <p data-es="Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00." data-en="Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.">Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00.</p>
-            <p class="evt-place"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Nuevo Centro, Valencia</span></p>
-          </div>
-        </div>
-        <aside class="evt-buy">
-          <p class="evt-stock" data-es="40 entradas disponibles" data-en="40 tickets available">40 entradas disponibles</p>
-          <div class="new-dev-border">
-            <div class="evt-qty" data-price="10" data-stock="1">
-              <span class="evt-qty-label" data-es="Entrada general (10 €)" data-en="General admission (10 €)">Entrada general (10 €)</span>
-              <button type="button" class="evt-qty-minus" aria-label="-">−</button>
-              <span class="evt-qty-n">1</span>
-              <button type="button" class="evt-qty-plus" aria-label="+">+</button>
-            </div>
-            <div class="evt-qty" data-price="25" data-stock="1">
-              <span class="evt-qty-label" data-es="Pack familiar (25 €)" data-en="Family pack (25 €)">Pack familiar (25 €)</span>
-              <button type="button" class="evt-qty-minus" aria-label="-">−</button>
-              <span class="evt-qty-n">0</span>
-              <button type="button" class="evt-qty-plus" aria-label="+">+</button>
-            </div>
-            <div class="evt-qty" data-price="7" data-stock="1">
-              <span class="evt-qty-label" data-es="Segundo hermano (7 €)" data-en="Second sibling (7 €)">Segundo hermano (7 €)</span>
-              <button type="button" class="evt-qty-minus" aria-label="-">−</button>
-              <span class="evt-qty-n">0</span>
-              <button type="button" class="evt-qty-plus" aria-label="+">+</button>
-            </div>
-            <div class="evt-qty" data-price="8" data-stock="0">
-              <span class="evt-qty-label" data-es="Pase VIP (+8 €)" data-en="VIP pass (+8 €)">Pase VIP (+8 €)</span>
-              <button type="button" class="evt-qty-minus" aria-label="-">−</button>
-              <span class="evt-qty-n">0</span>
-              <button type="button" class="evt-qty-plus" aria-label="+">+</button>
-            </div>
-            <p class="evt-total"><span data-es="Total" data-en="Total">Total</span> <strong id="front-total">10 €</strong></p>
-          </div>
-          <button type="button" class="evt-ticket-btn" data-es="Conseguir entradas" data-en="Get tickets">Conseguir entradas</button>
-        </aside>
       </div>
     </article>
 
@@ -525,6 +654,6 @@ Free Events: IF Ticket Price == 0 AND "Different prices" is OFF -> Event is Free
 
 </main>
 
-<script src="script.js?v=20261102a"></script>
+<script src="script.js?v=20261103b"></script>
 </body>
 </html>

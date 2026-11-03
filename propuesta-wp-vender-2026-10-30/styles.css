@@ -881,115 +881,325 @@ label.evt-toggle.mark-new {
 .evt-inline.evt-extra-row input[type="text"] { width: min(220px, 100%); max-width: 220px; }
 .evt-toggle { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0; font-weight: 700; }
 .evt-front-title { margin: 28px 0 8px; font-size: 22px; }
-.evt-public {
+/* ——— Eventos: panel «Crear Evento Nuevo» (EventPro + ListingPro) ——— */
+.dmm-dash {
+  display: flex;
+  min-height: 600px;
+  background: #fafbfb;
+  border: 1px solid #e9ebf2;
   font-family: Quicksand, sans-serif;
-  background: #fbfdff;
-  border: 0;
-  padding: 0;
-  display: block;
+  color: #7f7f7f;
   overflow: hidden;
-  box-shadow: 0 10px 44px #c7c0dd33;
-  color: #2c3e50;
 }
-.evt-banner {
-  min-height: 220px;
-  padding: 48px 28px 28px;
-  display: flex;
-  align-items: flex-end;
-  background:
-    linear-gradient(180deg, rgba(44, 62, 80, 0.15), rgba(44, 62, 80, 0.55)),
-    #7eb9c3;
-}
-.evt-head { display: grid; grid-template-columns: 70px 1fr; gap: 18px; align-items: center; }
-.evt-public h3 {
-  margin: 0 0 6px;
-  font-size: 26px;
-  line-height: 1.25;
-  font-weight: 600;
-  color: #fff;
-}
-.evt-host { margin: 0; color: #fff; font-size: 16px; }
-.evt-host a { color: #fff; text-decoration: underline; }
-.evt-date {
-  width: 70px;
-  height: 70px;
-  border-radius: 15px;
-  background: #fff;
-  color: #7eb9c3;
-  text-align: center;
-  padding: 12px 0 0;
-  font-weight: 500;
-  box-shadow: 0 10px 44px #c7c0dd33;
-}
-.evt-date span { display: block; color: #7696ae; font-size: 13px; text-transform: uppercase; }
-.evt-date span:first-child { color: #7eb9c3; font-size: 22px; line-height: 22px; font-weight: 600; }
-.evt-sheet {
-  display: grid;
-  grid-template-columns: 1.45fr 0.7fr;
-  gap: 22px;
-  padding: 0 20px 28px;
-  margin-top: -8px;
-}
-.evt-public-main { min-width: 0; }
-.evt-tabs {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0 8px;
-  background: #fff;
-  border-radius: 15px 15px 0 0;
-  box-shadow: 0 10px 44px #c7c0dd33;
-}
-.evt-tabs li { margin: 0; }
-.evt-tabs span {
-  display: block;
-  padding: 18px 22px 14px;
-  color: #7696ae;
-  font-size: 16px;
-  font-weight: 500;
-}
-.evt-tabs .is-on span {
-  color: #7eb9c3;
-  box-shadow: inset 0 -4px 0 #7eb9c3;
-}
-.evt-body {
-  background: #fff;
-  padding: 22px 24px 28px;
-  color: #7696ae;
-  font-size: 14px;
-}
-.evt-body h4 { margin: 0 0 12px; color: #2c3e50; font-size: 20px; font-weight: 600; }
-.evt-body p { margin: 0 0 12px; }
-.evt-place i { color: #7eb9c3; margin-right: 8px; }
-.evt-buy {
-  background: #fff;
-  border: 0;
-  border-radius: 15px;
-  box-shadow: 0 10px 44px #c7c0dd33;
-  padding: 20px;
-  margin-top: 18px;
-}
-.evt-stock { margin: 0 0 12px; color: #4d6b81; font-size: 13px; font-weight: 500; }
-.evt-total { font-size: 18px; color: #2c3e50; margin: 12px 0 0; }
-.evt-ticket-btn {
-  width: 100%;
-  margin-top: 14px;
-  border: 0;
-  border-radius: 15px;
+.dmm-dash-side { flex: 0 0 200px; background: #2c3e50; }
+.dmm-dash-side-head {
+  height: 47px;
   background: #7eb9c3;
   color: #fff;
+  text-align: right;
+  padding: 0 22px;
+  line-height: 47px;
+  font-size: 18px;
+}
+.dmm-dash-side ul { list-style: none; margin: 0; padding: 4px 0; }
+.dmm-dash-side li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  line-height: 35px;
+  border-left: 5px solid transparent;
+  color: #fff;
+  font-size: 13px;
+}
+.dmm-dash-side li span { font-family: Quicksand, sans-serif; color: #fff; }
+.dmm-dash-side li .fa { width: 14px; text-align: center; color: #fff; }
+.dmm-dash-side li.is-on { background: rgba(70, 85, 101, 0.9); border-left-color: #41a6df; }
+.dmm-dash-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.dmm-dash-top {
+  height: 47px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0 18px;
+  border-bottom: 1px solid #e9ebf2;
+}
+.dmm-dash-user { font-family: Quicksand, sans-serif; font-size: 12px; font-weight: 700; color: #2c3e50; }
+.dmm-dash-avatar { width: 22px; height: 22px; border-radius: 50%; background: #2c3e50; }
+.dmm-dash-top .fa { color: #2c3e50; font-size: 16px; }
+.dmm-dash-content { position: relative; flex: 1; display: flex; flex-direction: column; }
+
+.dmm-dash .lp-container-center { width: 675px; max-width: 100%; margin: 20px auto 0; padding: 0 15px 20px; }
+.dmm-dash .ep-form-head { margin-bottom: 10px; }
+.dmm-dash .ep-view-all-btn,
+.dmm-dash .lp-view-larg-btn { font-size: 14px; color: #9b9b9b; font-weight: 400; text-decoration: none; cursor: default; }
+.dmm-dash .ep-view-all-btn span,
+.dmm-dash .lp-view-larg-btn span { color: #9b9b9b; font-family: "Open Sans", sans-serif; }
+.dmm-dash .ep-view-all-btn { display: inline-block; margin-bottom: 20px; }
+.dmm-dash .ep-form-head h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  font-family: Quicksand, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+.dmm-dash .ep-form-head h5 > span { font-family: Quicksand, sans-serif; color: #333; }
+
+.dmm-dash .lp-coupon-box-row {
+  margin-bottom: 14px;
+  background: #fff;
+  border: 1px solid #dedede;
+  padding: 15px;
+  border-radius: 5px;
+}
+.dmm-dash .ep-form-group + .ep-form-group,
+.dmm-dash .lp-dashboard-switcher + .ep-form-group { margin-top: 15px; }
+.dmm-dash .lp-dashboard-top-label {
+  display: block;
+  text-transform: capitalize;
+  color: #000;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px;
+  margin: 0 0 10px;
+}
+.dmm-dash .lp-dashboard-top-label span { color: #000; font-family: "Open Sans", sans-serif; }
+.dmm-dash .lp-dashboard-top-label .req { color: red; font-weight: 700; }
+.dmm-dash .lp-dashboard-text-field,
+.dmm-dash .lp-dashboard-select-box {
+  height: 46px;
+  width: 100%;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  padding: 6px 12px;
+  color: #818181;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  box-shadow: none;
+}
+.dmm-dash .lp-dashboard-select-box { padding-left: 9px; background: #fff; }
+.dmm-dash .lp-dashboard-text-field::placeholder,
+.dmm-dash .lp-dashboard-des-field::placeholder { color: #818181; opacity: 1; }
+.dmm-dash .lp-dashboard-des-field {
+  height: 57px;
+  border: 1px solid #dedede;
+  color: #818181;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  box-shadow: none;
+  resize: vertical;
+}
+.dmm-dash .pos-relative { position: relative; }
+.dmm-dash .lp-field-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #818181; z-index: 2; }
+.dmm-dash .lp-pos-relative-input { padding-left: 30px; }
+
+.dmm-dash .lp-dashboard-switcher { padding: 10px 15px 0; }
+.dmm-dash .lp-dashboard-switcher h5 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+}
+.dmm-dash .lp-dashboard-switcher h5 span { font-family: "Open Sans", sans-serif; color: #7f7f7f; font-size: 12px; }
+.dmm-dash .switch { position: relative; display: inline-block; flex: 0 0 40px; width: 40px; height: 18px; margin: 0; }
+.dmm-dash .switch input { display: none; }
+.dmm-dash .slider { position: absolute; inset: 0; cursor: pointer; background: #e7edf3; border-radius: 34px; transition: 0.4s; }
+.dmm-dash .slider::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  left: 3px;
+  bottom: 2.5px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+.dmm-dash .switch input:checked + .slider { background: #7eb9c3; }
+.dmm-dash .switch input:checked + .slider::before { transform: translateX(20px); }
+
+.dmm-dash .events-map-wrap { position: relative; }
+.dmm-dash .events-map-wrap .lp-coordinates {
+  position: absolute;
+  right: 0;
+  top: -8px;
+  display: flex;
+  border: 1px solid #dedede;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+}
+.dmm-dash .events-map-wrap .lp-coordinates a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  line-height: 26px;
+  font-size: 12px;
+  color: #000;
+  border-right: 1px solid #dedede;
+  text-decoration: none;
+  cursor: default;
+}
+.dmm-dash .events-map-wrap .lp-coordinates a:last-child { border-right: 0; }
+.dmm-dash .events-map-wrap .lp-coordinates a.active { background: #0095ff; color: #fff; }
+
+.dmm-dash .ep-ticket-row { margin-top: 10px; }
+.dmm-dash .ep-new-block { margin-top: 15px; padding: 0 10px 10px; }
+.dmm-dash .lp-dashboard-switcher.is-wide { padding-left: 5px; padding-right: 5px; }
+.dmm-dash .lp-dashboard-event-tick-btn { margin-top: 6px; }
+.dmm-dash .lp-dashboard-event-tick-btn .fa { font-size: 30px; line-height: 36px; color: blue; cursor: pointer; }
+
+.dmm-dash .jFiler-input-dragDrop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 200px;
+  background: #f5f5f5;
+  border: 3px dotted #dedede;
+  color: #b3b3b3;
+}
+.dmm-dash .jFiler-input-dragDrop .fa { font-size: 25px; color: #b3b3b3; }
+.dmm-dash .jFiler-input-dragDrop span { font-size: 20px; color: #b3b3b3; font-family: "Open Sans", sans-serif; }
+
+.dmm-dash .lp-save-btn-container {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: auto;
+  padding: 10px 15px;
+  background: #fff;
+  border-top: 1px solid #dedede;
+}
+.dmm-dash .lp-coupns-btns {
+  height: 37px;
+  width: 150px;
+  border: 0;
+  border-radius: 5px;
+  background: #e7edf3;
+  color: #3f576e;
+  font-family: Quicksand, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.dmm-dash .lp-coupns-btns.ep-save-events { background: #73d500; color: #fff; }
+
+/* ——— Eventos: ficha pública (EventPro, como /events/la-casa-magica/) ——— */
+.ep-mock {
+  display: block;
+  background: #fbfdff;
+  font-family: Quicksand, sans-serif;
+  color: #7f7f7f;
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  border: 1px solid #e9ebf2;
+}
+.ep-mock .ep-detail-banner-contianer {
+  position: relative;
+  height: 300px;
+  background: #2c3e50 url("https://www.demamiamami.com/wp-content/uploads/2022/06/juego-de-volumenes-emilie-queney-1024x683-1.jpg") center top / cover no-repeat;
+}
+.ep-mock .ep-banner-overlay { position: absolute; inset: 0; background: #000; opacity: 0.6; }
+.ep-mock .ep-detail-content-body { position: relative; z-index: 3; margin-top: -180px; padding: 0 30px 45px; }
+.ep-mock-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 30px; }
+.ep-mock .ep-event-detail-title-container { display: flex; flex-direction: column; justify-content: flex-end; min-height: 147px; margin-bottom: 33px; }
+.ep-mock .ep-event-detail-date-container {
+  width: 70px;
+  padding: 14px;
+  border-radius: 15px;
+  background: #fff;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.ep-mock .ep-event-detail-date-container span { display: block; color: #7f7f7f; font-size: 13px; line-height: 18.5px; font-family: "Open Sans", sans-serif; }
+.ep-mock .ep-event-detail-date-container span:first-child { color: #c73048; font-size: 22px; line-height: 22px; margin-bottom: 2px; }
+.ep-mock .ep-event-detail-title h2 { margin: 2px 0 10px; font-family: Quicksand, sans-serif; font-size: 26px; line-height: 28.6px; font-weight: 600; color: #fff; }
+.ep-mock .ep-event-detail-tagline { margin: 0; font-family: "Open Sans", sans-serif; font-size: 20px; line-height: 26px; color: #fff; }
+.ep-mock .ep-event-detail-tagline span,
+.ep-mock .ep-event-detail-tagline a { color: #fff; font-family: "Open Sans", sans-serif; }
+.ep-mock .ep-event-detail-tagline a { text-decoration: underline; }
+.ep-mock .ep-event-detail-navigation { height: 70px; background: #fff; border-radius: 15px 15px 0 0; box-shadow: 0 10px 44px rgba(199, 192, 221, 0.2); }
+.ep-mock .ep-navbar { display: flex; list-style: none; margin: 0; padding: 25px 35px 0; }
+.ep-mock .ep-navbar li { flex: 1; text-align: center; }
+.ep-mock .ep-navbar a { font-family: "Open Sans", sans-serif; font-size: 16px; font-weight: 500; color: #7696ae; text-decoration: none; cursor: default; }
+.ep-mock-desc { margin-top: 32px; }
+.ep-mock-desc p { margin: 0; font-family: "Open Sans", sans-serif; font-size: 14px; line-height: 26px; color: #7696ae; }
+.ep-mock-desc strong { color: #7696ae; font-weight: 700; font-family: "Open Sans", sans-serif; }
+.ep-mock-h { margin: 30px 0 10px; font-family: Quicksand, sans-serif; font-size: 20px; line-height: 22px; font-weight: 600; color: #2c3e50; }
+.ep-mock-h span { font-family: Quicksand, sans-serif; color: #2c3e50; }
+.ep-mock-map { height: 160px; border-radius: 15px; background: #e8eef2; display: flex; align-items: center; justify-content: center; }
+.ep-mock-map .fa { font-size: 34px; color: #c73048; }
+
+.ep-mock .ep-event-detail-sidebar-upper { padding: 20px; background: #fff; border-radius: 15px; box-shadow: 0 10px 44px rgba(199, 192, 221, 0.2); }
+.ep-mock .ep-event-detail-sidebar-top { margin: 0; font-family: "Open Sans", sans-serif; font-size: 12px; line-height: 15px; color: #4d6b81; }
+.ep-mock .ep-event-detail-timer-wrapper { margin: 20px 0 35px; padding: 15px 0; border: 1px solid rgba(118, 150, 174, 0.27); border-radius: 15px; }
+.ep-mock .ep-event-detail-timer { display: flex; align-items: center; gap: 10px; padding: 0 15px; font-weight: 600; color: #4d6b81; }
+.ep-mock .ep-event-detail-timer span { font-family: Quicksand, sans-serif; color: #4d6b81; }
+.ep-mock .ep-event-sidebar-body-title { margin-bottom: 30px; font-size: 12px; color: #4d6b81; }
+.ep-mock .ep-event-sidebar-text { display: flex; padding-left: 8px; margin-bottom: 40px; }
+.ep-mock .ep-event-sidebar-text > span { font-family: "Open Sans", sans-serif; font-size: 13px; line-height: 18.5px; font-weight: 500; color: #4d6b81; }
+.ep-mock .ep-event-sidebar-text > span:first-child { flex: 0 0 25px; }
+.ep-mock .ep-event-sidebar-text span span { font-family: "Open Sans", sans-serif; color: #4d6b81; }
+.ep-mock .ep-event-sidebar-text i:not(.fa) { font-size: 12px; font-style: normal; color: #4d6b81; }
+.ep-mock .ep-event-sidebar-text a { display: table; color: #337ab7; cursor: default; }
+.ep-mock .ep-buy-box { margin: -10px 0 0; padding: 10px; }
+.ep-mock .ep-buy-box .evt-qty-label { font-family: "Open Sans", sans-serif; font-size: 13px; font-weight: 500; color: #4d6b81; }
+.ep-mock .ep-buy-box .evt-qty-n { font-family: "Open Sans", sans-serif; min-width: 14px; text-align: center; color: #4d6b81; font-weight: 600; }
+.ep-mock .ep-buy-box .evt-qty button { border-radius: 50%; border-color: #dedede; color: #4d6b81; line-height: 1; }
+.ep-mock .ep-buy-box .evt-total { display: flex; justify-content: space-between; margin: 12px 0 0; font-size: 16px; color: #2c3e50; }
+.ep-mock .ep-buy-box .evt-total span { font-family: Quicksand, sans-serif; color: #2c3e50; font-weight: 600; }
+.ep-mock .ep-detail-event-going-btn { position: relative; margin-top: 30px; padding-top: 30px; border-top: 2px dashed #efecf3; }
+.ep-mock .ep-detail-event-going-btn::before,
+.ep-mock .ep-detail-event-going-btn::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  width: 15px;
+  height: 28px;
+  background: #fbfdff;
+}
+.ep-mock .ep-detail-event-going-btn::before { left: -20px; border-radius: 0 50px 50px 0; }
+.ep-mock .ep-detail-event-going-btn::after { right: -20px; border-radius: 50px 0 0 50px; }
+.ep-mock .ep-event-detail-ticket {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 20px 0;
+  border: 0;
+  border-radius: 15px;
+  background: #4d6b81;
+  color: #fff;
   font-family: Quicksand, sans-serif;
   font-size: 16px;
   font-weight: 600;
-  padding: 16px 0;
-  cursor: pointer;
+  text-transform: capitalize;
 }
-.evt-ticket-btn:hover { filter: brightness(0.96); }
-#eventos .form-control { max-width: 100%; margin-top: 4px; }
-@media (max-width: 800px) {
-  .evt-sheet { grid-template-columns: 1fr; }
-  .evt-head { grid-template-columns: 70px 1fr; }
-  .evt-public h3 { font-size: 22px; }
+.ep-mock .ep-event-detail-ticket span { color: #fff; font-family: Quicksand, sans-serif; }
+
+@media (max-width: 900px) {
+  .dmm-dash-side { display: none; }
+  .ep-mock-grid { grid-template-columns: minmax(0, 1fr); }
+  .ep-mock .ep-detail-content-body { margin-top: -230px; padding: 0 15px 30px; }
+  .ep-mock .ep-event-detail-title h2 { font-size: 22px; line-height: 26px; }
+  .ep-mock .ep-event-detail-tagline { font-size: 15px; line-height: 20px; }
+  .ep-mock .ep-navbar { padding: 25px 10px 0; overflow-x: auto; }
+  .ep-mock .ep-navbar li { flex: 0 0 auto; padding: 0 12px; }
 }
 .new-dev-border {
   border: 2px solid #dc2626 !important;
