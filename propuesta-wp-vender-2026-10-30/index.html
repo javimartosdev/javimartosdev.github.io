@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261102a">
+  <link rel="stylesheet" href="styles.css?v=20261103a">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -440,45 +440,60 @@ Rooms / Staff: Selecting a room or staff member blocks their availability slot, 
     <h3 class="evt-front-title" data-es="Ficha pública — cómo lo ve quien compra" data-en="Public page — what the buyer sees">Ficha pública — cómo lo ve quien compra</h3>
 
     <article class="evt-public">
-      <div class="evt-public-main">
-        <div class="evt-date"><span>24</span><span data-es="OCT" data-en="OCT">OCT</span></div>
-        <div>
-          <h3>Teatro: Samba de cuentos — Nuevo Centro</h3>
-          <p data-es="Creado por: Actividades para niños en Valencia" data-en="Hosted by: Activities for children in Valencia">Creado por: Actividades para niños en Valencia</p>
-          <p class="evt-tabs"><span data-es="Detalles" data-en="Details">Detalles</span> · <span data-es="Participantes" data-en="Attendees">Participantes</span> · <span data-es="Lugar" data-en="Place">Lugar</span></p>
-          <p data-es="Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00." data-en="Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.">Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00.</p>
-          <p data-es="Lugar: Nuevo Centro, Valencia" data-en="Place: Nuevo Centro, Valencia">Lugar: Nuevo Centro, Valencia</p>
+      <div class="evt-banner">
+        <div class="evt-head">
+          <div class="evt-date"><span>24</span><span>OCT</span></div>
+          <div>
+            <h3>Teatro: Samba de cuentos — Nuevo Centro</h3>
+            <p class="evt-host"><span data-es="Creado por" data-en="Hosted by">Creado por</span> <a href="#eventos">Actividades para niños en Valencia</a></p>
+          </div>
         </div>
       </div>
-      <aside class="evt-buy new-dev-border">
-        <p data-es="40 entradas disponibles" data-en="40 tickets available">40 entradas disponibles</p>
-        <div class="evt-qty" data-price="10" data-stock="1">
-          <span class="evt-qty-label" data-es="Entrada general (10 €)" data-en="General admission (10 €)">General admission (10 €)</span>
-          <button type="button" class="evt-qty-minus" aria-label="-">−</button>
-          <span class="evt-qty-n">1</span>
-          <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+      <div class="evt-sheet">
+        <div class="evt-public-main">
+          <ul class="evt-tabs">
+            <li class="is-on"><span data-es="Detalles" data-en="Details">Detalles</span></li>
+            <li><span data-es="Participantes" data-en="Attendees">Participantes</span></li>
+            <li><span data-es="Lugar" data-en="Place">Lugar</span></li>
+          </ul>
+          <div class="evt-body">
+            <h4 data-es="Detalles" data-en="Details">Detalles</h4>
+            <p data-es="Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00." data-en="Children's theatre at Nuevo Centro (Valencia). Saturday 24 October, 18:00.">Teatro infantil en Nuevo Centro (Valencia). Sábado 24 de octubre, 18:00.</p>
+            <p class="evt-place"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Nuevo Centro, Valencia</span></p>
+          </div>
         </div>
-        <div class="evt-qty" data-price="25" data-stock="1">
-          <span class="evt-qty-label" data-es="Pack familiar (25 €)" data-en="Family pack (25 €)">Family pack (25 €)</span>
-          <button type="button" class="evt-qty-minus" aria-label="-">−</button>
-          <span class="evt-qty-n">0</span>
-          <button type="button" class="evt-qty-plus" aria-label="+">+</button>
-        </div>
-        <div class="evt-qty" data-price="7" data-stock="1">
-          <span class="evt-qty-label" data-es="Segundo hermano (7 €)" data-en="Second sibling (7 €)">Second sibling (7 €)</span>
-          <button type="button" class="evt-qty-minus" aria-label="-">−</button>
-          <span class="evt-qty-n">0</span>
-          <button type="button" class="evt-qty-plus" aria-label="+">+</button>
-        </div>
-        <div class="evt-qty" data-price="8" data-stock="0">
-          <span class="evt-qty-label" data-es="Pase VIP (+8 €)" data-en="VIP pass (+8 €)">VIP pass (+8 €)</span>
-          <button type="button" class="evt-qty-minus" aria-label="-">−</button>
-          <span class="evt-qty-n">0</span>
-          <button type="button" class="evt-qty-plus" aria-label="+">+</button>
-        </div>
-        <p class="evt-total"><span data-es="Total" data-en="Total">Total</span> <strong id="front-total">10 €</strong></p>
-        <button type="button" class="lp-btn lp-btn-primary" data-es="Conseguir entradas" data-en="Get tickets">Get tickets</button>
-      </aside>
+        <aside class="evt-buy">
+          <p class="evt-stock" data-es="40 entradas disponibles" data-en="40 tickets available">40 entradas disponibles</p>
+          <div class="new-dev-border">
+            <div class="evt-qty" data-price="10" data-stock="1">
+              <span class="evt-qty-label" data-es="Entrada general (10 €)" data-en="General admission (10 €)">Entrada general (10 €)</span>
+              <button type="button" class="evt-qty-minus" aria-label="-">−</button>
+              <span class="evt-qty-n">1</span>
+              <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+            </div>
+            <div class="evt-qty" data-price="25" data-stock="1">
+              <span class="evt-qty-label" data-es="Pack familiar (25 €)" data-en="Family pack (25 €)">Pack familiar (25 €)</span>
+              <button type="button" class="evt-qty-minus" aria-label="-">−</button>
+              <span class="evt-qty-n">0</span>
+              <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+            </div>
+            <div class="evt-qty" data-price="7" data-stock="1">
+              <span class="evt-qty-label" data-es="Segundo hermano (7 €)" data-en="Second sibling (7 €)">Segundo hermano (7 €)</span>
+              <button type="button" class="evt-qty-minus" aria-label="-">−</button>
+              <span class="evt-qty-n">0</span>
+              <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+            </div>
+            <div class="evt-qty" data-price="8" data-stock="0">
+              <span class="evt-qty-label" data-es="Pase VIP (+8 €)" data-en="VIP pass (+8 €)">Pase VIP (+8 €)</span>
+              <button type="button" class="evt-qty-minus" aria-label="-">−</button>
+              <span class="evt-qty-n">0</span>
+              <button type="button" class="evt-qty-plus" aria-label="+">+</button>
+            </div>
+            <p class="evt-total"><span data-es="Total" data-en="Total">Total</span> <strong id="front-total">10 €</strong></p>
+          </div>
+          <button type="button" class="evt-ticket-btn" data-es="Conseguir entradas" data-en="Get tickets">Conseguir entradas</button>
+        </aside>
+      </div>
     </article>
 
     <div class="dev-rules">

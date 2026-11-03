@@ -881,19 +881,115 @@ label.evt-toggle.mark-new {
 .evt-inline.evt-extra-row input[type="text"] { width: min(220px, 100%); max-width: 220px; }
 .evt-toggle { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0; font-weight: 700; }
 .evt-front-title { margin: 28px 0 8px; font-size: 22px; }
-.evt-public { display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 16px; border: 1px solid #e6e6e6; background: #fff; padding: 16px; }
-.evt-public-main { display: flex; gap: 12px; }
-.evt-date { width: 64px; min-width: 64px; background: #7fad39; color: #fff; text-align: center; padding: 8px 0; font-weight: 700; }
-.evt-date span { display: block; }
-.evt-date span:first-child { font-size: 22px; }
-.evt-tabs { color: #666; }
-.evt-buy { border: 1px solid #e6e6e6; padding: 12px; }
-.evt-buy fieldset { border: 0; padding: 0; margin: 8px 0; }
-.evt-buy label { display: block; margin: 4px 0; font-weight: 400; }
-.evt-total { font-size: 18px; }
+.evt-public {
+  font-family: Quicksand, sans-serif;
+  background: #fbfdff;
+  border: 0;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  box-shadow: 0 10px 44px #c7c0dd33;
+  color: #2c3e50;
+}
+.evt-banner {
+  min-height: 220px;
+  padding: 48px 28px 28px;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, rgba(44, 62, 80, 0.15), rgba(44, 62, 80, 0.55)),
+    #7eb9c3;
+}
+.evt-head { display: grid; grid-template-columns: 70px 1fr; gap: 18px; align-items: center; }
+.evt-public h3 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: #fff;
+}
+.evt-host { margin: 0; color: #fff; font-size: 16px; }
+.evt-host a { color: #fff; text-decoration: underline; }
+.evt-date {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  background: #fff;
+  color: #7eb9c3;
+  text-align: center;
+  padding: 12px 0 0;
+  font-weight: 500;
+  box-shadow: 0 10px 44px #c7c0dd33;
+}
+.evt-date span { display: block; color: #7696ae; font-size: 13px; text-transform: uppercase; }
+.evt-date span:first-child { color: #7eb9c3; font-size: 22px; line-height: 22px; font-weight: 600; }
+.evt-sheet {
+  display: grid;
+  grid-template-columns: 1.45fr 0.7fr;
+  gap: 22px;
+  padding: 0 20px 28px;
+  margin-top: -8px;
+}
+.evt-public-main { min-width: 0; }
+.evt-tabs {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0 8px;
+  background: #fff;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 10px 44px #c7c0dd33;
+}
+.evt-tabs li { margin: 0; }
+.evt-tabs span {
+  display: block;
+  padding: 18px 22px 14px;
+  color: #7696ae;
+  font-size: 16px;
+  font-weight: 500;
+}
+.evt-tabs .is-on span {
+  color: #7eb9c3;
+  box-shadow: inset 0 -4px 0 #7eb9c3;
+}
+.evt-body {
+  background: #fff;
+  padding: 22px 24px 28px;
+  color: #7696ae;
+  font-size: 14px;
+}
+.evt-body h4 { margin: 0 0 12px; color: #2c3e50; font-size: 20px; font-weight: 600; }
+.evt-body p { margin: 0 0 12px; }
+.evt-place i { color: #7eb9c3; margin-right: 8px; }
+.evt-buy {
+  background: #fff;
+  border: 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 44px #c7c0dd33;
+  padding: 20px;
+  margin-top: 18px;
+}
+.evt-stock { margin: 0 0 12px; color: #4d6b81; font-size: 13px; font-weight: 500; }
+.evt-total { font-size: 18px; color: #2c3e50; margin: 12px 0 0; }
+.evt-ticket-btn {
+  width: 100%;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 15px;
+  background: #7eb9c3;
+  color: #fff;
+  font-family: Quicksand, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 0;
+  cursor: pointer;
+}
+.evt-ticket-btn:hover { filter: brightness(0.96); }
 #eventos .form-control { max-width: 100%; margin-top: 4px; }
 @media (max-width: 800px) {
-  .evt-public { grid-template-columns: 1fr; }
+  .evt-sheet { grid-template-columns: 1fr; }
+  .evt-head { grid-template-columns: 70px 1fr; }
+  .evt-public h3 { font-size: 22px; }
 }
 .new-dev-border {
   border: 2px solid #dc2626 !important;
