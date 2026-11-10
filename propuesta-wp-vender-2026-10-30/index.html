@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="assets/css/cubewp-styles.css">
   <link rel="stylesheet" href="assets/css/frontend-custom-fields.css">
   <link rel="stylesheet" href="assets/css/listingpro-submit-excerpt.css">
-  <link rel="stylesheet" href="styles.css?v=20261103b">
+  <link rel="stylesheet" href="styles.css?v=20261110a">
 </head>
 <body class="spec-proposal-chrome">
 
@@ -241,9 +241,27 @@ On this page the weekday-price checkbox is ON so the rows are visible. On the si
   <!-- SECTION 3 -->
   <section id="frontend-booking" class="section-block">
     <h2 data-i18n="s3Title">Frontend — Ficha y flujo de reserva</h2>
-    <p class="section-lead" data-i18n="s3Lead">Todo el cálculo dentro del widget.</p>
+    <p class="section-lead" data-i18n="s3Lead">La ficha del servicio, con la foto cuadrada, y debajo la reserva en dos pasos. El calendario y las horas ya existen.</p>
 
     <div class="frontend-preview">
+      <article class="service-card">
+        <div class="service-card-media">
+          <img src="fiesta-neon-pitillito.jpg" alt="Ludoteca El Pitillito — Fiesta Neón (demo)">
+          <div class="aspect-cota" data-i18n="cotaSquare">Imagen 1:1 estricta — altura del contenedor, object-fit: cover, sin estirar</div>
+        </div>
+        <div class="service-card-body">
+          <h3>Fiesta Neón 3 h (289 €)</h3>
+          <div class="rich-html wysiwyg-body" style="padding:0;min-height:0;border:none;">
+            <p>Decoración glow, pintura neón, karaoke y juegos con monitores.</p>
+            <p><strong data-i18n="richInc">Incluye</strong> 3 h, 2 monitores, hasta 20 niños en base.</p>
+            <p><strong data-i18n="richPrice">Precio</strong> Base 289 € (no se multiplica por plazas). Extras en reserva.</p>
+          </div>
+          <div class="service-card-actions">
+            <button type="button" class="btn-reserve" id="open-booking" data-i18n="reserveNow">Reservar ahora</button>
+          </div>
+        </div>
+      </article>
+
       <div class="booking-widget" id="booking-widget">
         <div class="booking-widget-head" data-i18n="widgetTitle">Reserva — simulación</div>
         <div class="booking-panel">
@@ -654,6 +672,6 @@ Free Events: IF Ticket Price == 0 AND "Different prices" is OFF -> Event is Free
 
 </main>
 
-<script src="script.js?v=20261103b"></script>
+<script src="script.js?v=20261110a"></script>
 </body>
 </html>

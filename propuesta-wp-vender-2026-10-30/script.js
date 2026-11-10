@@ -72,7 +72,7 @@
       spec2c:
         "<strong>#2c Servicios adicionales:</strong> repetidor anidado (nombre, precio, tipo). No mezclar con EventPro/entradas. JSON en meta del servicio.",
       s3Title: "Frontend — Ficha y flujo de reserva",
-      s3Lead: "El widget de reserva en dos pasos. El calendario y las horas ya existen.",
+      s3Lead: "La ficha del servicio, con la foto cuadrada, y debajo la reserva en dos pasos. El calendario y las horas ya existen.",
       cotaSquare: "Imagen 1:1 estricta — altura del contenedor, object-fit: cover, sin estirar",
       reserveNow: "Reservar ahora",
       widgetTitle: "Reserva — simulación interactiva",
@@ -173,7 +173,7 @@
       spec2c:
         "<strong>#2c Add-ons:</strong> nested repeater (name, price, type). Not EventPro tickets. JSON in service meta.",
       s3Title: "Frontend — Service page & booking flow",
-      s3Lead: "The two-step booking widget. The calendar and the time slots already exist.",
+      s3Lead: "The service card, with the square photo, and the two-step booking below. The calendar and the time slots already exist.",
       cotaSquare: "Strict 1:1 square image — full container height, object-fit: cover, no stretch",
       reserveNow: "Book now",
       widgetTitle: "Booking — interactive simulation",
